@@ -251,7 +251,6 @@ class currency extends CModule
 				);
 				break;
 			case 'de':
-			case 'la':
 				$addCurrency = array(
 					array('CURRENCY' => 'EUR', 'NUMCODE' => '978', 'AMOUNT' => 1, 'AMOUNT_CNT' => 1, 'SORT' => 100, 'BASE' => 'Y', 'CURRENT_BASE_RATE' => 1),
 					array('CURRENCY' => 'USD', 'NUMCODE' => '840', 'AMOUNT' => 0.91, 'AMOUNT_CNT' => 1, 'SORT' => 200, 'BASE' => 'N', 'CURRENT_BASE_RATE' => 0.91),
@@ -290,6 +289,7 @@ class currency extends CModule
 				break;
 			default:
 			case 'en':
+			case 'la':
 				$addCurrency = array(
 					array('CURRENCY' => 'USD', 'NUMCODE' => '840', 'AMOUNT' => 1, 'AMOUNT_CNT' => 1, 'SORT' => 100, 'BASE' => 'Y', 'CURRENT_BASE_RATE' => 1),
 					array('CURRENCY' => 'EUR', 'NUMCODE' => '978', 'AMOUNT' => 1.10, 'AMOUNT_CNT' => 1, 'SORT' => 200, 'BASE' => 'N', 'CURRENT_BASE_RATE' => 1.10),
@@ -347,7 +347,7 @@ class currency extends CModule
 			if (!$bitrix24)
 			{
 				$checkDate = Main\Type\DateTime::createFromTimestamp(strtotime('tomorrow 00:01:00'));;
-				CAgent::AddAgent('\Bitrix\Currency\CurrencyTable::currencyBaseRateAgent();', 'currency', 'Y', 86400, '', 'Y', $checkDate->toString(), 100, false, true);
+				CAgent::AddAgent('\Bitrix\Currency\CurrencyManager::currencyBaseRateAgent();', 'currency', 'Y', 86400, '', 'Y', $checkDate->toString(), 100, false, true);
 				unset($checkDate);
 			}
 			\Bitrix\Currency\CurrencyManager::clearCurrencyCache();

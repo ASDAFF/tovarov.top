@@ -101,7 +101,7 @@ class User extends Base
 
 		$value = \CBPHelper::usersArrayToString($value, null, $fieldType->getDocumentType());
 		$renderResult = parent::renderControl($fieldType, $field, $value, $allowSelection, $renderMode);
-		$renderResult .= static::renderControlSelector($field);
+		$renderResult .= static::renderControlSelector($field, null, false, '', $fieldType);
 		return $renderResult;
 	}
 

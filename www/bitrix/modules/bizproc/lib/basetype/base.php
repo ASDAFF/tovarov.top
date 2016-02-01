@@ -88,8 +88,7 @@ class Base
 	 */
 	public static function formatValueMultiple(FieldType $fieldType, $value, $format = 'printable')
 	{
-		if (!is_array($value) || is_array($value) && \CBPHelper::isAssociativeArray($value))
-			$value = array($value);
+		$value = (array) $value;
 
 		foreach ($value as $k => $v)
 		{
@@ -135,9 +134,7 @@ class Base
 	 */
 	public static function convertValueMultiple(FieldType $fieldType, $value, $toTypeClass)
 	{
-		if (!is_array($value) || is_array($value) && \CBPHelper::isAssociativeArray($value))
-			$value = array($value);
-
+		$value = (array) $value;
 		foreach ($value as $k => $v)
 		{
 			$value[$k] = static::convertValueSingle($fieldType, $v, $toTypeClass);
@@ -395,9 +392,10 @@ class Base
 	 * @param null|string $value
 	 * @param bool $showInput
 	 * @param string $selectorMode
+	 * @param FieldType $fieldType
 	 * @return string
 	 */
-	protected static function renderControlSelector(array $field, $value = null, $showInput = false, $selectorMode = '')
+	protected static function renderControlSelector(array $field, $value = null, $showInput = false, $selectorMode = '', FieldType $fieldType = null)
 	{
 		$html = '';
 		$controlId = static::generateControlId($field);
@@ -409,8 +407,9 @@ class Base
 					.htmlspecialcharsbx($name).'" value="'.htmlspecialcharsbx((string)$value).'">';
 		}
 		$html .= '<input type="button" value="..." onclick="BPAShowSelector(\''
-			.htmlspecialcharsbx($controlId).'\', \''.htmlspecialcharsbx(static::getType()).'\''
-			.($selectorMode ? ', \''.htmlspecialcharsbx($selectorMode).'\'' : '').');">';
+			.htmlspecialcharsbx($controlId).'\', \''.htmlspecialcharsbx(static::getType()).'\', '
+			.($selectorMode ? '\''.htmlspecialcharsbx($selectorMode).'\'' : 'null').', null, '
+			.htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($fieldType ? $fieldType->getDocumentType() : null)).');">';
 
 		return $html;
 	}

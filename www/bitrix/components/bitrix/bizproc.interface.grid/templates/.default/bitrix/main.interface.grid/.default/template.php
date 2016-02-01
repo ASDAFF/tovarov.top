@@ -131,7 +131,7 @@ foreach($arParams["ROWS"] as $index=>$aRow):
 		}
 	}
 ?>
-	<tr class="bx-bizproc-table-body" oncontextmenu="return bxGrid_<?=$arParams["GRID_ID"]?>.oActions[<?=$index?>]"<?if($sDefAction <> ''):?> ondblclick="<?=htmlspecialcharsbx($sDefAction)?>"<?endif?>>
+	<tr class="bx-bizproc-table-body <?=isset($aRow["rowClass"]) ? $aRow["rowClass"] : ''?>" oncontextmenu="return bxGrid_<?=$arParams["GRID_ID"]?>.oActions[<?=$index?>]"<?if($sDefAction <> ''):?> ondblclick="<?=htmlspecialcharsbx($sDefAction)?>"<?endif?>>
 <?if($arResult["ALLOW_EDIT"]):?>
 	<?
 	if($aRow["editable"] !== false):

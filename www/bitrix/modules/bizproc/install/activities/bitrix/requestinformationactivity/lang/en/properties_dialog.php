@@ -45,4 +45,5 @@ $MESS["BPSFA_PD_TIME_D"] = "days";
 $MESS["BPSFA_PD_TIME_H"] = "hours";
 $MESS["BPSFA_PD_TIME_M"] = "minutes";
 $MESS["BPSFA_PD_TIME_S"] = "seconds";
+$MESS["BPSFA_PD_TIMEOUT_LIMIT"] = "Minimum wait time";
 ?>

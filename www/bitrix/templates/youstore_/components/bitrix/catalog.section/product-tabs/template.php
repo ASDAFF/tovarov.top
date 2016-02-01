@@ -214,15 +214,15 @@
                                     <?if(!empty($productLabel)):?>
                                         <span class="<?=$productLabel?>"><?=$arItem["PROPERTIES"]["LABEL"]["VALUE"]?></span>
                                         <?endif?>
-										
+
                                     <?if(!empty($arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT'])):?>
                                         <?$link = $arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT']?>
                                         <?if (strrpos($link, "iframe") !== false):?>
                                             <a data-id="<?=$arItem['ID']?>" class="video-link"><?=GetMessage('PLAY')?></a>
                                             <div class="video-content video-cont<?=$arItem['ID']?>"><?=$arItem['PROPERTIES']['YOUTUBE_VIDEO']['~VALUE']['TEXT']?></div>
-                                        <?elseif(strrpos($link, "https", -strlen($link)) !== false):?>
-                                            <a class="video-link-fancybox fancybox.iframe" href="<?=$link?>"><?=GetMessage('PLAY')?></a>
-                                        <?endif?>      
+                                        <?else:?>
+                                            <a class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
+                                        <?endif?>
                                     <?endif?>
                                     <div class="image">
                                         <a id="<? echo $arItemIDs['PICT']; ?>"
@@ -602,9 +602,9 @@
 						"PRODUCT_SUBSCRIPTION" => "N",
 						"SHOW_NAME" => "Y",
 						"SHOW_IMAGE" => "Y",
-						"MESS_BTN_BUY" => GetMessage("BIGDATA_MESS_BTN_BUY"),//"Купить",
-						"MESS_BTN_DETAIL" => GetMessage("BIGDATA_MESS_BTN_DETAIL"),//"Подробнее",
-						"MESS_BTN_SUBSCRIBE" => GetMessage("BIGDATA_MESS_BTN_SUBSCRIBE"),//"Подписаться",
+						"MESS_BTN_BUY" => GetMessage("BIGDATA_MESS_BTN_BUY"),//"пїЅпїЅпїЅпїЅпїЅпїЅ",
+						"MESS_BTN_DETAIL" => GetMessage("BIGDATA_MESS_BTN_DETAIL"),//"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+						"MESS_BTN_SUBSCRIBE" => GetMessage("BIGDATA_MESS_BTN_SUBSCRIBE"),//"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 						"PAGE_ELEMENT_COUNT" => "6",
 						"LINE_ELEMENT_COUNT" => "3",
 						"TEMPLATE_THEME" => "blue",

@@ -286,10 +286,10 @@ class CBPRequestInformationActivity
 					continue;
 
 				$form .=
-					'<tr><td valign="top" width="40%" align="right" class="bizproc-field-name">'.($parameter["Required"] ? '<span class="required">*</span><span class="adm-required-field">'.$parameter["Title"].':</span>' : $parameter["Title"].":")
+					'<tr><td valign="top" width="30%" align="right" class="bizproc-field-name">'.($parameter["Required"] ? '<span class="required">*</span><span class="adm-required-field">'.$parameter["Title"].':</span>' : $parameter["Title"].":")
 					.($parameter["Description"]? '<br/><span class="bizproc-field-description">'.$parameter["Description"].'</span>' : '')
 					.'</td>'.
-					'<td valign="top" width="60%" class="bizproc-field-value">';
+					'<td valign="top" width="70%" class="bizproc-field-value">';
 
 				if ($arRequest === null)
 					$realValue = $parameter["Default"];
@@ -312,8 +312,8 @@ class CBPRequestInformationActivity
 		if (!array_key_exists("ShowComment", $arTask["PARAMETERS"]) || ($arTask["PARAMETERS"]["ShowComment"] != "N"))
 		{
 			$form .=
-				'<tr><td valign="top" width="40%" align="right" class="bizproc-field-name">'.(strlen($arTask["PARAMETERS"]["CommentLabelMessage"]) > 0 ? $arTask["PARAMETERS"]["CommentLabelMessage"] : GetMessage("BPRIA_ACT_COMMENT")).':</td>'.
-				'<td valign="top" width="60%" class="bizproc-field-value">'.
+				'<tr><td valign="top" width="30%" align="right" class="bizproc-field-name">'.(strlen($arTask["PARAMETERS"]["CommentLabelMessage"]) > 0 ? $arTask["PARAMETERS"]["CommentLabelMessage"] : GetMessage("BPRIA_ACT_COMMENT")).':</td>'.
+				'<td valign="top" width="70%" class="bizproc-field-value">'.
 				'<textarea rows="3" cols="50" name="task_comment"></textarea>'.
 				'</td></tr>';
 		}

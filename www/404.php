@@ -33,7 +33,7 @@ $APPLICATION->AddChainItem("404 Not Found");
 	array(
 		"SHOW_EXPAND_OPTIONS" => "Y",
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "16",
+		"IBLOCK_ID" => "20",
 		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
 		"SECTION_USER_FIELDS" => array(
@@ -77,7 +77,7 @@ $APPLICATION->AddChainItem("404 Not Found");
 		"TEMPLATE_THEME" => "blue",
 		"PRODUCT_DISPLAY_MODE" => "Y",
 		"ADD_PICT_PROP" => "MORE_PHOTO",
-		"LABEL_PROP" => "LABEL",
+		"LABEL_PROP" => "-",
 		"OFFER_ADD_PICT_PROP" => "MORE_PHOTO",
 		"OFFER_TREE_PROPS" => array(
 			0 => "COLOR",
@@ -126,7 +126,6 @@ $APPLICATION->AddChainItem("404 Not Found");
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRODUCT_PROPERTIES" => array(
-			0 => "LABEL",
 		),
 		"OFFERS_CART_PROPERTIES" => array(
 			0 => "COLOR",
@@ -141,7 +140,17 @@ $APPLICATION->AddChainItem("404 Not Found");
 		"PAGER_SHOW_ALL" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
-		"SET_BROWSER_TITLE" => "Y"
+		"SET_BROWSER_TITLE" => "Y",
+		"COMPONENT_TEMPLATE" => "product-slider",
+		"BACKGROUND_IMAGE" => "-",
+		"SEF_MODE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"USE_MAIN_ELEMENT_SECTION" => "N",
+		"COMPARE_PATH" => "",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SHOW_404" => "N",
+		"MESSAGE_404" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N"
 	),
 	false
 );

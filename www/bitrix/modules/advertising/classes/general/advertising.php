@@ -2721,8 +2721,8 @@ class CAdvBanner_all
 					}
 
 					// если необходимо оповестить
-					$SEND_EMAIL = $arFields["SEND_EMAIL"]=="N" ? "N" : "Y";
-					if (true)
+					$SEND_EMAIL = $arFields["SEND_EMAIL"] == "N" ? "N" : "Y";
+					if ($email_notify == "Y" && (!$isAdmin || !$isManager || $SEND_EMAIL == "Y"))
 					{
 						// получаем данные по баннеру
 						CTimeZone::Disable();
@@ -3423,7 +3423,7 @@ class CAdvBanner_all
 	}
 
 	// возвращает массив, описывающий $quantity произвольных баннеров
-	function GetRandomArray($TYPE_SID, $quantity = 1)
+	public static function GetRandomArray($TYPE_SID, $quantity = 1)
 	{
 		$err_mess = (CAdvBanner_all::err_mess())."<br>Function: GetRandom<br>Line: ";
 		global $APPLICATION, $DB, $arrViewedBanners, $arrADV_VIEWED_BANNERS;

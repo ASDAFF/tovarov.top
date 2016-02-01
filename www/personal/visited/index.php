@@ -79,7 +79,7 @@ if(!empty($_POST["PERSONAL_BIRTHDAY_DAY"]) && !empty($_POST["PERSONAL_BIRTHDAY_M
 	".default", 
 	array(
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "16",
+		"IBLOCK_ID" => "20",
 		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
 		"SECTION_USER_FIELDS" => array(
@@ -189,7 +189,17 @@ if(!empty($_POST["PERSONAL_BIRTHDAY_DAY"]) && !empty($_POST["PERSONAL_BIRTHDAY_M
 		"PAGER_SHOW_ALL" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
-		"SET_BROWSER_TITLE" => "Y"
+		"SET_BROWSER_TITLE" => "Y",
+		"COMPONENT_TEMPLATE" => ".default",
+		"BACKGROUND_IMAGE" => "-",
+		"SEF_MODE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"USE_MAIN_ELEMENT_SECTION" => "N",
+		"COMPARE_PATH" => "",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SHOW_404" => "N",
+		"MESSAGE_404" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N"
 	),
 	false
 );

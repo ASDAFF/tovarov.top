@@ -4,6 +4,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 class CBPFieldCondition
 	extends CBPActivityCondition
 {
+	const CONDITION_JOINER_AND = 0;
+	const CONDITION_JOINER_OR = 1;
+
 	public $condition = null;
 
 	public function __construct($condition)
@@ -26,32 +29,40 @@ class CBPFieldCondition
 		$document = $documentService->GetDocument($documentId);
 		$documentFields = $documentService->GetDocumentFields($documentService->GetDocumentType($documentId));
 
-		$result = false;
+		$result = array(0 => true);
+		$i = 0;
 		foreach ($this->condition as $cond)
 		{
-			$result = true;
+			$r = true;
+			$joiner = empty($cond[3])? static::CONDITION_JOINER_AND : static::CONDITION_JOINER_OR;
+
+			if (!isset($document[$cond[0]]) && substr($cond[0], -strlen('_PRINTABLE')) == '_PRINTABLE')
+				$cond[0] = substr($cond[0], 0, strlen($cond[0]) - strlen('_PRINTABLE'));
+
 			if (array_key_exists($cond[0], $document))
 			{
 				$fld = isset($document[$cond[0]."_XML_ID"]) ? $document[$cond[0]."_XML_ID"] : $document[$cond[0]];
-				if (!$this->CheckCondition($fld, $cond[1], $cond[2], $documentFields[$cond[0]]["BaseType"], $rootActivity))
+				if (!$this->CheckCondition($cond[0], $fld, $cond[1], $cond[2], $documentFields[$cond[0]]["BaseType"], $rootActivity))
 				{
-					$result = false;
-					break;
+					$r = false;
 				}
 			}
 			else
-			{
 				throw new Exception("Field '".$cond[0]."' is not found in document (if/else condition)");
 
-				$result = false;
-				break;
+			if ($joiner == static::CONDITION_JOINER_OR)
+			{
+				++$i;
+				$result[$i] = $r;
 			}
+			elseif (!$r)
+				$result[$i] = false;
 		}
-
-		return $result;
+		$result = array_filter($result);
+		return sizeof($result) > 0 ? true : false;
 	}
 
-	private function CheckCondition($field, $operation, $value, $type = null, $rootActivity = null)
+	private function CheckCondition($fieldName, $field, $operation, $value, $type = null, $rootActivity = null)
 	{
 		$result = false;
 
@@ -107,6 +118,14 @@ class CBPFieldCondition
 			}
 
 			return $result;
+		}
+
+		if ($operation == 'modified')
+		{
+			$modified = $rootActivity->{CBPDocument::PARAM_MODIFIED_DOCUMENT_FIELDS};
+			if (!is_array($modified))
+				return true;
+			return in_array($fieldName, $modified);
 		}
 
 		if (!is_array($value))
@@ -209,6 +228,7 @@ class CBPFieldCondition
 					$arCurrentValues["field_condition_field_".$i] = $value[0];
 					$arCurrentValues["field_condition_condition_".$i] = $value[1];
 					$arCurrentValues["field_condition_value_".$i] = $value[2];
+					$arCurrentValues["field_condition_joiner_".$i] = $value[3];
 
 					if ($arDocumentFieldsTmp[$arCurrentValues["field_condition_field_".$i]]["BaseType"] == "user"
 						&& $arDocumentFieldsTmp[$arCurrentValues["field_condition_field_".$i]]["Type"] != 'S:employee')
@@ -265,6 +285,8 @@ class CBPFieldCondition
 				"formName" => $formName,
 				"arFieldTypes" => $arFieldTypes,
 				"javascriptFunctions" => $javascriptFunctions,
+				'documentService' => $documentService,
+				'documentType' => $documentType,
 			)
 		);
 	}
@@ -311,7 +333,8 @@ class CBPFieldCondition
 			$arResult[] = array(
 				$arCurrentValues["field_condition_field_".$i],
 				htmlspecialcharsback($arCurrentValues["field_condition_condition_".$i]),
-				$arCurrentValues["field_condition_value_".$i]
+				$arCurrentValues["field_condition_value_".$i],
+				(int) $arCurrentValues["field_condition_joiner_".$i],
 			);
 		}
 

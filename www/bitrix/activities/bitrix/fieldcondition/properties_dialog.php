@@ -15,6 +15,10 @@ $arC = array(
 	"contain" => GetMessage("BPFC_PD_CONTAIN")
 );
 
+/** @var CBPDocumentService $documentService */
+if ($documentService->isFeatureEnabled($documentType, CBPDocumentService::FEATURE_MARK_MODIFIED_FIELDS))
+	$arC['modified'] = GetMessage("BPFC_PD_MODIFIED");
+
 $arFieldConditionCount = array(1);
 if (array_key_exists("field_condition_count", $arCurrentValues) && strlen($arCurrentValues["field_condition_count"]) > 0)
 	$arFieldConditionCount = explode(",", $arCurrentValues["field_condition_count"]);
@@ -33,7 +37,12 @@ foreach ($arFieldConditionCount as $i)
 		$arCurrentValues["field_condition_count"] .= ",";
 		?>
 		<tr id="bwffc_deleterow_tr_<?= $i ?>">
-			<td align="right" width="40%" class="adm-detail-content-cell-l"><?= GetMessage("BPFC_PD_AND") ?></td>
+			<td align="right" width="40%" class="adm-detail-content-cell-l">
+				<select name="field_condition_joiner_<?=$i?>">
+					<option value="0"><?= GetMessage("BPFC_PD_AND") ?></option>
+					<option value="1" <?if($arCurrentValues["field_condition_joiner_".$i]==1) echo 'selected'?>><?= GetMessage("BPFC_PD_OR") ?></option>
+				</select>
+			</td>
 			<td align="right" width="60%" class="adm-detail-content-cell-r"><a href="#" onclick="BWFFCDeleteCondition(<?= $i ?>); return false;"><?= GetMessage("BPFC_PD_DELETE") ?></a></td>
 		</tr>
 		<?
@@ -60,7 +69,7 @@ foreach ($arFieldConditionCount as $i)
 	<tr>
 		<td align="right" width="40%" class="adm-detail-content-cell-l"><?= GetMessage("BPFC_PD_CONDITION") ?>:</td>
 		<td width="60%" class="adm-detail-content-cell-r">
-			<select name="field_condition_condition_<?= $i ?>">
+			<select name="field_condition_condition_<?= $i ?>" onchange="BWFFCChangeCondition(<?= $i ?>, this.options[this.selectedIndex].value)">
 				<?
 				foreach ($arC as $key => $value)
 				{
@@ -70,7 +79,7 @@ foreach ($arFieldConditionCount as $i)
 			</select>
 		</td>
 	</tr>
-	<tr>
+	<tr id="id_tr_field_condition_value_<?= $i ?>" style="<?if ($arCurrentValues["field_condition_condition_".$i]=='modified') echo 'display:none'?>">
 		<td align="right" width="40%" class="adm-detail-content-cell-l"><?= GetMessage("BPFC_PD_VALUE") ?>:</td>
 		<td width="60%" id="id_td_field_condition_value_<?= $i ?>" class="adm-detail-content-cell-r">
 			<input type="text" name="field_condition_value_<?= $i ?>" value="<?= htmlspecialcharsbx((string)$arCurrentValues["field_condition_value_".$i]) ?>">
@@ -115,6 +124,15 @@ foreach ($arFieldConditionCount as $i)
 
 		}
 
+		function BWFFCChangeCondition(ind, value)
+		{
+			var tableRow = document.getElementById('id_tr_field_condition_value_' + ind);
+			if (!tableRow)
+				return;
+
+			tableRow.style.display = value == 'modified'? 'none' : '';
+		}
+
 		function BWFFCAddCondition()
 		{
 			var addrowTr = document.getElementById('bwffc_addrow_tr');
@@ -132,7 +150,12 @@ foreach ($arFieldConditionCount as $i)
 				newCell.width="40%";
 				newCell.className="adm-detail-content-cell-l";
 				newCell.align="right";
-				newCell.innerHTML = "<?= GetMessage("BPFC_PD_AND") ?>";
+				var newSelect = document.createElement("select");
+				newSelect.name = "field_condition_joiner_" + bwffc_counter;
+				newSelect.options[0] = new Option("<?= GetMessage("BPFC_PD_AND") ?>", "0");
+				newSelect.options[1] = new Option("<?= GetMessage("BPFC_PD_OR") ?>", "1");
+				newCell.appendChild(newSelect);
+
 				newCell = newRow.insertCell(-1);
 				newCell.width="60%";
 				newCell.className="adm-detail-content-cell-r";
@@ -174,6 +197,8 @@ foreach ($arFieldConditionCount as $i)
 				newCell.className="adm-detail-content-cell-r";
 				newSelect = document.createElement("select");
 				newSelect.name = "field_condition_condition_" + bwffc_counter;
+				newSelect.setAttribute('bwffc_counter', bwffc_counter);
+				newSelect.onchange = function(){BWFFCChangeCondition(this.getAttribute("bwffc_counter"), this.options[this.selectedIndex].value)};
 				<?
 				$i = -1;
 				foreach ($arC as $key => $value)
@@ -186,6 +211,7 @@ foreach ($arFieldConditionCount as $i)
 				newCell.appendChild(newSelect);
 
 				newRow = parentAddrowTr.insertRow(i + 3);
+				newRow.id = 'id_tr_field_condition_value_' + bwffc_counter;
 				newCell = newRow.insertCell(-1);
 				newCell.width="40%";
 				newCell.className="adm-detail-content-cell-l";

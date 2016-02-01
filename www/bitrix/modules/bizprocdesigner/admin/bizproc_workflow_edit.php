@@ -11,7 +11,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/prolog.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/include.php");
-CUtil::InitJSCore(array("window", "ajax")); 
+CUtil::InitJSCore(array("window", "ajax", 'access'));
 
 IncludeModuleLangFile(__FILE__);
 
@@ -150,6 +150,10 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 
 	if($_REQUEST['saveuserparams']=='Y')
 	{
+		if (!is_array($_POST['USER_PARAMS']))
+		{
+			$_POST['USER_PARAMS'] = (array) CUtil::JsObjectToPhp($_POST['USER_PARAMS']);
+		}
 		$d = serialize($_POST['USER_PARAMS']);
 		if (strlen($d) > 64000)
 		{
@@ -166,7 +170,12 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 
 	foreach (array('arWorkflowParameters', 'arWorkflowVariables', 'arWorkflowConstants') as $field)
 	{
-		if (isset($_POST[$field]) && is_array($_POST[$field]))
+		if (!isset($_POST[$field]))
+		{
+			$_POST[$field] = array();
+			continue;
+		}
+		if (is_array($_POST[$field]))
 		{
 			if (LANG_CHARSET != "UTF-8")
 			{
@@ -183,7 +192,15 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 			}
 		}
 		else
-			$_POST[$field] = array();
+		{
+			$_POST[$field] = CUtil::JsObjectToPhp($_POST[$field]);
+			if (!is_array($_POST[$field]))
+				$_POST[$field] = array();
+		}
+	}
+	if (!is_array($_POST['arWorkflowTemplate']))
+	{
+		$_POST['arWorkflowTemplate'] = CUtil::JsObjectToPhp($_POST['arWorkflowTemplate']);
 	}
 
 	$arFields = Array(
@@ -205,7 +222,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 		// PHP 5.2.1 bug http://bugs.php.net/bug.php?id=40456
 		?>
 		<script>
-		alert('<?=GetMessage("BIZPROC_WFEDIT_SAVE_ERROR")?> <?=AddSlashes(htmlspecialcharsbx($e->getMessage()))?>');
+		alert('<?=GetMessage("BIZPROC_WFEDIT_SAVE_ERROR")?>\n<?=preg_replace('#\.\W?#', ".\\n", CUtil::JSEscape($e->getMessage()))?>');
 		</script>
 		<?
 		die();
@@ -228,6 +245,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 	restore_exception_handler();
 	?>
 	<script type="text/javascript">
+		BPTemplateIsModified = false;
 		window.location = '<?=($_REQUEST["apply"]=="Y"?Cutil::JSEscape("/bitrix/admin/".MODULE_ID."_bizproc_workflow_edit.php?lang=".LANGUAGE_ID."&entity=".AddSlashes(ENTITY)."&ID=".$ID."&back_url_list=".urlencode($_REQUEST["back_url_list"])) : Cutil::JSEscape($back_url))?>';
 	</script>
 	<?
@@ -299,17 +317,21 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['import_template']=='Y' && ch
 }
 
 $arAllActGroups = Array(
-//		"main" => GetMessage("BIZPROC_WFEDIT_CATEGORY_MAIN"),
 		"document" => GetMessage("BIZPROC_WFEDIT_CATEGORY_DOC"),
 		"logic" => GetMessage("BIZPROC_WFEDIT_CATEGORY_CONSTR"),
 		"interaction" => GetMessage("BIZPROC_WFEDIT_CATEGORY_INTER"),
 		"rest" => GetMessage("BIZPROC_WFEDIT_CATEGORY_REST"),
-		"other" => GetMessage("BIZPROC_WFEDIT_CATEGORY_OTHER"),
-//		"favorities" => "Favorities",
 	);
 
 $runtime = CBPRuntime::GetRuntime();
 $arAllActivities = $runtime->SearchActivitiesByType("activity", array(MODULE_ID, ENTITY, $document_type));
+
+foreach ($arAllActivities as $activity)
+{
+	if (!empty($activity['CATEGORY']['OWN_ID']) && !empty($activity['CATEGORY']['OWN_NAME']))
+		$arAllActGroups[$activity['CATEGORY']['OWN_ID']] = $activity['CATEGORY']['OWN_NAME'];
+}
+$arAllActGroups['other'] = GetMessage("BIZPROC_WFEDIT_CATEGORY_OTHER");
 
 $aMenu = Array();
 $aMenu[] = array(
@@ -574,7 +596,8 @@ var document_type = <?=CUtil::PhpToJSObject($document_type)?>;
 var MODULE_ID = <?=CUtil::PhpToJSObject(MODULE_ID)?>;
 var ENTITY = <?=CUtil::PhpToJSObject(ENTITY)?>;
 var BPMESS = <?=CUtil::PhpToJSObject($JSMESS)?>;
-
+var BPDesignerUseJson = true;
+var BPTemplateIsModified = false;
 <?
 $defUserParamsStr = serialize(array("groups" => array()));
 $userParamsStr = CUserOptions::GetOption("~bizprocdesigner", "activity_settings", $defUserParamsStr);
@@ -657,13 +680,16 @@ function start()
 	<?endif;?>
 }
 
-<?if ($templateCheckStatus):?>
 setTimeout("start()", 0);
-<?endif?>
+
+window.onbeforeunload = function()
+{
+	return BPTemplateIsModified ? '<?=GetMessageJS('BIZPROC_WFEDIT_BEFOREUNLOAD')?>' : null;
+}
 </script>
 <? if (!$templateCheckStatus):
 	echo ShowError(GetMessage('BIZPROC_WFEDIT_CHECK_ERROR'));
-else:?>
+endif?>
 <form>
 
 <div id="wf1" style="border-bottom: 2px #efefef dotted; background-color: white; border: solid 1px #DCE7ED; padding: 16px;" ></div>
@@ -677,6 +703,5 @@ else:?>
 
 </form>
 <?
-endif;
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

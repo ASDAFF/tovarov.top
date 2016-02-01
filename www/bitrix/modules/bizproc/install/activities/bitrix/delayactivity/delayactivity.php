@@ -44,12 +44,13 @@ class CBPDelayActivity
 
 		if ($this->TimeoutDuration != null)
 		{
-			$timeoutDuration = $this->CalculateTimeoutDuration();
+			$timeoutDuration = max($this->CalculateTimeoutDuration(), CBPSchedulerService::getDelayMinLimit());
 			$this->WriteToTrackingService(str_replace("#PERIOD#", CBPHelper::FormatTimePeriod($timeoutDuration), GetMessage("BPDA_TRACK")));
 		}
 		elseif ($this->TimeoutTime != null)
 		{
-			$this->WriteToTrackingService(str_replace("#PERIOD#", ConvertTimeStamp($this->TimeoutTimeCurrent, "FULL"), GetMessage("BPDA_TRACK1")));
+			$timestamp = max($this->TimeoutTimeCurrent, time() + CBPSchedulerService::getDelayMinLimit());
+			$this->WriteToTrackingService(str_replace("#PERIOD#", ConvertTimeStamp($timestamp, "FULL"), GetMessage("BPDA_TRACK1")));
 		}
 		else
 		{

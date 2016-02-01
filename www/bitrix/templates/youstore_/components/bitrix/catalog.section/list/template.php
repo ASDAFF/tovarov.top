@@ -179,17 +179,17 @@ if (!empty($arResult['ITEMS']))
                         <?if(!empty($productLabel)):?>
                             <span class="<?=$productLabel?>"><?=$arItem["PROPERTIES"]["LABEL"]["VALUE"]?></span>
                         <?endif?>
-                        
+
 
                         <?if(!empty($arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT'])):?>
                             <?$link = $arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT']?>
                             <?if (strrpos($link, "iframe") !== false):?>
                                 <a data-id="<?=$arItem['ID']?>" class="video-link"><?=GetMessage('PLAY')?></a>
                                 <div class="video-content video-cont<?=$arItem['ID']?>"><?=$arItem['PROPERTIES']['YOUTUBE_VIDEO']['~VALUE']['TEXT']?></div>
-                            <?elseif(strrpos($link, "https", -strlen($link)) !== false):?>
-                                <a class="video-link-fancybox fancybox.iframe" href="<?=$link?>"><?=GetMessage('PLAY')?></a>
-                            <?endif?>      
-                        <?endif?>   
+                            <?else:?>
+                                <a class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
+                            <?endif?>
+                        <?endif?>
                             <div class="image">
                                 <a id="<? echo $arItemIDs['PICT']; ?>"
                                     href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"

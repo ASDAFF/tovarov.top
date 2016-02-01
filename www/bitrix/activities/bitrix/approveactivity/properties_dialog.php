@@ -110,6 +110,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 			<option value="h"<?= ($arCurrentValues["timeout_duration_type"] == "h") ? " selected" : "" ?>><?= GetMessage("BPAA_PD_TIME_H") ?></option>
 			<option value="d"<?= ($arCurrentValues["timeout_duration_type"] == "d") ? " selected" : "" ?>><?= GetMessage("BPAA_PD_TIME_D") ?></option>
 		</select>
+		<?
+			$delayMinLimit = CBPSchedulerService::getDelayMinLimit();
+			if ($delayMinLimit):
+		?>
+		<p style="color: red;">* <?= GetMessage("BPAA_PD_TIMEOUT_LIMIT") ?>: <?=CBPHelper::FormatTimePeriod($delayMinLimit)?></p>
+		<?
+			endif;
+		?>
 	</td>
 </tr>
 <tr>

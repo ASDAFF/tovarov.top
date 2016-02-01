@@ -67,7 +67,7 @@ $arUrlRewrite = array(
 		"PATH" => "/about/actions/index.php",
 	),
 	array(
-		"CONDITION" => "#^/catalog/#",
+		"CONDITION" => "#^/#",
 		"RULE" => "",
 		"ID" => "bitrix:catalog",
 		"PATH" => "/catalog/index.php",

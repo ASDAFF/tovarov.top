@@ -44,6 +44,7 @@ class Select extends Base
 	{
 		/** @var Base $toTypeClass */
 		$type = $toTypeClass::getType();
+		$options = static::getFieldOptions($fieldType);
 
 		$key = $originalValue = $value;
 		if (is_array($value))
@@ -53,6 +54,10 @@ class Select extends Base
 				$key = $k;
 				$originalValue = $v;
 			}
+		}
+		elseif (isset($options[$key]))
+		{
+			$originalValue = $options[$value];
 		}
 
 		switch ($type)
@@ -121,7 +126,7 @@ class Select extends Base
 			.'" name="'.htmlspecialcharsbx(static::generateControlName($field))
 			.($fieldType->isMultiple() ? '[]' : '').'"'.($fieldType->isMultiple() ? ' size="5" multiple' : '').'>';
 
-		if (!$fieldType->isRequired())
+		if (!$fieldType->isRequired() || $allowSelection)
 			$renderResult .= '<option value="">['.Loc::getMessage('BPCGHLP_NOT_SET').']</option>';
 
 		$options = static::getFieldOptions($fieldType);
@@ -291,6 +296,33 @@ class Select extends Base
 		$request[$name] = $value;
 		return parent::extractValueMultiple($fieldType, $field, $request);
 	}
+
+	/**
+	 * @param FieldType $fieldType Document field type.
+	 * @param mixed $value Field value.
+	 * @param string $format Format name.
+	 * @return string
+	 */
+	public static function formatValueMultiple(FieldType $fieldType, $value, $format = 'printable')
+	{
+		if (is_array($value) && \CBPHelper::isAssociativeArray($value))
+			$value = array_keys($value);
+		return parent::formatValueMultiple($fieldType, $value, $format);
+	}
+
+	/**
+	 * @param FieldType $fieldType Document field type.
+	 * @param mixed $value Field value.
+	 * @param string $toTypeClass Type class name.
+	 * @return array
+	 */
+	public static function convertValueMultiple(FieldType $fieldType, $value, $toTypeClass)
+	{
+		if (is_array($value) && \CBPHelper::isAssociativeArray($value))
+			$value = array_keys($value);
+		return parent::convertValueMultiple($fieldType, $value, $toTypeClass);
+	}
+
 
 	/**
 	 * @param FieldType $fieldType

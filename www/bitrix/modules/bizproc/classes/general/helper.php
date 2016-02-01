@@ -74,8 +74,8 @@ class CBPHelper
 			}
 			else if (strpos($arUsers, 'group_') === 0)
 			{
-				$str = htmlspecialcharsex(self::getExtendedGroupName($arUsers, $appendId));
-				return str_replace(",", " ", $str);
+				$str = self::getExtendedGroupName($arUsers, $appendId);
+				return str_replace(array(',', ';'), array(' ', ' '), $str);
 			}
 
 			return str_replace(",", " ", $arUsers);
@@ -499,6 +499,16 @@ class CBPHelper
 			}
 			else
 			{
+				foreach ($arOrder as $by => $order)
+				{
+					if (
+						isset($arFields[$by])
+						&& !in_array($by, $arSelectFields)
+						&& ($arFields[$by]["TYPE"] == "date" || $arFields[$by]["TYPE"] == "datetime")
+					)
+						$arSelectFields[] = $by;
+				}
+
 				foreach ($arSelectFields as $key => $val)
 				{
 					$val = strtoupper($val);
@@ -1478,7 +1488,7 @@ class CBPHelper
 							if (!array_key_exists("MODULE_ID", $value) || strlen($value["MODULE_ID"]) <= 0)
 								$value["MODULE_ID"] = "bizproc";
 
-							$value = CFile::SaveFile($value, "bizproc_wf", true, true);
+							$value = CFile::SaveFile($value, "bizproc_wf", true);
 							if (!$value)
 							{
 								$value = null;
@@ -1678,7 +1688,7 @@ class CBPHelper
 
 		$url = str_replace(' ', '%20', $url);
 
-		if (strlen($text) > 0)
+		if (strlen($text) > 0 && $text !== $url)
 			return $text." ( ".$url." )";
 
 		return $url;
@@ -1686,6 +1696,8 @@ class CBPHelper
 
 	public static function IsAssociativeArray($ar)
 	{
+		if (!is_array($ar))
+			return false;
 		$fl = false;
 
 		$arKeys = array_keys($ar);
@@ -2043,7 +2055,7 @@ class CBPHelper
 		$group = strtoupper($group);
 		$access = self::getAccessProvider();
 		$arNames = $access->GetNames(array($group));
-		return $arNames[$group]['provider'].' '.$arNames[$group]['name'].($appendId? ' ['.$group.']' : '');
+		return $arNames[$group]['name'].($appendId? ' ['.$group.']' : '');
 	}
 
 	/**
@@ -2056,6 +2068,9 @@ class CBPHelper
 		$users = (array)$users;
 		foreach ($users as &$user)
 		{
+			if (!is_scalar($user))
+				continue;
+			$user = (string) $user;
 			if (strpos($user, 'user_') === 0)
 			{
 				$user = 'group_u'.substr($user, strlen('user_'));
@@ -2083,7 +2098,9 @@ class CBPHelper
 
 		foreach ($users as $user)
 		{
-			$user = strtolower($user);
+			if (!is_scalar($user))
+				continue;
+			$user = strtolower((string) $user);
 			if (strpos($user, 'group_u') === 0)
 			{
 				$converted[] = 'user_'.substr($user, strlen('group_u'));

@@ -1,4 +1,6 @@
 <?
+use Bitrix\Bizproc\FieldType;
+
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 class CBPSetFieldActivity
@@ -86,7 +88,7 @@ class CBPSetFieldActivity
 		$arDocumentFieldsTmp = $documentService->GetDocumentFields($documentType);
 
 		$arFieldTypes = $documentService->GetDocumentFieldTypes($documentType);
-		unset($arFieldTypes[\Bitrix\Bizproc\FieldType::INTERNALSELECT]);
+		unset($arFieldTypes[FieldType::INTERNALSELECT]);
 
 		if (!is_array($arCurrentValues))
 		{
@@ -100,36 +102,29 @@ class CBPSetFieldActivity
 				foreach ($arCurrentActivity["Properties"]["FieldValue"] as $k => $v)
 				{
 					$arCurrentValues[$k] = $v;
-
-					/*if ($arDocumentFieldsTmp[$k]["BaseType"] == "user")
-					{
-						if (!is_array($arCurrentValues[$k]))
-							$arCurrentValues[$k] = array($arCurrentValues[$k]);
-
-						$ar = array();
-						foreach ($arCurrentValues[$k] as $v)
-						{
-							if (intval($v)."!" == $v."!")
-								$v = "user_".$v;
-							$ar[] = $v;
-						}
-
-						$arCurrentValues[$k] = CBPHelper::UsersArrayToString($ar, $arWorkflowTemplate, $documentType);
-					}*/
 				}
 			}
 		}
 		else
 		{
-			foreach ($arDocumentFieldsTmp as $key => $value)
+			$arErrors = array();
+			foreach ($arCurrentValues as $key => $fieldKey)
 			{
-				if (!$value["Editable"])
+				if (strpos($key, 'document_field_') !== 0)
 					continue;
 
-				$arErrors = array();
-				$arCurrentValues[$key] = $documentService->GetFieldInputValue($documentType, $value, $key, $arCurrentValues, $arErrors);
-				if (is_null($arCurrentValues[$key]))
-					unset($arCurrentValues[$key]);
+				if (!isset($arDocumentFieldsTmp[$fieldKey]) || !$arDocumentFieldsTmp[$fieldKey]["Editable"])
+					continue;
+
+				$r = $documentService->GetFieldInputValue(
+					$documentType,
+					$arDocumentFieldsTmp[$fieldKey],
+					$fieldKey,
+					$arCurrentValues,
+					$arErrors
+				);
+
+				$arCurrentValues[$fieldKey] = $r;
 			}
 		}
 
@@ -171,6 +166,7 @@ class CBPSetFieldActivity
 
 		$arProperties = array("FieldValue" => array());
 
+		/** @var CBPDocumentService $documentService */
 		$documentService = $runtime->GetService("DocumentService");
 
 		$arNewFieldsMap = array();
@@ -180,9 +176,6 @@ class CBPSetFieldActivity
 			foreach ($arNewFieldKeys as $k)
 			{
 				$code = trim($arCurrentValues["new_field_code"][$k]);
-
-				//if (!array_key_exists($code, $arCurrentValues))
-				//	continue;
 
 				$arFieldsTmp = array(
 					"name" => $arCurrentValues["new_field_name"][$k],
@@ -194,23 +187,51 @@ class CBPSetFieldActivity
 				);
 
 				$newCode = $documentService->AddDocumentField($documentType, $arFieldsTmp);
-				$arNewFieldsMap[$newCode] = $code;
+				$property = FieldType::normalizeProperty($arFieldsTmp);
+				$property['Code'] = $newCode;
+				$property['Name'] = $arFieldsTmp['name'];
+				$arNewFieldsMap[$code] = $property;
 			}
 		}
 
 		$arDocumentFields = $documentService->GetDocumentFields($documentType);
 
-		foreach ($arDocumentFields as $fieldKey => $fieldValue)
+		foreach ($arCurrentValues as $key => $value)
 		{
-			if (!$fieldValue["Editable"])
+			if (strpos($key, 'document_field_') !== 0)
 				continue;
 
-			$fieldKey1 = (array_key_exists($fieldKey, $arNewFieldsMap) ? $arNewFieldsMap[$fieldKey] : $fieldKey);
+			$fieldKey = array_key_exists($value, $arNewFieldsMap) ? $arNewFieldsMap[$value]['Code'] : $value;
+			if (!isset($arDocumentFields[$fieldKey]) || !$arDocumentFields[$fieldKey]["Editable"])
+						continue;
 
-			$arErrors = array();
-			$r = $documentService->GetFieldInputValue($documentType, $fieldValue, $fieldKey1, $arCurrentValues, $arErrors);
-			if (!is_null($r))
-				$arProperties["FieldValue"][$fieldKey] = $r;
+			$property = array_key_exists($value, $arNewFieldsMap) ? $arNewFieldsMap[$value] : $arDocumentFields[$fieldKey];
+
+			$r = $documentService->GetFieldInputValue(
+				$documentType,
+				$property,
+				$value,
+				$arCurrentValues,
+				$arErrors
+			);
+
+			if (count($arErrors) > 0)
+				return false;
+
+			if (
+				CBPHelper::getBool($property['Required'])
+				&& CBPHelper::isEmptyValue($r)
+			)
+			{
+				$arErrors[] = array(
+					"code" => "NotExist",
+					"parameter" => $fieldKey,
+					"message" => GetMessage("BPSFA_ARGUMENT_NULL", array('#PARAM#' => $property['Name']))
+				);
+				return false;
+			}
+
+			$arProperties["FieldValue"][$fieldKey] = $r;
 		}
 
 		$arErrors = self::ValidateProperties($arProperties, new CBPWorkflowTemplateUser(CBPWorkflowTemplateUser::CurrentUser));

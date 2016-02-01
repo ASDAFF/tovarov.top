@@ -126,6 +126,7 @@ class ListExportExcelComponent extends CBitrixComponent
 			!$this->arResult["IS_SOCNET_GROUP_CLOSED"]
 			&& (
 				$listsPerm > CListPermissions::CAN_READ
+				|| CIBlockSectionRights::UserHasRightTo($this->arResult["IBLOCK_ID"], $this->arResult["SECTION_ID"], "element_read")
 				|| CIBlockSectionRights::UserHasRightTo($this->arResult["IBLOCK_ID"], $this->arResult["SECTION_ID"], "section_element_bind")
 			)
 		))

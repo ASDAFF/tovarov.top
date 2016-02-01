@@ -21,3 +21,13 @@
 		<input type="button" value="..." onclick="BPAShowSelector('id_target_state_name', 'string');">
 	</td>
 </tr>
+<tr>
+	<td align="right" width="40%"></td>
+	<td width="60%">
+		<label>
+			<input type="checkbox" value="Y" name="cancel_current_state" <?
+				if (isset($arCurrentValues["cancel_current_state"]) && $arCurrentValues["cancel_current_state"] == 'Y') echo 'checked'?>/>
+			<?= GetMessage("BPSSA_CANCEL_CURRENT_STATE") ?>
+		</label>
+	</td>
+</tr>

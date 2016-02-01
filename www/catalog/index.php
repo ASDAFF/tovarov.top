@@ -1,19 +1,19 @@
 <?
-	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-	$APPLICATION->SetPageProperty("prop-show-bottom", "Y");
-	$APPLICATION->SetTitle("");
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+$APPLICATION->SetPageProperty("prop-show-bottom", "Y");
+$APPLICATION->SetTitle("");
 ?>
 
-	<?$APPLICATION->IncludeComponent(
+<? $APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	".default", 
 	array(
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "16",
+		"IBLOCK_ID" => "20",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SEF_MODE" => "Y",
-		"SEF_FOLDER" => "/catalog/",
+		"SEF_FOLDER" => "/",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
@@ -34,8 +34,13 @@
 			1 => "",
 		),
 		"FILTER_PROPERTY_CODE" => array(
-			0 => "MANUFACTURER",
-			1 => "",
+			0 => "TIME_WORK",
+			1 => "HEIGHT_GAP",
+			2 => "CALIBER",
+			3 => "VOLLEYS",
+			4 => "MANUFACTURER",
+			5 => "TIPE_SALUTE",
+			6 => "",
 		),
 		"FILTER_PRICE_CODE" => array(
 			0 => "BASE",
@@ -109,7 +114,7 @@
 		"ELEMENT_SORT_FIELD2" => "id",
 		"ELEMENT_SORT_ORDER2" => "desc",
 		"LIST_PROPERTY_CODE" => array(
-			0 => "",
+			0 => "ARTICLE",
 			1 => "MORE_PHOTO",
 			2 => "",
 		),
@@ -128,33 +133,44 @@
 		),
 		"LIST_OFFERS_LIMIT" => "0",
 		"DETAIL_PROPERTY_CODE" => array(
-			0 => "THREEG",
-			1 => "BLUETOOTH",
-			2 => "WI_FI",
-			3 => "ACCESSORIES",
-			4 => "WIRELESS_INTERFACES",
-			5 => "WEIGHT",
-			6 => "YOUTUBE_VIDEO",
-			7 => "DIAGONAL",
-			8 => "vote_count",
-			9 => "MATERIAL",
-			10 => "PRODUCT_LABEL_TEXT",
-			11 => "MEMORY_CAPACITY",
-			12 => "OS",
-			13 => "LABEL",
-			14 => "PIXEL_DENSITY",
-			15 => "SEX",
-			16 => "MANUFACTURER",
-			17 => "DIMENSIONS",
-			18 => "rating",
-			19 => "DEVICE_COMPABILITY",
-			20 => "vote_sum",
-			21 => "TABS_MAIN_PAGE",
-			22 => "TYPE_MATRIX",
-			23 => "DAY_ITEM",
-			24 => "SHOW_ON_MANUFACTURER_TAB",
-			25 => "COLOR",
-			26 => "",
+			0 => "NEWPRODUCT",
+			1 => "SALELEADER",
+			2 => "SPECIALOFFER",
+			3 => "ARTICLE",
+			4 => "YOUTUBE_VIDEO",
+			5 => "TIME_WORK",
+			6 => "HEIGHT_GAP",
+			7 => "CALIBER",
+			8 => "VOLLEYS",
+			9 => "vote_count",
+			10 => "MANUFACTURER",
+			11 => "SIZE",
+			12 => "rating",
+			13 => "vote_sum",
+			14 => "TIPE_SALUTE",
+			15 => "PACKING",
+			16 => "THREEG",
+			17 => "BLUETOOTH",
+			18 => "WI_FI",
+			19 => "ACCESSORIES",
+			20 => "WIRELESS_INTERFACES",
+			21 => "WEIGHT",
+			22 => "DIAGONAL",
+			23 => "MATERIAL",
+			24 => "PRODUCT_LABEL_TEXT",
+			25 => "MEMORY_CAPACITY",
+			26 => "OS",
+			27 => "LABEL",
+			28 => "PIXEL_DENSITY",
+			29 => "SEX",
+			30 => "DIMENSIONS",
+			31 => "DEVICE_COMPABILITY",
+			32 => "TABS_MAIN_PAGE",
+			33 => "TYPE_MATRIX",
+			34 => "DAY_ITEM",
+			35 => "SHOW_ON_MANUFACTURER_TAB",
+			36 => "COLOR",
+			37 => "",
 		),
 		"DETAIL_META_KEYWORDS" => "-",
 		"DETAIL_META_DESCRIPTION" => "-",
@@ -211,11 +227,28 @@
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",
 		"COMMENTS_IB" => "4",
+		"COMPONENT_TEMPLATE" => ".default",
+		"DETAIL_USE_COMMENTS" => "N",
+		"USE_MAIN_ELEMENT_SECTION" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"USE_REVIEW" => "N",
+		"ES_IBLOCK_GROUP" => "",
+		"SECTION_BACKGROUND_IMAGE" => "-",
+		"DETAIL_SET_CANONICAL_URL" => "N",
+		"DETAIL_BACKGROUND_IMAGE" => "-",
+		"SHOW_DEACTIVATED" => "N",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SHOW_404" => "Y",
+		"MESSAGE_404" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
+		"DETAIL_SET_VIEWED_IN_COMPONENT" => "N",
+		"FILE_404" => "",
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE_PATH#/",
-			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+			"element" => "product/#ELEMENT_CODE#/",
 			"compare" => "compare.php?action=#ACTION_CODE#",
+			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
 		),
 		"VARIABLE_ALIASES" => array(
 			"compare" => array(
@@ -224,7 +257,7 @@
 		)
 	),
 	false
-);?> 
+); ?>
 <?
-	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php");
 ?>
