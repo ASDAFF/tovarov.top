@@ -101,7 +101,7 @@
 
 			if (!bSilent)
 			{
-				this.editor.On("OnBeforeCommandExec", [isContentAction, action, oAction]);
+				this.editor.On("OnBeforeCommandExec", [isContentAction, action, oAction, value]);
 			}
 
 			if (isContentAction)

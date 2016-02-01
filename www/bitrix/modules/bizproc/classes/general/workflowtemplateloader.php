@@ -483,12 +483,14 @@ class CAllBPWorkflowTemplateLoader
 		{
 			if (!CBPHelper::IsAssociativeArray($ar))
 			{
-				if (count($ar) == 2 && ($ar[0] == 'Variable' || $ar[0] == 'Constant'))
+				if (count($ar) == 2 && ($ar[0] == 'Variable' || $ar[0] == 'Constant' || $ar[0] == 'Template'))
 				{
 					if ($ar[0] == 'Variable' && is_array($variables) && array_key_exists($ar[1], $variables))
 						return array($variables[$ar[1]]["Default"]);
 					if ($ar[0] == 'Constant' && is_array($constants) && array_key_exists($ar[1], $constants))
 						return array($constants[$ar[1]]["Default"]);
+
+					return array();
 				}
 
 				$arResult = array();

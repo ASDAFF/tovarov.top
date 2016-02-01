@@ -47,6 +47,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 			<option value="h"<?= ($arCurrentValues["delay_type"] == "h") ? " selected" : "" ?>><?= GetMessage("CPAD_DP_TIME_H") ?></option>
 			<option value="d"<?= ($arCurrentValues["delay_type"] == "d") ? " selected" : "" ?>><?= GetMessage("CPAD_DP_TIME_D") ?></option>
 		</select>
+		<?
+		$delayMinLimit = CBPSchedulerService::getDelayMinLimit();
+		if ($delayMinLimit):
+			?>
+			<p style="color: red;">* <?= GetMessage("CPAD_PD_TIMEOUT_LIMIT") ?>: <?=CBPHelper::FormatTimePeriod($delayMinLimit)?></p>
+			<?
+		endif;
+		?>
 	</td>
 </tr>
 <tr id="tr_time_type_selector_time">

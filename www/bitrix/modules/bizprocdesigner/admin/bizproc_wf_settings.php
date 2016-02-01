@@ -8,7 +8,12 @@ CUtil::DecodeUriComponent($_POST);
 
 foreach (array('arWorkflowParameters', 'arWorkflowVariables', 'arWorkflowConstants') as $field)
 {
-	if (isset($_POST[$field]) && is_array($_POST[$field]))
+	if (!isset($_POST[$field]))
+	{
+		$_POST[$field] = array();
+		continue;
+	}
+	if (is_array($_POST[$field]))
 	{
 		if (LANG_CHARSET != "UTF-8")
 		{
@@ -25,9 +30,16 @@ foreach (array('arWorkflowParameters', 'arWorkflowVariables', 'arWorkflowConstan
 		}
 	}
 	else
-		$_POST[$field] = array();
+	{
+		$_POST[$field] = CUtil::JsObjectToPhp($_POST[$field]);
+		if (!is_array($_POST[$field]))
+			$_POST[$field] = array();
+	}
 }
-
+if (!is_array($_POST['arWorkflowTemplate']))
+{
+	$_POST['arWorkflowTemplate'] = CUtil::JsObjectToPhp($_POST['arWorkflowTemplate']);
+}
 
 $arWorkflowParameters = $_POST['arWorkflowParameters'];
 $arWorkflowVariables = $_POST['arWorkflowVariables'];
@@ -95,9 +107,9 @@ CBPDocument::AddShowParameterInit(MODULE_ID, "only_users", $_POST['document_type
 BX.WindowManager.Get().SetTitle('<?= GetMessageJS("BIZPROC_WFS_TITLE") ?>');
 
 var WFSAllData = {};
-WFSAllData['P'] = <?=(is_array($arWorkflowParameters)?CUtil::PhpToJSObject($arWorkflowParameters):'{}')?>;
-WFSAllData['V'] = <?=(is_array($arWorkflowVariables)?CUtil::PhpToJSObject($arWorkflowVariables):'{}')?>;
-WFSAllData['C'] = <?=(is_array($arWorkflowConstants)?CUtil::PhpToJSObject($arWorkflowConstants):'{}')?>;
+WFSAllData['P'] = <?=(is_array($arWorkflowParameters) && !empty($arWorkflowParameters) ?CUtil::PhpToJSObject($arWorkflowParameters):'{}')?>;
+WFSAllData['V'] = <?=(is_array($arWorkflowVariables) && !empty($arWorkflowVariables) ?CUtil::PhpToJSObject($arWorkflowVariables):'{}')?>;
+WFSAllData['C'] = <?=(is_array($arWorkflowConstants) && !empty($arWorkflowConstants) ?CUtil::PhpToJSObject($arWorkflowConstants):'{}')?>;
 
 function WFSStart()
 {
@@ -170,6 +182,7 @@ function WFSSaveOK(permissions)
 
 	rootActivity['Properties']['Permission'] = permissions;
 
+	BPTemplateIsModified = true;
 	BX.WindowManager.Get().CloseDialog();
 }
 
@@ -305,11 +318,11 @@ function WFSSwitchSubTypeControl(newSubtype, pvMode)
 	document.getElementById('dpcancelbuttonform' + pvMode).disabled = true;
 
 	objFields.GetFieldInputValue(
-		window.currentType,
+		window.currentType[pvMode],
 		{'Field':'WFSFormDefault'+pvMode, 'Form':'bizprocform'},
 		function(v)
 		{
-			window.currentType['Options'] = newSubtype;
+			window.currentType[pvMode]['Options'] = newSubtype;
 
 			if (typeof v == "object")
 				v = v[0];
@@ -318,7 +331,7 @@ function WFSSwitchSubTypeControl(newSubtype, pvMode)
 			document.getElementById('dpsavebuttonform' + pvMode).disabled = false;
 			document.getElementById('dpcancelbuttonform' + pvMode).disabled = false;
 
-			WFSParamSetSubtype(window.currentType, pvMode, v);
+			WFSParamSetSubtype(window.currentType[pvMode], pvMode, v);
 		}
 	);
 }
@@ -326,30 +339,32 @@ function WFSSwitchSubTypeControl(newSubtype, pvMode)
 function WFSSwitchTypeControl(newType, pvMode, replaceParams)
 {
 	BX.showWait();
-
+	var updateControl = false;
 	if (replaceParams)
 	{
 		if (typeof replaceParams.Multiple !== 'undefined')
-			window.currentType['Multiple'] = replaceParams.Multiple? 'Y' : 'N';
+			window.currentType[pvMode]['Multiple'] = replaceParams.Multiple? 'Y' : 'N';
 		if (typeof replaceParams.Required !== 'undefined')
-			window.currentType['Required'] = replaceParams.Required? 'Y' : 'N';
+			window.currentType[pvMode]['Required'] = replaceParams.Required? 'Y' : 'N';
+		updateControl = true;
 	}
 
-	window.currentType['Options'] = null;
+	if (!updateControl)
+		window.currentType[pvMode]['Options'] = null;
 	objFields.GetFieldInputValue(
-		window.currentType,
+		window.currentType[pvMode],
 		{'Field':'WFSFormDefault'+pvMode, 'Form':'bizprocform'},
 		function(v)
 		{
 			if (newType)
-				window.currentType['Type'] = newType;
+				window.currentType[pvMode]['Type'] = newType;
 
 			if (typeof v == "object")
 				v = v[0];
 
 			BX.closeWait();
 
-			WFSParamSetType(window.currentType, pvMode, v);
+			WFSParamSetType(window.currentType[pvMode], pvMode, v);
 		}
 	);
 }
@@ -385,20 +400,19 @@ function WFSParamDeleteParam(ob, Type)
 	}
 }
 
-var lastEd = false;
-var currentType = null;
+var currentType = {};
 
 function WFSParamEditParam(ob, pvMode)
 {
 	WFSParamEditForm(true, pvMode);
 
-	window.lastEd = ob.parentNode.parentNode.paramId;
+	var editId = ob.parentNode.parentNode.paramId;
+	var s = WFSAllData[pvMode][editId];
 
-	var s = WFSAllData[pvMode][ob.parentNode.parentNode.paramId];
+	window.currentType[pvMode] = {'Type' : s['Type'], 'Options' : s['Options'], 'Required' : s['Required'], 'Multiple' : s['Multiple']};
 
-	window.currentType = {'Type' : s['Type'], 'Options' : s['Options'], 'Required' : s['Required'], 'Multiple' : s['Multiple']};
-
-	document.getElementById("WFSFormId"+pvMode).value = lastEd;
+	document.getElementById("WFSFormIdOld"+pvMode).value = editId;
+	document.getElementById("WFSFormId"+pvMode).value = editId;
 	document.getElementById("WFSFormId"+pvMode).readOnly = true;
 
 	document.getElementById("WFSFormName"+pvMode).value = s['Name'];
@@ -410,7 +424,7 @@ function WFSParamEditParam(ob, pvMode)
 	document.getElementById('tdWFSFormDefault'+pvMode).innerHTML = "";
 
 	WFSParamSetType(
-		window.currentType,
+		window.currentType[pvMode],
 		pvMode,
 		s['Default']
 	);
@@ -441,10 +455,12 @@ function WFSParamSaveForm(Type)
 		return;
 	}
 
+	var lastEd = document.getElementById("WFSFormIdOld"+Type).value;
+	var isNew = false;
+
 	var WFSData = WFSAllData[Type];
 	if (lastEd && typeof WFSData[lastEd] === 'undefined')
 		lastEd = false;
-	var N = lastEd;
 
 	if (!lastEd)
 	{
@@ -457,6 +473,7 @@ function WFSParamSaveForm(Type)
 		}
 		lastEd = varId;
 		WFSData[lastEd] = {};
+		isNew = true;
 	}
 	BX.showWait();
 
@@ -468,7 +485,7 @@ function WFSParamSaveForm(Type)
 
 	WFSData[lastEd]['Options'] = null;
 	if (objFields.arFieldTypes[WFSData[lastEd]['Type']]['Complex'] == "Y")
-		WFSData[lastEd]['Options'] = window.currentType['Options'];
+		WFSData[lastEd]['Options'] = window.currentType[Type]['Options'];
 
 	objFields.GetFieldInputValue(
 		WFSData[lastEd],
@@ -486,7 +503,7 @@ function WFSParamSaveForm(Type)
 
 			WFSData[lastEd]['Default'] = v;
 
-			if (N === false)
+			if (isNew)
 				WFSParamAddParam(lastEd, WFSData[lastEd], Type);
 			else
 				WFSParamFillParam(lastEd, WFSData[lastEd], Type);
@@ -519,7 +536,6 @@ function WFSParamFillParam(id, p, pvMode)
 
 function WFSParamNewParam(pvMode)
 {
-	lastEd = false;
 	WFSParamEditForm(true, pvMode);
 
 	var i;
@@ -533,13 +549,14 @@ function WFSParamNewParam(pvMode)
 	for (var t in objFields.arFieldTypes)
 		break;
 
-	window.currentType = {'Type' : t, 'Options' : null, 'Required' : 'N', 'Multiple' : 'N'};
+	window.currentType[pvMode] = {'Type' : t, 'Options' : null, 'Required' : 'N', 'Multiple' : 'N'};
 
+	document.getElementById("WFSFormIdOld"+pvMode).value = '';
 	document.getElementById("WFSFormId"+pvMode).value = prefix+i;
 	document.getElementById("WFSFormId"+pvMode).readOnly = false;
 
 	document.getElementById("WFSFormType"+pvMode).selectedIndex = 0;
-	WFSParamSetType(window.currentType, pvMode);
+	WFSParamSetType(window.currentType[pvMode], pvMode);
 
 	document.getElementById("WFSFormName"+pvMode).value = '';
 	document.getElementById("WFSFormDesc"+pvMode).value = '';
@@ -646,7 +663,10 @@ $tabControl->BeginNextTab();
 			<table class="internal">
 				<tr>
 					<td><span style="color: #FF0000">*</span><?=GetMessage("BIZPROC_WFS_PARAMID")?>:</td>
-					<td><input type="text" size="20" id="WFSFormIdP" readonly=readonly></td>
+					<td>
+						<input type="text" size="20" id="WFSFormIdP" readonly=readonly>
+						<input type="hidden" id="WFSFormIdOldP">
+					</td>
 				</tr>
 				<tr>
 					<td><span style="color: #FF0000">*</span><?=GetMessage("BIZPROC_WFS_PARAM_NAME")?>:</td>
@@ -716,7 +736,10 @@ $tabControl->BeginNextTab();
 			<table class="internal">
 				<tr>
 					<td><span style="color: #FF0000">*</span><?=GetMessage("BIZPROC_WFS_PARAMID")?>:</td>
-					<td><input type="text" size="20" id="WFSFormIdV" readonly=readonly></td>
+					<td>
+						<input type="text" size="20" id="WFSFormIdV" readonly=readonly>
+						<input type="hidden" id="WFSFormIdOldV">
+					</td>
 				</tr>
 				<tr>
 					<td><span style="color: #FF0000">*</span><?=GetMessage("BIZPROC_WFS_PARAM_NAME")?>:</td>
@@ -786,7 +809,10 @@ $tabControl->BeginNextTab();
 				<table class="internal">
 					<tr>
 						<td><span style="color: #FF0000">*</span><?=GetMessage("BIZPROC_WFS_PARAMID")?>:</td>
-						<td><input type="text" size="20" id="WFSFormIdC" readonly=readonly></td>
+						<td>
+							<input type="text" size="20" id="WFSFormIdC" readonly=readonly>
+							<input type="hidden" id="WFSFormIdOldC">
+						</td>
 					</tr>
 					<tr>
 						<td><span style="color: #FF0000">*</span><?=GetMessage("BIZPROC_WFS_PARAM_NAME")?>:</td>
@@ -834,7 +860,7 @@ $tabControl->BeginNextTab();
 	</tr>
 	<?
 $tabControl->BeginNextTab();
-$permissions = $_POST['arWorkflowTemplate'][0]['Properties']['Permission'];
+$permissions = isset($_POST['arWorkflowTemplate'][0]['Properties']['Permission']) ? $_POST['arWorkflowTemplate'][0]['Properties']['Permission'] : array();
 
 if (!empty($arAllowableOperations)):
 foreach($arAllowableOperations as $op_id=>$op_name):

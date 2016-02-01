@@ -41,7 +41,7 @@ class CSticker
 		return $arOp[$key];
 	}
 
-	function CanDoOperation($operation)
+	public static function CanDoOperation($operation)
 	{
 		if ($GLOBALS["USER"]->IsAdmin())
 			return true;

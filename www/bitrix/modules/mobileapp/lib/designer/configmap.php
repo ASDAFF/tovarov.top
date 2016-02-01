@@ -173,7 +173,7 @@ class ConfigMap
 	}
 
 	/**
-	 * Checks if the parameter with passed $paramName is group
+	 * Checks if parameter with passed $paramName is group
 	 * @param $paramName
      * @return bool
 	 * @throws \Bitrix\Main\SystemException
@@ -219,7 +219,7 @@ class ConfigMap
 	}
 
 	/**
-	 * Checks if parameters with passed name is exists in the map
+	 * Checks if parameter with passed name is exists in the map
 	 * @param $paramName
 	 * @return bool
 	 */
@@ -229,7 +229,7 @@ class ConfigMap
 	}
 
 	/**
-	 * Gets
+	 * Gets list of values for parameter
 	 * @param $paramName
 	 * @return mixed
 	 * @throws \Bitrix\Main\SystemException

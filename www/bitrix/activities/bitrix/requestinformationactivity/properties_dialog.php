@@ -486,6 +486,14 @@ setTimeout(BPRIAStart, 0);
 						<option value="h"<?= ($arCurrentValues["timeout_duration_type"] == "h") ? " selected" : "" ?>><?= GetMessage("BPSFA_PD_TIME_H") ?></option>
 						<option value="d"<?= ($arCurrentValues["timeout_duration_type"] == "d") ? " selected" : "" ?>><?= GetMessage("BPSFA_PD_TIME_D") ?></option>
 					</select>
+					<?
+					$delayMinLimit = CBPSchedulerService::getDelayMinLimit();
+					if ($delayMinLimit):
+						?>
+						<p style="color: red;">* <?= GetMessage("BPSFA_PD_TIMEOUT_LIMIT") ?>: <?=CBPHelper::FormatTimePeriod($delayMinLimit)?></p>
+						<?
+					endif;
+					?>
 				</td>
 			</tr>
 			<tr>

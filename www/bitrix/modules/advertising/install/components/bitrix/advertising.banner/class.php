@@ -39,7 +39,6 @@ class AdvertisingBanner extends \CBitrixComponent
 		else
 			$params['QUANTITY'] = 1;
 
-		$params['ID'] = randString(5);
 		$params['BANNER_ID'] = intval($params["BANNER_ID"]);
 
 		return $params;
@@ -286,6 +285,7 @@ class AdvertisingBanner extends \CBitrixComponent
 		global $APPLICATION;
 
 		$this->arResult = Array(
+			"ID" => randString(5),
 			"BANNER" => "",
 			"BANNER_PROPERTIES" => Array(),
 		);

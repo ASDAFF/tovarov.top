@@ -208,6 +208,16 @@
 						}catch(e){}
 					}
 				});
+
+				BX.bind(pForm, "reset", function()
+				{
+					if (_this.highlightMode)
+					{
+						_this.Action(_this.SetValue, _this)("");
+						_this.FocusInput();
+						_this.OnFocus();
+					}
+				});
 			}
 		},
 

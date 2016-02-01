@@ -111,6 +111,16 @@ class Mobile
 	}
 
 	/**
+	 * Returns true if mobile application made this request in background
+	 * @return bool
+	 */
+	public static function isAppBackground()
+	{
+		$isBackground = Context::getCurrent()->getServer()->get("HTTP_BX_MOBILE_BACKGROUND");
+		return ($isBackground === "true");
+	}
+
+	/**
 	 * @param boolean $isWebRtcSupported
 	 */
 	public function setWebRtcSupport($isWebRtcSupported)
@@ -283,7 +293,7 @@ class Mobile
 	}
 
 
-	public function onMobileInit()
+	public static function onMobileInit()
 	{
 		if(!defined("MOBILE_INIT_EVENT_SKIP"))
 		{

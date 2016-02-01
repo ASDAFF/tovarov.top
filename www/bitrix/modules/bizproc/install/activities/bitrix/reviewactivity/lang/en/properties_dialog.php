@@ -21,4 +21,5 @@ $MESS["BPAR_PD_STATUS_MESSAGE_HINT1"] = "The following macros are available: #PE
 $MESS["BPAR_PD_SHOW_COMMENT"] = "Show comment input field";
 $MESS["BPAR_PD_COMMENT_LABEL_MESSAGE"] = "Comment input field label";
 $MESS["BPAR_PD_ACCESS_CONTROL"] = "Show assignment description only to responsible persons";
+$MESS["BPAR_PD_TIMEOUT_LIMIT"] = "Minimum read time";
 ?>

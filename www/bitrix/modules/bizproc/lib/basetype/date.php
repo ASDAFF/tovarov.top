@@ -1,6 +1,7 @@
 <?php
 namespace Bitrix\Bizproc\BaseType;
 
+use Bitrix\Main\Loader;
 use Bitrix\Main\Type;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Bizproc\FieldType;
@@ -38,18 +39,27 @@ class Date extends Base
 				$value = $value? (int)strtotime($value) : 0;
 				break;
 			case FieldType::DATE:
-				$value = date(Type\Date::convertFormatToPhp(\FORMAT_DATE), strtotime($value));
-				break;
 			case FieldType::DATETIME:
-				$value = date(Type\DateTime::convertFormatToPhp(\FORMAT_DATETIME), strtotime($value));
-				break;
 			case FieldType::STRING:
 			case FieldType::TEXT:
 				$value = (string) $value;
 				if ($value)
 				{
-					$format = static::getType() == FieldType::DATE ? \FORMAT_DATE : \FORMAT_DATETIME;
-					$value = date(Type\DateTime::convertFormatToPhp($format), strtotime($value));
+					if ($type == FieldType::DATE)
+						$format = \FORMAT_DATE;
+					elseif ($type == FieldType::DATETIME)
+						$format = \FORMAT_DATETIME;
+					else
+						$format = static::getType() == FieldType::DATE ? \FORMAT_DATE : \FORMAT_DATETIME;
+
+					if (\CheckDateTime($value, $format))
+					{
+						$value = date(Type\Date::convertFormatToPhp($format), \MakeTimeStamp($value, $format));
+					}
+					else
+					{
+						$value = date(Type\Date::convertFormatToPhp($format), strtotime($value));
+					}
 				}
 				break;
 			default:
@@ -74,14 +84,15 @@ class Date extends Base
 
 		if ($renderMode & FieldType::RENDER_MODE_ADMIN)
 		{
-			require_once($_SERVER['DOCUMENT_ROOT'].BX_ROOT.'/modules/main/interface/init_admin.php');
-			$renderResult = \CAdminCalendar::calendarDate($name, $value, 19);
+			require_once(Loader::getLocal('/modules/main/interface/init_admin.php'));
+			$renderResult = \CAdminCalendar::calendarDate($name, $value, 19, static::getType() == FieldType::DATETIME);
 		}
 		else
 		{
 			ob_start();
+			global $APPLICATION;
 
-			$GLOBALS['APPLICATION']->includeComponent(
+			$APPLICATION->includeComponent(
 				'bitrix:main.calendar',
 				'',
 				array(

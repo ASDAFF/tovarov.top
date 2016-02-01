@@ -81,7 +81,7 @@ Class lists extends CModule
 			return;
 
 		$currentPermissions = CLists::GetPermission();
-		unset($currentPermissions["bitrix_process"]);
+		unset($currentPermissions["bitrix_processes"]);
 		unset($currentPermissions["lists"]);
 
 		$socnet_iblock_type_id = COption::GetOptionString("lists", "socnet_iblock_type_id");
@@ -202,7 +202,6 @@ Class lists extends CModule
 		UnRegisterModuleDependences('socialnetwork', 'OnAfterSonetLogEntryAddComment', 'lists', 'CListsLiveFeed', 'OnAfterSonetLogEntryAddComment');
 		UnRegisterModuleDependences('socialnetwork', 'OnForumCommentIMNotify', 'lists', 'CListsLiveFeed', 'OnForumCommentIMNotify');
 		UnRegisterModuleDependences("iblock", "OnAfterIBlockElementDelete", "lists", "BizprocDocument", "OnAfterIBlockElementDelete");
-		UnRegisterModuleDependences("socialnetwork", "OnSendMentionGetEntityFields", "lists", "CListsLiveFeed", "OnSendMentionGetEntityFields");
 		UnRegisterModule("lists");
 
 		if($this->errors !== false)

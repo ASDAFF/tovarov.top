@@ -1840,6 +1840,7 @@ var focusWithoutScrolling = function(element)
 				if (realUrl.substr(0, 4) === "www.")
 					realUrl = "http://" + realUrl;
 
+				BX.onCustomEvent(_this.editor, 'OnAfterUrlConvert', [realUrl]);
 				return '<a href="' + realUrl + '">' + displayUrl + '</a>' + punctuation;
 			});
 		}

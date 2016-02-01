@@ -6,9 +6,23 @@ use Bitrix\Bizproc\FieldType;
 class CBPDocumentService
 	extends CBPRuntimeService
 {
+	const FEATURE_MARK_MODIFIED_FIELDS = 'FEATURE_MARK_MODIFIED_FIELDS';
+
 	private $arDocumentsCache = array();
 	private $documentTypesCache = array();
 	private $typesMapCache = array();
+
+	public function getEntityName($moduleId, $entity)
+	{
+		if (strlen($moduleId) > 0)
+			CModule::IncludeModule($moduleId);
+
+		if (class_exists($entity) && method_exists($entity, 'getEntityName'))
+		{
+			return call_user_func_array(array($entity, "getEntityName"), array($entity));
+		}
+		return null;
+	}
 
 	public function GetDocument($parameterDocumentId)
 	{
@@ -976,6 +990,24 @@ EOS;
 		return "";
 	}
 
+	public function getDocumentTypeName($parameterDocumentType)
+	{
+		list($moduleId, $entity, $documentType) = CBPHelper::ParseDocumentId($parameterDocumentType);
+
+		if (strlen($moduleId) > 0)
+			CModule::IncludeModule($moduleId);
+
+		if (class_exists($entity))
+		{
+			if (method_exists($entity, "getDocumentTypeName"))
+				return call_user_func_array(array($entity, "getDocumentTypeName"), array($documentType));
+			if (method_exists($entity, "getEntityName"))
+				return call_user_func_array(array($entity, "getEntityName"), array($entity));
+		}
+
+		return null;
+	}
+
 	public function getDocumentIcon($parameterDocumentId)
 	{
 		list($moduleId, $entity, $documentId) = CBPHelper::ParseDocumentId($parameterDocumentId);
@@ -1069,6 +1101,20 @@ EOS;
 
 		if (class_exists($entity) && method_exists($entity, "SetPermissions"))
 			return call_user_func_array(array($entity, "SetPermissions"), array($documentId, $workflowId, $arPermissions, $bRewrite));
+
+		return false;
+	}
+
+	public function isFeatureEnabled($parameterDocumentType, $feature)
+	{
+		return false; //hotfix
+		list($moduleId, $entity, $documentType) = CBPHelper::ParseDocumentId($parameterDocumentType);
+
+		if (strlen($moduleId) > 0)
+			CModule::IncludeModule($moduleId);
+
+		if (class_exists($entity) && method_exists($entity, 'isFeatureEnabled'))
+			return call_user_func_array(array($entity, 'isFeatureEnabled'), array($documentType, $feature));
 
 		return false;
 	}

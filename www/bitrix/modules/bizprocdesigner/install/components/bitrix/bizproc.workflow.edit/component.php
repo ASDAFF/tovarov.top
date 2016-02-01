@@ -107,6 +107,10 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 
 	if($_REQUEST['saveuserparams']=='Y')
 	{
+		if (!is_array($_POST['USER_PARAMS']))
+		{
+			$_POST['USER_PARAMS'] = (array) CUtil::JsObjectToPhp($_POST['USER_PARAMS']);
+		}
 		$d = serialize($_POST['USER_PARAMS']);
 		if (strlen($d) > 64000)
 		{
@@ -142,7 +146,14 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 
 		$_POST = BPasDecodeArrayKeys($_POST);
 	}
-	//print_r($_POST["arWorkflowTemplate"]);
+
+	foreach (array('arWorkflowTemplate', 'arWorkflowParameters', 'arWorkflowVariables', 'arWorkflowConstants') as $k)
+	{
+		if (!is_array($_POST[$k]))
+		{
+			$_POST[$k] = (array) CUtil::JsObjectToPhp($_POST[$k]);
+		}
+	}
 
 	$arFields = Array(
 		"DOCUMENT_TYPE" => array(MODULE_ID, ENTITY, $document_type),
@@ -169,7 +180,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 		//print_r($e);
 		?>
 		<script>
-			alert('<?=GetMessage("BIZPROC_WFEDIT_SAVE_ERROR")?>\n<?=preg_replace('#\.\W?#', ".\\n", AddSlashes(htmlspecialcharsbx($e->getMessage())))?>');
+			alert('<?=GetMessage("BIZPROC_WFEDIT_SAVE_ERROR")?>\n<?=preg_replace('#\.\W?#', ".\\n", CUtil::JSEscape($e->getMessage()))?>');
 		</script>
 		<?
 		die();
@@ -192,7 +203,8 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 	restore_exception_handler();
 	?>
 	<script>
-	window.location = '<?=($_REQUEST["apply"]=="Y"? str_replace("#ID#", $ID, $arResult["EDIT_PAGE_TEMPLATE"]) : CUtil::JSEscape($arResult["LIST_PAGE_URL"]))?>';
+		BPTemplateIsModified = false;
+		window.location = '<?=($_REQUEST["apply"]=="Y"? str_replace("#ID#", $ID, $arResult["EDIT_PAGE_TEMPLATE"]) : CUtil::JSEscape($arResult["LIST_PAGE_URL"]))?>';
 	</script>
 	<?
 	die();
@@ -261,17 +273,22 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['import_template']=='Y' && ch
 	die();
 }
 
-$arAllActGroups = Array(
-//		"main" => GetMessage("BIZPROC_WFEDIT_CATEGORY_MAIN"),
+$arAllActGroups = array(
 		"document" => GetMessage("BIZPROC_WFEDIT_CATEGORY_DOC"),
 		"logic" => GetMessage("BIZPROC_WFEDIT_CATEGORY_CONSTR"),
 		"interaction" => GetMessage("BIZPROC_WFEDIT_CATEGORY_INTER"),
 		"rest" => GetMessage("BIZPROC_WFEDIT_CATEGORY_REST"),
-		"other" => GetMessage("BIZPROC_WFEDIT_CATEGORY_OTHER"),
-	);
+);
 
 $runtime = CBPRuntime::GetRuntime();
 $arAllActivities = $runtime->SearchActivitiesByType("activity", array(MODULE_ID, ENTITY, $document_type));
+
+foreach ($arAllActivities as $activity)
+{
+	if (!empty($activity['CATEGORY']['OWN_ID']) && !empty($activity['CATEGORY']['OWN_NAME']))
+		$arAllActGroups[$activity['CATEGORY']['OWN_ID']] = $activity['CATEGORY']['OWN_NAME'];
+}
+$arAllActGroups['other'] = GetMessage("BIZPROC_WFEDIT_CATEGORY_OTHER");
 
 if($ID>0)
 	$APPLICATION->SetTitle(GetMessage("BIZPROC_WFEDIT_TITLE_EDIT"));

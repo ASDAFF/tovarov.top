@@ -41,6 +41,14 @@ if(!$canWrite)
 	die();
 }
 
+foreach (array('arWorkflowTemplate', 'arWorkflowParameters', 'arWorkflowVariables', 'arWorkflowConstants') as $k)
+{
+	if (!is_array($_POST[$k]))
+	{
+		$_POST[$k] = (array) CUtil::JsObjectToPhp($_POST[$k]);
+	}
+}
+
 $arWorkflowTemplate = isset($_POST['arWorkflowTemplate']) && is_array($_POST['arWorkflowTemplate'])? $_POST['arWorkflowTemplate']: array();
 $arWorkflowParameters = isset($_POST['arWorkflowParameters']) && is_array($_POST['arWorkflowParameters'])? $_POST['arWorkflowParameters']: array();
 $arWorkflowVariables = isset($_POST['arWorkflowVariables']) && is_array($_POST['arWorkflowVariables'])? $_POST['arWorkflowVariables']: array();
@@ -354,7 +362,7 @@ _RecFindParams($arWorkflowTemplate, $arFilter, $arReturns);
 				$i = 0;
 				while ($i < $cnt)
 				{
-					$str = "SELECT ID, LOGIN, NAME, LAST_NAME, SECOND_NAME, EMAIL FROM b_user WHERE ID IN (0";
+					$str = "SELECT ID, LOGIN, NAME, LAST_NAME, SECOND_NAME, EMAIL, EXTERNAL_AUTH_ID FROM b_user WHERE ID IN (0";
 					$cnt1 = min($cnt, $i + $mcnt);
 					for ($j = $i; $j < $cnt1; $j++)
 						$str .= ", ".IntVal($arUsers[$j]);
@@ -363,6 +371,9 @@ _RecFindParams($arWorkflowTemplate, $arFilter, $arReturns);
 					$dbuser = $DB->Query($str);
 					while($user = $dbuser->fetch())
 					{
+						if ($user['EXTERNAL_AUTH_ID'] == 'replica' || $user['EXTERNAL_AUTH_ID'] == 'email')
+							continue;
+
 						$n = CUser::FormatName(str_replace(",","", COption::GetOptionString("bizproc", "name_template", CSite::GetNameFormat(false), SITE_ID)), $user, true, true);
 						?>
 						<option value="<?= $n ?> [<?=$user['ID']?>]; "><?=$n?> &lt;<?=$user['EMAIL']?>&gt; [<?=$user['ID']?>]</option>
@@ -371,6 +382,11 @@ _RecFindParams($arWorkflowTemplate, $arFilter, $arReturns);
 				}
 				?>
 			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="javascript:void(0)" onclick="BPSShowUserGropupsDialog()"><b><?echo GetMessage("BIZPROC_SEL_GROUPS_TAB")?></b></a>
 		</td>
 	</tr>
 	<?endif?>
@@ -429,6 +445,53 @@ function CloseDialog()
 {
 	<?=$popupWindow->jsPopup?>.CloseDialog();
 }
+
+var BPSShowUserGropupsDialog = function()
+{
+	BX.Access.Init({other:{disabled:true}});
+	BX.Access.ShowForm({
+		bind: '<?=RandString(4);?>',
+		callback: function (selected)
+		{
+
+			var prepareName = function(str)
+			{
+				str = str.replace(/&amp;/g, '&');
+				str = str.replace(/&quot;/g, '"');
+				str = str.replace(/&lt;/g, '<');
+				str = str.replace(/&gt;/g, '>');
+				str = str.replace(/,/g, '');
+				str = str.replace(/;/g, '');
+
+				return str;
+			};
+
+			var result = [];
+			for (var provider in selected)
+			{
+				if (selected.hasOwnProperty(provider))
+				{
+					for (var varId in selected[provider])
+					{
+						if (selected[provider].hasOwnProperty(varId))
+						{
+							var id = varId;
+							if (id.indexOf('U') === 0)
+								id = id.substr(1);
+							if (id.indexOf('IU') === 0)
+								id = id.substr(2);
+							result.push(prepareName(selected[provider][varId].name) + ' [' + id + ']');
+						}
+					}
+				}
+			}
+			if (result)
+			{
+				BPSVInsert(result.join('; ')+'; ');
+			}
+		}
+	});
+};
 
 <?if($_POST['fieldType']=='user' && $selectorMode != 'employee'):?>
 BPSHideShow('BPSId5');

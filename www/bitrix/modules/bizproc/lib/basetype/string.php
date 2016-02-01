@@ -35,10 +35,20 @@ class String extends Base
 				$value = in_array($value, array('y', 'yes', 'true', '1')) ? 'Y' : 'N';
 				break;
 			case FieldType::DATE:
-				$value = date(Main\Type\Date::convertFormatToPhp(\FORMAT_DATE), strtotime($value));
-				break;
 			case FieldType::DATETIME:
-				$value = date(Main\Type\DateTime::convertFormatToPhp(\FORMAT_DATETIME), strtotime($value));
+				$value = (string) $value;
+				if ($value)
+				{
+					$format = ($type == FieldType::DATE) ? \FORMAT_DATE : \FORMAT_DATETIME;
+					if (\CheckDateTime($value, $format))
+					{
+						$value = date(Main\Type\Date::convertFormatToPhp($format), \MakeTimeStamp($value, $format));
+					}
+					else
+					{
+						$value = date(Main\Type\Date::convertFormatToPhp($format), strtotime($value));
+					}
+				}
 				break;
 			case FieldType::DOUBLE:
 				$value = str_replace(' ', '', str_replace(',', '.', $value));

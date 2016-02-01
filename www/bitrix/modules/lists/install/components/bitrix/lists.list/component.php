@@ -96,6 +96,14 @@ $arResult["CAN_ADD_ELEMENT"] = (
 		|| CIBlockSectionRights::UserHasRightTo($IBLOCK_ID, $section_id, "section_element_bind")
 	)
 );
+$arResult["CAN_READ"] = (
+	!$arResult["IS_SOCNET_GROUP_CLOSED"]
+	&& (
+		$lists_perm > CListPermissions::CAN_READ
+		|| CIBlockSectionRights::UserHasRightTo($IBLOCK_ID, $section_id, "element_read")
+		|| CIBlockSectionRights::UserHasRightTo($IBLOCK_ID, $section_id, "section_element_bind")
+	)
+);
 $arResult["CAN_EDIT_SECTIONS"] = (
 	!$arResult["IS_SOCNET_GROUP_CLOSED"]
 	&& (

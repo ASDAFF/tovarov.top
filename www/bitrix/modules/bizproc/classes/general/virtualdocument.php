@@ -10,6 +10,26 @@ IncludeModuleLangFile(__FILE__);
 class CBPVirtualDocument
 	extends CIBlockDocument
 {
+	public static function getEntityName()
+	{
+		return GetMessage('BPVDX_ENTITY_NAME');
+	}
+
+	public static function getDocumentTypeName($documentType)
+	{
+		if (strpos($documentType, 'type_') !== 0)
+			return $documentType;
+
+		$id = (int) substr($documentType, 5);
+
+		$iterator = CIBlock::GetList(false,array('ID' => $id));
+		$result = $iterator->fetch();
+		if (!$result)
+			return $documentType;
+
+		return $result['NAME'];
+	}
+
 	function GetFieldInputControlOptions($documentType, &$arFieldType, $jsFunctionName, &$value)
 	{
 		$result = "";
@@ -250,8 +270,6 @@ class CBPVirtualDocument
 				static $fl = true;
 				if ($fl)
 				{
-					if (!empty($_SERVER['HTTP_BX_AJAX']))
-						$GLOBALS["APPLICATION"]->ShowAjaxHead();
 					$GLOBALS["APPLICATION"]->AddHeadScript('/bitrix/js/iblock/iblock_edit.js');
 				}
 
@@ -635,7 +653,7 @@ class CBPVirtualDocument
 							if (!array_key_exists("MODULE_ID", $value))
 								$value["MODULE_ID"] = "bizproc";
 
-							$value = CFile::SaveFile($value, "bizproc_wf", true, true);
+							$value = CFile::SaveFile($value, "bizproc_wf", true);
 							if (!$value)
 							{
 								$value = null;
@@ -1167,9 +1185,9 @@ class CBPVirtualDocument
 		foreach ($valueTmp as $val)
 		{
 			$dbUser = CUser::GetByID($val);
-			if ($arUser = $dbUser->GetNext())
+			if ($arUser = $dbUser->fetch())
 			{
-				$formatName = CUser::FormatName($nameTemplate, $arUser, true);
+				$formatName = CUser::FormatName($nameTemplate, $arUser, true, false);
 				$arReturn[] = $formatName." <".$arUser["EMAIL"]."> [".$arUser["ID"]."]";
 			}
 		}
@@ -1640,11 +1658,17 @@ class CBPVirtualDocument
 				&& !array_key_exists("GetPublicEditHTML", $ar) && $t != "S:UserID" && $t != "S:DateTime")
 				continue;
 
-			$arResult[$t] = array("Name" => $ar["DESCRIPTION"], "BaseType" => "string");
+			$arResult[$t] = array("Name" => $ar["DESCRIPTION"], "BaseType" => "string", 'typeClass' => '\Bitrix\Iblock\BizprocType\UserTypeProperty');
 			if ($t == "S:UserID")
+			{
 				$arResult[$t]["BaseType"] = "user";
+				$arResult[$t]['typeClass'] = $typesMap[FieldType::USER];
+			}
 			elseif ($t == "S:employee" && COption::GetOptionString("bizproc", "employee_compatible_mode", "N") != "Y")
+			{
 				$arResult[$t]["BaseType"] = "user";
+				$arResult[$t]['typeClass'] = '\Bitrix\Iblock\BizprocType\UserTypePropertyEmployee';
+			}
 			elseif ($t == "S:DateTime")
 			{
 				$arResult[$t]["BaseType"] = "datetime";
@@ -1659,10 +1683,16 @@ class CBPVirtualDocument
 			{
 				$arResult[$t]["BaseType"] = "string";
 				$arResult[$t]["Complex"] = true;
+				$arResult[$t]['typeClass'] = '\Bitrix\Iblock\BizprocType\UserTypePropertyElist';
 			}
 			elseif ($t == 'S:HTML')
 			{
 				$arResult[$t]['typeClass'] = '\Bitrix\Iblock\BizprocType\UserTypePropertyHtml';
+			}
+			elseif($t == 'S:DiskFile')
+			{
+				$arResult[$t]["BaseType"] = "int";
+				$arResult[$t]['typeClass'] = '\Bitrix\Iblock\BizprocType\UserTypePropertyDiskFile';
 			}
 		}
 

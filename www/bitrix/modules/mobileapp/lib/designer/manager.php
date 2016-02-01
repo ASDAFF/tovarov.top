@@ -57,7 +57,7 @@ class Manager
 	}
 
 	/**
-	 * Removes application by given code
+	 * Removes application by code
 	 *
 	 * @param $appCode application code
 	 *
@@ -70,7 +70,7 @@ class Manager
 	}
 
 	/**
-	 * Binds the given file to the application
+	 * Binds file to the application
 	 *
 	 * @param $fileArray - file array
 	 * @param $appCode - application code
@@ -97,7 +97,7 @@ class Manager
 	}
 
 	/**
-	 *  Unbinds the file with given ID
+	 *  Unbinds file
 	 *
 	 * @param $fileId - identifier of file in b_file table
 	 * @param $appCode - application code
@@ -122,7 +122,7 @@ class Manager
 	}
 
 	/**
-	 * Add configuration to the application
+	 * Add configuration to application
 	 *
 	 * @param string $appCode - application code
 	 * @param $platform - platform code
@@ -177,12 +177,11 @@ class Manager
 	/**
 	 * Updates configuration
 	 *
-	 * @param string $appCode - application code
-	 * @param array $platform - platform code
+	 * @param string $appCode  application code
+	 * @param array $platform  platform code
+	 * @param array $config  new configuration
 	 *
-	 * @see ConfigTable::getSupportedPlatforms for details on availible platforms
-	 *
-	 * @param array $config - new configuration
+	 * @see ConfigTable::getSupportedPlatforms
 	 *
 	 * @return bool
 	 */

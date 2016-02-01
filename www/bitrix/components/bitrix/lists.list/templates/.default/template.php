@@ -61,7 +61,7 @@ if($arParams["CAN_EDIT"])
 	);
 }
 
-if($arResult["CAN_ADD_ELEMENT"])
+if($arResult["CAN_READ"])
 {
 	$arToolbar[] = array(
 		"TEXT" => GetMessage("CT_BLL_EXPORT_EXCEL"),

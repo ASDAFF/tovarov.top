@@ -84,20 +84,14 @@
 				}
 			},
 			DatePicker: {
-				params: {
-					format: "DD.MM.YYYY",
-					type: "date",//date|time|datetime
-					callback: function ()
-					{
-					}
-				},
 				setParams: function (params)
 				{
 					if (typeof params == "object")
-						this.params = BXMobileApp.TOOLS.merge(this.params, params);
+						this.params = params;
 				},
-				show: function ()
+				show: function (params)
 				{
+					this.setParams(params);
 					app.showDatePicker(this.params);
 
 				},
@@ -490,7 +484,6 @@
 		{
 			app.exec("showActionSheet", {"id": this.id});
 		}
-
 		this.isShown = true;
 	};
 
@@ -796,15 +789,7 @@
 			}
 		},
 		TextPanel: {
-			defaultParams: {
-				placeholder: "Text here...",
-				button_name: "Send",
-				action: function (){},
-				plusAction: "",
-				callback:"-1",
-				useImageButton: false
-			},
-			params : {
+			defaultParams : {
 				placeholder: "Text here...",
 				button_name: "Send",
                 mentionDataSource: {},
@@ -812,8 +797,9 @@
                 smileButton:{},
 				plusAction: "",
 				callback:"-1",
-				useImageButton: false
+				useImageButton: true
 			},
+			params:{},
 			isAboutToShow: false,
 			temporaryParams: {},
             timeout:0,
@@ -866,10 +852,6 @@
 			{
 				if (BXMobileApp.apiVersion >= 10)
 					app.textPanelAction("focus", this.getParams());
-			},
-			blur: function()
-			{
-				app.clearInput();
 			},
 			clear: function ()
 			{
