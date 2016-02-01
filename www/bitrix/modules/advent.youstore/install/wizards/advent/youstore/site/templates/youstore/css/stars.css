@@ -1,0 +1,58 @@
+table.centered{
+	margin: 0 auto;
+}
+
+.bx_item_detail_rating{margin-bottom: 10px;}
+.bx_item_detail_rating td{
+	vertical-align: middle;
+	text-align: right;
+}
+.bx_item_detail_rating .bx_item_rating{
+	text-align: right;
+}
+.bx_item_detail_rating .bx_stars_container{
+	position: relative;
+	width: 60px;
+	height: 11px;
+	background: white;
+	background-size: 100% 100%;
+}
+.bx_item_detail_rating .bx_stars_bg{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 101;
+	background: url(../images/stars/5-stars.png) no-repeat left;
+}
+
+.bx_item_detail_rating .bx_stars_progres{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 102!important;
+	/*background: #8d2217!important;*/
+	background: url(../images/stars/5-stars-full.png) no-repeat left!important;
+}
+.bx_item_detail_rating .bx_stars_rating_votes{
+	color: #8d8d8d;
+	font-size: 11px;
+	line-height: 11px;
+	vertical-align: middle;
+}
+
+/*.bx_item_detail_rating .bx_vam{vertical-align: middle;}*/
+
+@media (max-width:530px){
+	.bx-touch .bx_item_detail_rating .bx_stars_container{
+		width: 34px;
+		height: 15px;
+		margin: 4px 0;
+	}
+	.bx_item_detail_rating .bx_stars_rating_votes{
+			font-size: 7px;
+			line-height: 7px;
+	}
+}

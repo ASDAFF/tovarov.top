@@ -1,0 +1,1 @@
+<strong id="footer-logo">YOUSTORE - online РїРѕРєСѓРїРєРё</strong>

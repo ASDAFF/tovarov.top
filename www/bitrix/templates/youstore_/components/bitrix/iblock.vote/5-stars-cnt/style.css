@@ -1,0 +1,16 @@
+.rating-holder{
+	float: left;
+	height: 21px;
+}
+
+	.rating-holder table{
+		margin-top: 6px;
+	}
+	
+.rate-count{
+	float: left;
+	color: #a9a6a5;
+	font-size: 14px;
+	font-weight: 300;
+	padding-left: 8px;
+}

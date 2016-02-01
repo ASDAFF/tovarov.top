@@ -1,0 +1,14 @@
+.pagination .next, .pagination .prev{
+	background-color: white;
+}
+
+.pagination .next.disabled, .pagination .prev.disabled{
+	background-color: #ececeb;
+}
+
+.pagination li a.disabled:hover{
+	color: #959899!important;
+	background: #ececeb!important;
+	border: 1px solid #dedfdf!important;
+	text-decoration: none;
+}

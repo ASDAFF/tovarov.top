@@ -1,0 +1,246 @@
+
+
+/*=================================================*/
+
+/*.social*/
+.social-container{
+	float: left;
+	padding: 14px 0 0 0;
+}
+
+.social-container.vk{
+	padding-right: 5px;
+}
+
+.social-container.fb{
+	padding-right: 25px;
+}
+
+/*=================================================*/
+
+/* item_detail_slider */
+.photo-box .tab-content{
+	overflow:visible!important;
+	height: auto!important;
+}
+
+.photo-box .tab-content .btns-holder{
+	position:absolute;
+	top:0;
+	padding:133px 0;
+	left:0;
+	text-align:center;
+	width:100%;
+	background-color:rgba(255,255,255,0.6);
+	display:none;
+}
+.photo-box .tab-content .bx_bigimages_imgcontainer:hover .btns-holder{display:block;}
+.photo-box .tab-content .btns-holder .increase,
+.photo-box .tab-content .btns-holder .video{
+	width:42px;
+	height:42px;
+	border-radius:21px;
+	text-indent:-9999px;
+	overflow:hidden;
+	display:inline-block;
+	vertical-align:top;
+	background: url(images/ico96.png) no-repeat;
+}
+.photo-box .tab-content .btns-holder .video{background-position:100% 0;}
+
+.tab-content .bx_item_slider{
+	position: relative;
+	margin-bottom: 10px;
+}
+.tab-content .bx_item_slider .bx_bigimages {
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 440px;
+	border-radius: 2px;
+	background: #fff;
+	text-align: center;
+	width: 100%;
+	padding-top: 400px;
+	background: url(../images/bg04.png) no-repeat;
+}
+.tab-content .bx_item_slider .bx_bigimages .bx_bigimages_imgcontainer{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.tab-content .bx_item_slider .bx_bigimages .bx_bigimages_imgcontainer .bx_bigimages_aligner {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-left: -1px;
+	width: 1px;
+}
+
+.tab-content .bx_item_slider .bx_bigimages .bx_bigimages_imgcontainer img {
+	display: inline-block;
+	max-width: 100%;
+	max-height: 100%;
+	vertical-align: middle;
+}
+/*----*/
+
+.tab-content .bx_item_slider .bx_slider_conteiner{
+	position: relative;
+}
+.bx-no-touch .tab-content .bx_item_slider .bx_slider_conteiner.full {
+	position: relative;
+}
+
+/*----*/
+
+.tab-content .bx_item_slider .bx_slider_scroller_container{position: relative}
+
+.tab-content .bx_item_slider .bx_slide{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 10px;
+	overflow: hidden;
+}
+.bx-touch .tab-content .bx_item_slider .bx_slide{overflow-x: auto}
+
+.tab-content .bx_item_slider .bx_slide ul{
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	white-space: nowrap
+}
+.bx-touch .tab-content .bx_item_slider .bx_slide ul{margin-left: 0 !important}
+.tab-content .bx_item_slider .bx_slide ul li:first-child{
+	margin: 0;
+}
+.tab-content .bx_item_slider .bx_slide ul li{
+	position: relative;
+	display: block;
+	float: left;
+	height: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: pointer;
+	margin: 0 0 0 18px;
+}
+
+.tab-content .bx_item_slider .bx_slide ul li .cnt{
+	position: absolute;
+	top: 0;
+	right: 2px;
+	bottom: 4px;
+	left:2px;
+	display: block;
+	background: #fff;
+	border: 2px solid #f4f3f3;
+}
+.bx-touch	.tab-content .bx_item_slider .bx_slide ul li .cnt{
+	border: 1px solid #f1f0ef;
+}
+
+.tab-content .bx_item_slider .bx_slide ul li:active .cnt,
+.tab-content .bx_item_slider .bx_slide ul li.bx_active .cnt{
+	border: 2px solid #f4f3f3;
+}
+.bx-touch .tab-content .bx_item_slider .bx_slide ul li.bx_active .cnt{
+	border: none;
+	border-style: solid;
+	border-width: 1px;
+	border: 2px solid #f4f3f3;
+	-webkit-border-image: url(images/x2border_active.png) 2 stretch;
+	-moz-border-image: url(images/x2border_active.png) 2 stretch;
+	-o-border-image: url(images/x2border_active.png) 2 stretch;
+	border-image: url(images/x2border_active.png) 2 fill stretch;
+}
+.tab-content .bx_item_slider .bx_slide ul li .cnt .cnt_item{
+	position: absolute;
+	top:   6%;
+	right: 6%;
+	bottom:6%;
+	left:  6%;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+.tab-content .bx_item_slider .bx_slide ul li .cnt .cnt_item img{
+	width: auto;
+	height: 25px;
+}
+
+/*----*/
+
+.tab-content .bx_item_slider .bx_slide_left, .tab-content .bx_item_slider .bx_slide_right{
+	background: url(images/ico29.png) no-repeat;
+	width: 7px;
+	height: 13px;
+}
+
+.tab-content .bx_item_slider .bx_slide_left{
+
+}
+.tab-content .bx_item_slider .bx_slide_left:hover{
+	background-position: 0 100%;
+}
+
+.tab-content .bx_item_slider .bx_slide_right{
+	background-position:100% 0;
+	right:0;
+	left:auto;
+}
+.tab-content .bx_item_slider .bx_slide_right:hover{
+	background-position: 100% 100%;
+}
+
+.bx-no-touch .tab-content .bx_item_slider .bx_slide_left,
+.bx-no-touch .tab-content .bx_item_slider .bx_slide_right  	  {opacity:0.8}
+.bx-no-touch .tab-content .bx_item_slider .bx_slide_left:hover,
+.bx-no-touch .tab-content .bx_item_slider .bx_slide_right:hover{opacity:1.0}
+.tab-content .bx_item_slider .bx_slider_conteiner.full .bx_slide_left,
+.tab-content .bx_item_slider .bx_slider_conteiner.full .bx_slide_right{
+	position: absolute;
+	top: 36px;
+	cursor: pointer;
+}
+.bx-no-touch .tab-content .bx_item_slider .bx_slide_left {left: 0;/*background:url(images/arr_left.png)  no-repeat   left  center;background-size: 100% auto*/}
+.bx-no-touch .tab-content .bx_item_slider .bx_slide_right{right:-1%;/*background:url(images/arr_right.png) no-repeat   right center;background-size: 100% auto*/}
+.bx-touch 	 .tab-content .bx_item_slider .bx_slide_left {left:   0;/*background:url(images/fade_left.png)  repeat-y   left  center;background-size: 100% auto*/}
+.bx-touch 	 .tab-content .bx_item_slider .bx_slide_right{right:  0;/*background:url(images/fade_right.png) repeat-y   right center;background-size: 100% auto*/}
+
+/*----*/
+.tab-content .bx_item_slider .bx_stick{
+	position: absolute;
+	top: 20px;
+	left: -2px;
+	width: 123px;
+	height: 35px;
+	background: url(images/stick.png) left center no-repeat;
+	color: #fff;
+	text-align: center;
+	text-shadow:0 1px 0 #ba3434;
+	font-weight: bold;
+	font-size: 	18px;
+	line-height: 35px;
+}
+.tab-content .bx_item_slider .bx_stick_disc{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	width: 72px;
+	height: 74px;
+	background: url(images/stick_disc.png) no-repeat center;
+	color: #fff;
+	text-align: center;
+	text-shadow:0 1px 0 #ba3434;
+	font-weight: bold;
+	font-size: 26px;
+	line-height: 74px;
+}

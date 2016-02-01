@@ -1,0 +1,50 @@
+$(function(){
+	$('body').on('click', '.like a, .link-wish, .link-like, .link-heart', function(e){
+		e.preventDefault();
+		var callback = false;
+		$.get($(this).attr('href'), '', function(data){
+			if(data == "OK"){
+				//$.fancybox.open({'content': $('#fancy_like'), minHeight: 15, wrapCSS: 'like-message'});
+				//reloadQuickLinks();
+				/*$('.popup .btn-close').click();
+				$('#wishlist-success').bPopup({
+					closeClass: 'btn-close',
+					modalColor: '#FFFFFF'
+				});*/
+				showMessagePopup("#wishlist-success");
+				console.log("Товар добавлен в вишлист");
+			}else{
+				console.log("Добавление в вишлист не состоялось", data);
+			}
+		});
+		
+		return false;
+	});
+	$('a.dislike').click(function(e){
+		e.preventDefault();
+		var parent = $(this).parents('li');
+		$.get($(this).attr('href'), '', function(data){
+			if(data == "OK"){
+				parent.remove();
+				//reloadQuickLinks();
+				console.log("Товар удален с вишлист");
+			}else{
+				console.log("Удаление с вишлиста не состоялось", data);
+			}
+		});
+		
+		return false;
+	});
+	$('.wishlist-remove-all').click(function(){
+		$.get('/ajax/wishlist.php', {ID: 'all', action: 'DISLIKE'}, function(data){
+			if(data == "OK"){
+				$('.products-list').remove();
+				//reloadQuickLinks();
+				$('.two-columns.two-columns2').append("<p>Список желаний пуст.</p>");
+				console.log("Весь Товар удален с вишлист");
+			}else{
+				console.log("Удаление всего товара с вишлиста не состоялось", data);
+			}
+		});
+	});
+});

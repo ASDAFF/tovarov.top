@@ -1,0 +1,32 @@
+.bx-core-waitwindow{
+    display: none !important;
+}
+.video-content{
+    display: none;
+}
+#feedback-success, #resume-success h2{
+    width: 250px;
+}
+.forgot-popup .submit.button{width:150px;}
+.changepwd h2{
+    color: #575656;
+    font-size: 20px;
+    line-height: 25px;
+    margin: 0 0 30px;
+    font-weight: 400;
+}
+.changepwd span{
+    color: #a3a2a2;
+    font-size: 17px;
+    line-height: 22px;
+}
+.changepwd .button{
+    margin-bottom: 10px;
+}
+.product-popup .link-wish.exists{background: url(images/bg-wishlist-dis.png) no-repeat;}
+
+a.col-title:hover{
+    color: #ea543f!important;
+    text-decoration: none;
+}
+.products-items-listview .link-wishlist-delete{background: url(images/ico-wish4-hover.png) no-repeat !important;}

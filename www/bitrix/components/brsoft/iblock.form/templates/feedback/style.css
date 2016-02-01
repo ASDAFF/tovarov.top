@@ -1,0 +1,138 @@
+.brsoft-review-container {
+    overflow: hidden;
+    width: 100%;
+	border: 1px solid #efefef;
+}
+.brsoft-review-container h2 {
+    color: #575656;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 20px;
+}
+.brsoft-review-container .row {
+    overflow: hidden;
+    width: 100%;
+}
+.brsoft-review-container fieldset{
+	border: none;
+}
+.brsoft-review-container .row .left {
+    float: left;
+    width: 40%;
+}
+.brsoft-review-container .text {
+    border: 1px solid #cfcfcf;
+    color: #a3a2a2;
+    float: left;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    margin: 0 0 25px;
+    padding: 8px;
+    width: 330px;
+}
+.brsoft-review-container .error {
+	border: 1px solid #FF0000;
+}
+.brsoft-review-container .captcha-cell {
+    margin: 0 0 25px;
+    overflow: hidden;
+    width: 100%;
+}
+.brsoft-review-container .captcha-cell img {
+    border: 1px solid #000;
+    float: left;
+    margin: 0 10px 0 0;
+}
+.brsoft-review-container .captcha-cell .text {
+    margin: 0;
+    width: 156px;
+}
+
+.brsoft-review-container .row .right {
+    float: right;
+    width: 60%;
+	height: 200px;
+}
+.brsoft-review-container .right textarea{
+    border: 1px solid #cfcfcf;
+    color: #a3a2a2;
+    float: left;
+    font-size: 16px;
+    font-weight: 300;
+    height: 90%;
+    line-height: 19px;
+    margin: 0 0 25px;
+    padding: 8px;
+    width: 90%;
+}
+
+.brsoft-review-container .avatar-block {
+    color: #a3a2a2;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 22px;
+    overflow: hidden;
+    width: 100%;
+}
+.brsoft-review-container .avatar-block .row {
+    margin: 0 0 10px;
+}
+.brsoft-review-container .avatar-block p {
+    float: left;
+    margin: 0 12px 0 0;
+}
+.brsoft-review-container .type-file {
+    cursor: pointer;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 73px;
+}
+.brsoft-review-container .type-file em {
+    color: #008D44;
+    float: left;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 22px;
+}
+.brsoft-review-container .type-file em span {
+    border-bottom: 1px dashed #008D44;
+    display: inline-block;
+}
+.brsoft-review-container .type-file input {
+    cursor: pointer;
+    float: left;
+    margin: 0 -73px 0 0;
+    opacity: 0;
+    width: 73px;
+}
+.brsoft-review-container .button {
+    font-size: 14px;
+    padding: 7px 17px;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #008D44;
+    border-color: -moz-use-text-color -moz-use-text-color #008D44;
+    border-color: #008D44;
+    border-image: none;
+    border-radius: 6px;
+    border-style: none none solid;
+    border-width: 0 0 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 10px 18px;
+    position: relative;
+    transition: all 0.25s ease-in-out 0s;
+    vertical-align: top;
+}
+.brsoft-review-container .button:hover {
+    background: none repeat scroll 0 0 #008D44;
+    border-bottom-color: #008D44;
+    color: #fff;
+    text-decoration: none;
+}

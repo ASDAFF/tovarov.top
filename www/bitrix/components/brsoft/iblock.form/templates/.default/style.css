@@ -1,0 +1,46 @@
+.brsoft-tab-cell fieldset{
+	border: none;
+}
+.brsoft-text{
+	width:300px;
+	min-height: 25px;
+	padding: 0 0 0 4px;
+	display: block;
+	margin: 4px 0;
+}
+.brsoft-main-table{
+	padding:32px;
+	border: 1px solid;
+}
+.brsoft-main-table select{
+	width:304px;
+	min-height: 25px;
+}
+.brsoft-textarea{
+	width: 298px;
+	height: 100px;
+	display: block;
+	margin: 4px 0;
+}
+.brsoft-add-fields{
+	text-decoration: none;
+}
+.brsoft-date-input{
+	width:300px;
+	min-height: 25px;
+	padding: 0 0 0 4px;
+	display: block;
+}
+.brsoft-calendar-icon{
+    border: 0 none;
+    cursor: pointer;
+    height: 19px;
+	margin: -27px 0 8px 287px;
+    vertical-align: top;
+    width: 19px;
+	display: block;
+}
+.brsoft-calendar-icon-hover {
+    background-color: #dbe3f2;
+	margin: -27px 0 8px 287px;
+}

@@ -1,0 +1,3 @@
+<?
+$PERM["/"]["*"]="R";//default permissions
+?>

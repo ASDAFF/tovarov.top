@@ -1,0 +1,16 @@
+.aside-list {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 6px;
+	font-size: 15px;
+	line-height: 17px;
+}
+
+.aside-list li {
+	padding: 0 0 10px 19px;
+	background: url(images/ico35.png) no-repeat 0 5px;
+}
+
+.aside-list2 {
+	padding: 0 0 30px;
+}

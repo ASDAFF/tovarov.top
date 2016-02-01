@@ -1,0 +1,16 @@
+.wishlist_container{
+	display: inline-block;
+}
+	.wishlist_container a{
+		display: block;
+		background: url('images/wishlist_not_exists.png');
+		width: 25px;
+		height: 25px;
+	}
+	.wishlist_container a:hover{
+		background: url('images/wishlist_exists.png');
+	}
+	
+	.wishlist_container a.exists{
+		background: url('images/wishlist_exists.png');
+	}

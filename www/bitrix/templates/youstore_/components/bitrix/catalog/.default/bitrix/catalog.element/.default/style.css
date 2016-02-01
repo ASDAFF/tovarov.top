@@ -1,0 +1,16 @@
+.item_old_price {
+	margin: 0 20px 0 0;
+    color: #4a494a;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: normal;
+   	text-decoration: line-through;
+
+}
+.item_old_price sub {
+	display: inline-block;
+    vertical-align: baseline;
+    font-weight: 300;
+    font-size: 13px;
+	text-decoration: none;
+}
