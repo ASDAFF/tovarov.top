@@ -178,13 +178,16 @@ if (!empty($arResult['ITEMS']))
 						<?if(!empty($productLabel)):?>
 							<span class="<?=$productLabel?>"><?=$arItem["PROPERTIES"]["LABEL"]["VALUE"]?></span>
 						<?endif?>
-						
-						<?if(!empty($arItem["PROPERTIES"]["YOUTUBE_VIDEO_HREF"]["VALUE"])):?>
-							<a href="<?=str_replace('/embed/', '/v/',$arItem["PROPERTIES"]["YOUTUBE_VIDEO_HREF"]["VALUE"]);?>" class="video-link fb_video"><?=GetMessage('PLAY')?></a>
-						<?endif?>						
-						<?/*if(!empty($arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"])):?>
-							<a href="<?=$arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]?>" class="video-link"><?=GetMessage('PLAY')?></a>
-						<?endif*/?>
+
+						<?if(!empty($arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT'])):?>
+							<?$link = $arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT']?>
+							<?if (strrpos($link, "iframe") !== false):?>
+								<a data-id="<?=$arItem['ID']?>" class="video-link"><?=GetMessage('PLAY')?></a>
+								<div class="video-content video-cont<?=$arItem['ID']?>"><?=$arItem['PROPERTIES']['YOUTUBE_VIDEO']['~VALUE']['TEXT']?></div>
+							<?else:?>
+								<a class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
+							<?endif?>
+						<?endif?>
 							<div class="image">
 								<a id="<? echo $arItemIDs['PICT']; ?>"
 									href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"

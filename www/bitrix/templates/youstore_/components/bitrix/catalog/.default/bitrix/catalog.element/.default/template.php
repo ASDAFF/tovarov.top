@@ -200,7 +200,7 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		"ES_IBLOCK_GROUP_SORT_FIELD" => "sort",
 		"ES_IBLOCK_GROUP_SORT_ORDER" => "asc",
 		"ES_IBLOCK_TYPE_CATALOG" => "catalog",
-		"ES_IBLOCK_CATALOG" => "16",  //Макрос
+		"ES_IBLOCK_CATALOG" => "20",  //Макрос
 		"ES_ELEMENT" => $arResult["ID"],
 		"ES_SHOW_EMPTY" => "N",
 		"ES_SHOW_EMPTY_PROPERTY" => "N",
@@ -293,24 +293,24 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
                         </div>
                         <?endif?>
                     <?if(!empty($arResult["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT'])):?>
-                        <div class="tab-box">
-                            <h3 class="box-title icon7"><?=GetMessage('CATALOG_VIDEO')?></h3>
-                            <div class="tab-video">
-                                <?$link = $arResult["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT']?>
-                                <?if (strrpos($link, "iframe") !== false):?>
-                                    <?=$arResult["PROPERTIES"]["YOUTUBE_VIDEO"]["~VALUE"]['TEXT']?>
-                                <?elseif(strrpos($link, "https", -strlen($link)) !== false):?>
-                                    <iframe width="444" height="271" src="<?=$link?>" frameborder="0" allowfullscreen></iframe>
-                                <?endif?>                        
-                            </div>
-                        </div>
-                        <script>
-                            $(document).ready(function(){
-                                $('.tab-video iframe').attr('width','444');
-                                $('.tab-video iframe').attr('height','271');
-                            })
-                        </script>
-                        <?endif?>
+						<div class="tab-box">
+							<h3 class="box-title icon7"><?=GetMessage('CATALOG_VIDEO')?></h3>
+							<div class="tab-video">
+								<?$link = $arResult["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT']?>
+								<?if (strrpos($link, "iframe") !== false):?>
+									<?=$arResult["PROPERTIES"]["YOUTUBE_VIDEO"]["~VALUE"]['TEXT']?>
+								<?else:?>
+									<iframe width="444" height="271" src="<?='https://youtube.com/embed/'.$link?>" frameborder="0" allowfullscreen></iframe>
+								<?endif?>
+							</div>
+						</div>
+						<script>
+							$(document).ready(function(){
+								$('.tab-video iframe').attr('width','444');
+								$('.tab-video iframe').attr('height','271');
+							})
+						</script>
+					<?endif?>
                 </div>
             </div>
             <?if(!empty($arResult["PROPERTIES"]["ACCESSORIES"]["VALUE"])):?>
@@ -541,7 +541,7 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		"ES_IBLOCK_GROUP_SORT_FIELD" => "sort",
 		"ES_IBLOCK_GROUP_SORT_ORDER" => "asc",
 		"ES_IBLOCK_TYPE_CATALOG" => "catalog",
-		"ES_IBLOCK_CATALOG" => "16",
+		"ES_IBLOCK_CATALOG" => "20",
 		"ES_ELEMENT" => $arResult["ID"],
 		"ES_SHOW_EMPTY" => "N",
 		"ES_SHOW_EMPTY_PROPERTY" => "N",

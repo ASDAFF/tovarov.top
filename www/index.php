@@ -22,7 +22,7 @@ $APPLICATION->IncludeComponent(
 	"popular", 
 	array(
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "16",
+		"IBLOCK_ID" => "20",
 		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
 		"SECTION_USER_FIELDS" => array(
@@ -145,7 +145,7 @@ $arBrands = $APPLICATION->IncludeComponent(
 	Array(
 		"PREVIEW_WIDTH" => 139,
 		"PREVIEW_HEIGHT" => 70,
-		"IBLOCK_CATALOG"=>'16',
+		"IBLOCK_CATALOG"=>'20',
 		"AJAX_MODE" => "N",
 		"IBLOCK_TYPE" => "content",
 		"IBLOCK_ID" => "3",
@@ -198,7 +198,7 @@ $arBrands = $APPLICATION->IncludeComponent(
 		"TABS_PROPERTY" => "TABS_MAIN_PAGE",
 		"SHOW_TAB_CONTROLS" => "Y",
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "16",
+		"IBLOCK_ID" => "20",
 		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
 		"SECTION_USER_FIELDS" => array(
