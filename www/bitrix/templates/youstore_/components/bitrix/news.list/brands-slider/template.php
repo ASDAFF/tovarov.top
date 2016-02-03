@@ -132,7 +132,7 @@
 				"PAGER_TEMPLATE" => "",
 				"DISPLAY_TOP_PAGER" => "N",
 				"DISPLAY_BOTTOM_PAGER" => "N",
-				"PAGER_TITLE" => "Òîâàðû",
+				"PAGER_TITLE" => "Ð¡Ñ‚Ñ€Ð°Ð½Ð¸Ñ†Ð°",
 				"PAGER_SHOW_ALWAYS" => "N",
 				"PAGER_DESC_NUMBERING" => "N",
 				"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -140,7 +140,7 @@
 				"AJAX_OPTION_ADDITIONAL" => "",
 				"PRODUCT_QUANTITY_VARIABLE" => "quantity"
 			),
-			false
+			$component
 		);
 	?>
 	</div>

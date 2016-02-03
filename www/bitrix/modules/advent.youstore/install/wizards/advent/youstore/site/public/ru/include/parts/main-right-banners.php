@@ -2,8 +2,8 @@
 	<?
 $GLOBALS['filter'] = array('!PROPERTY_RIGHT' => false);
 $APPLICATION->IncludeComponent(
-    "bitrix:news.list", 
-    "banners", 
+    "bitrix:news.list",
+    "banners",
     array(
         "IBLOCK_TYPE" => "content",
         "IBLOCK_ID" => "#RSS_IBLOCK_ID#",

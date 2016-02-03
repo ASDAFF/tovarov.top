@@ -10,7 +10,7 @@
 	"",
 	array(
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "16",
+		"IBLOCK_ID" => "20",
 		"NAME" => "CATALOG_COMPARE_LIST",
 		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"COMPARE_URL" => "/catalog/compare.php",

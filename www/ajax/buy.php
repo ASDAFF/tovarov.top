@@ -10,7 +10,7 @@ define('SITE_DIR', '/');
 if($_REQUEST['id'])$idVar='id'; else $idVar='ID';
 $arParams = array(
 	"IBLOCK_TYPE" => "catalog",
-	"IBLOCK_ID" => "16",
+	"IBLOCK_ID" => "20",
 	"HIDE_NOT_AVAILABLE" => "N",
 	"SECTION_ID_VARIABLE" => "SECTION_ID",
 	"SEF_MODE" => "Y",

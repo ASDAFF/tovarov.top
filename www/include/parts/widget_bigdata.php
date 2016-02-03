@@ -7,7 +7,7 @@
 			"RCM_TYPE" => "bestsell",
 			"ID" => $_REQUEST["PRODUCT_ID"],
 			"IBLOCK_TYPE" => "catalog",
-			"IBLOCK_ID" => "16",
+			"IBLOCK_ID" => "20",
 			"SHOW_FROM_SECTION" => "N",
 			"HIDE_NOT_AVAILABLE" => "N",
 			"SHOW_DISCOUNT_PERCENT" => "N",

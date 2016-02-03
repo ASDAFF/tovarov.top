@@ -704,7 +704,9 @@ li > .hasDrop {
 }
 #nav > li:last-child .drop,
 .nav > li:last-child .drop {
+  /*
   right: -56px;
+  */
   left: auto;
 }
 .nav-frame .drop .columns {
@@ -1742,7 +1744,9 @@ input.file {
   width: 100%;
 }
 .side-banners .box.widget img {
+  /*
   width: auto;
+  */
   height: auto;
 }
 .side-banners .box .border {

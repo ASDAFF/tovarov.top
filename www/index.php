@@ -1,7 +1,9 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetPageProperty("description", "YOU STORE!");
-$APPLICATION->SetTitle("Главная");
+$APPLICATION->SetPageProperty("keywords", "Tovarov.TOP");
+$APPLICATION->SetPageProperty("title", "Tovarov.TOP - интернет-магазин нужных товаров");
+$APPLICATION->SetPageProperty("description", "Tovarov.TOP");
+$APPLICATION->SetTitle("Tovarov.TOP");
 $APPLICATION->SetPageProperty("body-class", "home");
 ?>
 <?
@@ -145,7 +147,7 @@ $arBrands = $APPLICATION->IncludeComponent(
 	Array(
 		"PREVIEW_WIDTH" => 139,
 		"PREVIEW_HEIGHT" => 70,
-		"IBLOCK_CATALOG"=>'16',
+		"IBLOCK_CATALOG"=>'20',
 		"AJAX_MODE" => "N",
 		"IBLOCK_TYPE" => "content",
 		"IBLOCK_ID" => "3",
@@ -198,7 +200,7 @@ $arBrands = $APPLICATION->IncludeComponent(
 		"TABS_PROPERTY" => "TABS_MAIN_PAGE",
 		"SHOW_TAB_CONTROLS" => "Y",
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "16",
+		"IBLOCK_ID" => "20",
 		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
 		"SECTION_USER_FIELDS" => array(
@@ -307,7 +309,17 @@ $arBrands = $APPLICATION->IncludeComponent(
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 		"SHOW_EXPAND_OPTIONS" => "Y",
-		"SET_BROWSER_TITLE" => "Y"
+		"SET_BROWSER_TITLE" => "Y",
+		"COMPONENT_TEMPLATE" => "product-tabs",
+		"BACKGROUND_IMAGE" => "-",
+		"SEF_MODE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"USE_MAIN_ELEMENT_SECTION" => "N",
+		"COMPARE_PATH" => "",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SHOW_404" => "N",
+		"MESSAGE_404" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N"
 	),
 	false
 );

@@ -51,10 +51,10 @@
             <div class="rows">
               <div class="box">
                 <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
-                        "AREA_FILE_SHOW" => "sect", 
-                        "AREA_FILE_SUFFIX" => "footer_text", 
-                        "AREA_FILE_RECURSIVE" => "Y", 
-                        "EDIT_TEMPLATE" => "standard.php" 
+                        "AREA_FILE_SHOW" => "sect",
+                        "AREA_FILE_SUFFIX" => "footer_text",
+                        "AREA_FILE_RECURSIVE" => "Y",
+                        "EDIT_TEMPLATE" => "standard.php"
                     )
                 );?>
                 <div class="address-box">
@@ -102,8 +102,8 @@
               </div>
               <div class="box">
                 <?$APPLICATION->IncludeComponent(
-                    "bitrix:menu", 
-                    "action", 
+                    "bitrix:menu",
+                    "action",
                     array(
                         "ROOT_MENU_TYPE" => "actions",
                         "MAX_LEVEL" => "1",
@@ -122,24 +122,24 @@
               </div>
               <div class="box tablet-hide">
                 <?$APPLICATION->IncludeComponent("bitrix:search.tags.cloud","bottom",Array(
-                        "FONT_MAX" => "13", 
-                        "FONT_MIN" => "13", 
-                        "COLOR_NEW" => "FFFFFF", 
-                        "COLOR_OLD" => "FFFFFF", 
-                        "PERIOD_NEW_TAGS" => "", 
-                        "SHOW_CHAIN" => "N", 
-                        "COLOR_TYPE" => "Y", 
-                        "WIDTH" => "100%", 
-                        "SORT" => "NAME", 
-                        "PAGE_ELEMENTS" => "150", 
-                        "PERIOD" => "", 
-                        "URL_SEARCH" => SITE_DIR."search/", 
-                        "TAGS_INHERIT" => "Y", 
+                        "FONT_MAX" => "13",
+                        "FONT_MIN" => "13",
+                        "COLOR_NEW" => "FFFFFF",
+                        "COLOR_OLD" => "FFFFFF",
+                        "PERIOD_NEW_TAGS" => "",
+                        "SHOW_CHAIN" => "N",
+                        "COLOR_TYPE" => "Y",
+                        "WIDTH" => "100%",
+                        "SORT" => "NAME",
+                        "PAGE_ELEMENTS" => "150",
+                        "PERIOD" => "",
+                        "URL_SEARCH" => SITE_DIR."search/",
+                        "TAGS_INHERIT" => "Y",
                         "CHECK_DATES" => "Y",
                         "FILTER_NAME"=> "",
                         "arrFILTER" => Array("no"),
-                        "CACHE_TYPE" => "A", 
-                        "CACHE_TIME" => "3600" 
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "3600"
                     )
                 );?>
               </div>
@@ -200,18 +200,45 @@
         ));
 ?>
 
-<?
-    //yandex.metrika (now .default)
-    $APPLICATION->IncludeFile(SITE_DIR."include/analytics/yandex_metrika.php", Array(), Array(
-            "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
-            "NAME"      => GetMessage('FOOTER_YAMETR'),      // òåêñò âñïëûâàþùåé ïîäñêàçêè íà èêîíêå
-            "TEMPLATE"  => "section_include_template.php"                    // èìÿ øàáëîíà äëÿ íîâîãî ôàéëà
-        ));
-?>
-	
-	<?/*íóæåí äëÿ áûñòðîãî ïðîñìîòðà òîâàðà*/?>
 	<div class="ajax-tmp"></div>
 
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-73212558-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	(function (d, w, c) {
+		(w[c] = w[c] || []).push(function() {
+			try {
+				w.yaCounter34016145 = new Ya.Metrika({id:34016145,
+						webvisor:true,
+						clickmap:true,
+						trackHash:true});
+			} catch(e) { }
+		});
+
+		var n = d.getElementsByTagName("script")[0],
+			s = d.createElement("script"),
+			f = function () { n.parentNode.insertBefore(s, n); };
+		s.type = "text/javascript";
+		s.async = true;
+		s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+		if (w.opera == "[object Opera]") {
+			d.addEventListener("DOMContentLoaded", f, false);
+		} else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="//mc.yandex.ru/watch/34016145" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
 
     <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/lemmon-slider.js"></script>

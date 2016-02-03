@@ -8,7 +8,7 @@
 
 <?$APPLICATION->IncludeComponent("bitrix:catalog.search", ".default", array(
 	"IBLOCK_TYPE" => "catalog",
-	"IBLOCK_ID" => "16",
+	"IBLOCK_ID" => "20",
 	"ELEMENT_SORT_FIELD" => "sort",
 	"ELEMENT_SORT_ORDER" => "asc",
 	"ELEMENT_SORT_FIELD2" => "id",

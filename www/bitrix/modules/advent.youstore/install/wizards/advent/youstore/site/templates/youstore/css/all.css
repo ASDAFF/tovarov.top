@@ -448,7 +448,9 @@ li > .hasDrop{background: url(../images/bg-drop-arrow.png) 100% 6px no-repeat;}
 }
 #nav > li:last-child .drop,
 .nav > li:last-child .drop{
+    /*
     right: -56px;
+    */
     left: auto;
 }
 .nav-frame .drop .columns{float: left;}
@@ -1360,7 +1362,9 @@ input.file {
     width: 100%;
 }
 .side-banners .box.widget img{
+    /*
     width: auto;
+    */
     height: auto;
 }
 .side-banners .box .border{

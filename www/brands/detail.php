@@ -70,7 +70,7 @@
 				"ELEMENT_INCLUDE_SUBSECTIONS" => "N",
 				"FILTER_NAME" => "brandSectionFilter",
 				"IBLOCK_TYPE" => "catalog",
-				"IBLOCK_ID" => "16",
+				"IBLOCK_ID" => "20",
 				"SECTION_ID" => "",
 				"SECTION_CODE" => "",
 				"SECTION_URL" => "",
@@ -104,7 +104,7 @@
 			Array(
 				"BRAND_ID" => $arCurBrand["ID"],
 				"IBLOCK_TYPE" => "catalog",
-				"IBLOCK_ID" => "16",
+				"IBLOCK_ID" => "20",
 				"SECTION_ID" => $_REQUEST["SECTION_ID"],
 				"FILTER_NAME" => "arrFilter",
 				"PRICE_CODE" => array(
@@ -252,7 +252,7 @@
 							$show, 
 							array(
 								"IBLOCK_TYPE" => "catalog",
-								"IBLOCK_ID" => "16",
+								"IBLOCK_ID" => "20",
 								"SECTION_ID" => $_REQUEST["SECTION_ID"],
 								"SECTION_CODE" => "",
 								"SECTION_USER_FIELDS" => array(

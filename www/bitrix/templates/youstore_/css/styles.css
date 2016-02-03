@@ -711,7 +711,9 @@ li > .hasDrop {
 }
 #nav > li:last-child .drop,
 .nav > li:last-child .drop {
+  /*
   right: -56px;
+  */
   left: auto;
 }
 .nav-frame .drop .columns {
@@ -1755,7 +1757,9 @@ input.file {
   width: 100%;
 }
 .side-banners .box.widget img {
+  /*
   width: auto;
+  */
   height: auto;
 }
 .side-banners .box .border {
@@ -5969,7 +5973,7 @@ input.file {
   padding: 6px 6px 5px 5px;
 }
 .products-content .product-item {
-  margin-left: 19px;
+  margin-left: 18px;
 }
 .wishlist .product-item .expand-holder {
   border-color: #f5f5f5;
