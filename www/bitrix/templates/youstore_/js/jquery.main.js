@@ -90,7 +90,7 @@ function initResolution() {
             });
 		}
 	});
-	
+
 	// custom color buttons
 	jQuery('.colors .color-1').click( function(e) {
 	    e.preventDefault();
@@ -169,20 +169,20 @@ function initResolution() {
 		});
         less.refreshStyles();
     });
-	
+
 	function page_reload () {
 		jQuery('.resolution-frame').attr('src', $('.resolution-frame').attr('src'));
 	}
-	
+
 	// close advent toolbar
 	jQuery ('.advent-toolbar .btn-close').click (function (e) {
         e.preventDefault();
         jQuery('.advent-toolbar').slideUp();
         jQuery('.resolution-frame').css('padding-top', '0');
     });
-    
+
     // - layout type select
-    
+
     // wide
     jQuery ('.layout-type .btn-collapsed').click (function (e) {
         e.preventDefault();
@@ -190,7 +190,7 @@ function initResolution() {
         jQuery(this).addClass('active');
         jQuery('.resolution-frame ').contents().find('body').addClass('wide-page');
     });
-    
+
     // boxed
     jQuery ('.layout-type .btn-boxed').click (function (e) {
         e.preventDefault();
@@ -198,7 +198,7 @@ function initResolution() {
         jQuery(this).addClass('active');
         jQuery('.resolution-frame ').contents().find('body').removeClass('wide-page');
     });
-    
+
     // mobile top nav
     if ( jQuery('body').hasClass('screen-mobile')) {
         jQuery('<a href="#" class="top-toggle">'+js_about_city+'</a>').prependTo('.top-nav');
@@ -214,10 +214,10 @@ function initResolution() {
 function initResponsiveNav() {
 	// Append the mobile icon nav
 	$('.nav-frame').append($('<div class="nav-mobile">'+js_menu_name+'</div>'));
-	
+
 	// Add a <span> to every .nav-item that has a <ul> inside
 	$('#nav > li').has('ul').prepend('<span class="nav-click"><i class="nav-arrow"></i></span>');
-	
+
 	// Click to reveal the nav
 	$('.nav-mobile').click(function(){
 		$('#nav').toggle();
@@ -230,7 +230,7 @@ function initResponsiveNav() {
             $(this).next('.drop').slideToggle();
         }
 	});
-	
+
 	$('#nav .col-title').click(function(e){
         if ( $(this).hasClass('hasDrop') ) {
             e.preventDefault();
@@ -242,7 +242,7 @@ function initResponsiveNav() {
 function initInterface(){
     // custom scroll on body
     //$("html").niceScroll();
-    
+
     // detect if mobile
     if( window.innerWidth < 641 ) {
         jQuery('body').addClass('screen-mobile');
@@ -263,24 +263,24 @@ function initInterface(){
         window_width = jQuery(window).width();
 		window_height = jQuery(window).height();
     });
-    
+
     // detect if 404 page
     if ( jQuery('.box-404').length ) {
         jQuery('body').addClass('page-404');
     }
-    
-    // mobile footer features 
+
+    // mobile footer features
     if ( jQuery('body').hasClass('screen-mobile')) {
         jQuery('#footer .copy').insertAfter('#footer .container');
     }
-    
+
     // contacts page features
     if ( jQuery('body').hasClass('screen-mobile')) {
         jQuery('.page-map').addClass('page-image').removeClass('page-map');
         //jQuery('.page-image img').attr('src', 'images/img-paints.jpg');
         jQuery('.page-image img').after('<div class="frame"></div>');
     }
-    
+
     // catalog mobile filters
     if ( jQuery('body').hasClass('screen-mobile')) {
     	jQuery('.filter-expand h2').click( function(e) {
@@ -288,7 +288,7 @@ function initInterface(){
     		jQuery(this).next('form').slideToggle();
     	});
     }
-    
+
     // detect if hasDrop
     jQuery('li > .drop').prev('a').addClass('hasDrop');
     jQuery('.col > .sub-menu').prev('a').addClass('hasDrop');
@@ -311,9 +311,9 @@ function initInterface(){
        $('.footer-blocks .block').each( function(e) {
           var this_width = $(this).width();
           $(this).find('.block-frame').width(this_width);
-       }); 
+       });
     });
-    
+
 
 
     // new menu aligner
@@ -354,7 +354,7 @@ function initInterface(){
                 + '</ul></div></div></div>'
             );
             $("#nav").width(mw);
-            
+
             if ( !$('body').hasClass('screen-mobile') ) {
 	            jQuery('.nav li').hover( function() {
 	                    var drop_width = 0;
@@ -373,7 +373,7 @@ function initInterface(){
 	            });
             }
         }
-        
+
 
         // detect add_menu position
         if ( jQuery('.points').length ) {
@@ -388,7 +388,8 @@ function initInterface(){
 	            var drop_width = 0;
 	            jQuery(this).find('.drop').show();
 	            jQuery(this).find('.col').each(function(index) {
-	                    drop_width = drop_width + jQuery(this).outerWidth(true);
+                    if(index<5)
+                        drop_width = drop_width + jQuery(this).outerWidth(true);
 	            });
 	            if ( jQuery(this).find('.drop .drop-img').length > 0 ) {
 	                jQuery(this).find('.drop').width(drop_width + 160);
@@ -445,7 +446,7 @@ function initInterface(){
     // cart page items height calculate
     var basket_max = -1;
     jQuery(".item-form-holder").each(function() {
-            var h = $(this).height(); 
+            var h = $(this).height();
             basket_max = h > basket_max ? h : basket_max;
     });
     jQuery(".item-form-holder").height(basket_max);
@@ -673,13 +674,13 @@ function initInterface(){
     setTimeout(function(){
             //#issues 12 fix, heavy images bug, 31 Jan 2014
             // videos frame & expand box width
-            
+
             var box_sum = 0;
-            
+
             $(".videos-section .videos-list li").each(function() {
                 box_sum += jQuery(this).width();
             });
-            
+
             $(".videos-section .videos-list .expand").each(function() {
                     // getting parent link width/height
                     var box_width = jQuery(this).parent().parent().width();
@@ -813,7 +814,7 @@ function initInterface(){
 
     // aside-timer
     $(".aside-timer .clock").countdown({
-            date: "november 11, 2014", //Counting TO a date  
+            date: "november 11, 2014", //Counting TO a date
             htmlTemplate: "<div class='digit'><strong>%{h}</strong><span>"+hours1+"</span></div><div class='digit'><strong>%{m}</strong><span>"+minutes+"</span></div><div class='digit'><strong>%{s}</strong><span>"+seconds+"</span></div>",
             onChange: function( event, timer ){
             },
@@ -893,7 +894,7 @@ function initInterface(){
         step:1
     });
     }
-    
+
     // $('a.link-next, a.link-prev').click( function() {
     //     activeLink = $('a.active img').attr('src');
     //     $('.images-block .mask img').attr('src', activeLink);
@@ -1006,10 +1007,10 @@ function initInterface(){
                                 modalColor: '#fff'
                         });
                         // console.log(data);
-                        //alert('add'); 
+                        //alert('add');
                     },
             });
-        } 
+        }
     }
 
     jQuery('form[name=subscribe_f]').on('submit',function(){
@@ -1032,20 +1033,20 @@ function initInterface(){
 
     //clear visited
     $(document).on('click', '.clear_visited', function(e){
-            e.preventDefault(); 
+            e.preventDefault();
             $.ajax({
                     type: 'POST',
                     url: $(this).attr('href'),
 
                     dataType: "html",
                     success: function(html)
-                    {  
-                        $('div.tab.wishlist').replaceWith('<div class="tab wishlist"><p>'+nowish+'</p></div>')   
+                    {
+                        $('div.tab.wishlist').replaceWith('<div class="tab wishlist"><p>'+nowish+'</p></div>')
                         $.post(sd+'ajax/wishlist.php', "", function(html){
                                 $('div.links').replaceWith(html);
                         });
                         console.log('clear');
-                    }  
+                    }
             })
 
     })
@@ -1053,7 +1054,7 @@ function initInterface(){
     // product wishlist add
 
     $(document).on('click', '.link-wishlist,.link-wishlist-delete,.wishlist_delete.item-delete,.link-wish.det', function(e){
-            e.preventDefault(); 
+            e.preventDefault();
             var href = $(this).attr('href');
             var id = $(this).attr('data-id');
             var action = $(this).attr('data-action');
@@ -1068,45 +1069,45 @@ function initInterface(){
                     },
                     dataType: "html",
                     success: function(html)
-                    {   
+                    {
                         if($(elem).hasClass('wishlist_delete')){
                             reloadWishlistHTML();
                         }
 
                         if($(elem).hasClass('link-wishlist')){
                             $(elem).hide();
-                            $('.link-wishlist-delete.item'+id).show(); 
+                            $('.link-wishlist-delete.item'+id).show();
                         }else if($(elem).hasClass('link-wishlist-delete')){
                             $(elem).hide();
-                            $('.link-wishlist.item'+id).show();  
+                            $('.link-wishlist.item'+id).show();
                         } else if($(elem).hasClass('link-wish')) {
                             if($(elem).hasClass('exists')){$(elem).removeClass('exists');}
                             else{$(elem).addClass('exists');}
-                        }    
-                        $('.links').html(html);    
+                        }
+                        $('.links').html(html);
 
-                    }  
+                    }
             })
 
-            return false; 
-    }); 
+            return false;
+    });
 
 
     $(document).on('click', '.all-wish-delete', function(e){
-            e.preventDefault(); 
+            e.preventDefault();
             var href = $(this).attr('href');
             $.ajax({
                     type: 'POST',
                     url: href,
                     dataType: "html",
                     success: function(html)
-                    {   
+                    {
                         reloadWishlistHTML();
-                        $('.links').html(html);    
-                    }  
+                        $('.links').html(html);
+                    }
             })
 
-            return false; 
+            return false;
     });
 
 
@@ -1234,7 +1235,7 @@ function initInterface(){
 
     // job items hover
     jQuery('.job-items .item').hover(function() {
-            jQuery(this).toggleClass('red'); 
+            jQuery(this).toggleClass('red');
     });
     // input file button (job offers)
     jQuery('body').on('click','.fileinputs .file',function() {
@@ -1262,8 +1263,8 @@ function toTop(){
     });
 
     jQuery('.toolbox .link-up').click(function(){
-            jQuery('html, body').animate({scrollTop:0}, scrollSpeed); 
-            return false; 
+            jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
+            return false;
     });
 }
 

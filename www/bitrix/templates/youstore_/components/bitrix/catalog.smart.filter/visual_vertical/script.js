@@ -1,42 +1,42 @@
-function priceSliderInit($min, $max, $currMin, $currMax){
+function priceSliderInit(num,$min, $max, $currMin, $currMax){
 /* слайдер цен */
 	$min = $min || 0;
 	$max = $max || 10000;
 	$currMin = $currMin || $min;
 	$currMax = $currMax || $max;
 	
-	jQuery("#slider").slider({
+	jQuery("#slider_"+num).slider({
 		min: $min,
 		max: $max,
 		values: [$currMin, $currMax],
 		range: true,
 		stop: function(event, ui) {
-			jQuery("input.minCost").val(jQuery("#slider").slider("values",0));
-			jQuery("input.maxCost").val(jQuery("#slider").slider("values",1));
+			jQuery("input.minCost_"+num).val(jQuery("#slider_"+num).slider("values",0));
+			jQuery("input.maxCost_"+num).val(jQuery("#slider_"+num).slider("values",1));
 		},
 		slide: function(event, ui){
-			jQuery("input.minCost").val(jQuery("#slider").slider("values",0));
-			jQuery("input.maxCost").val(jQuery("#slider").slider("values",1));
+			jQuery("input.minCost_"+num).val(jQuery("#slider_"+num).slider("values",0));
+			jQuery("input.maxCost_"+num).val(jQuery("#slider_"+num).slider("values",1));
 		}
 	});
-	jQuery("input.minCost").change(function(){
-		var value1=jQuery("input.minCost").val();
-		var value2=jQuery("input.maxCost").val();
+	jQuery("input.minCost_"+num).change(function(){
+		var value1=jQuery("input.minCost_"+num).val();
+		var value2=jQuery("input.maxCost_"+num).val();
 		if(parseInt(value1) > parseInt(value2)){
 			value1 = value2;
-			jQuery("input.minCost").val(value1);
+			jQuery("input.minCost_"+num).val(value1);
 		}
-		jQuery("#slider").slider("values",0,value1);
+		jQuery("#slider_"+num).slider("values",0,value1);
 	});
-	jQuery("input.maxCost").change(function(){
-	var value1=jQuery("input.minCost").val();
-		var value2=jQuery("input.maxCost").val();
-		if (value2 > $max) { value2 = $max; jQuery("input.maxCost").val($max);}
+	jQuery("input.maxCost_"+num).change(function(){
+	var value1=jQuery("input.minCost_"+num).val();
+		var value2=jQuery("input.maxCost_"+num).val();
+		if (value2 > $max) { value2 = $max; jQuery("input.maxCost_"+num).val($max);}
 		if(parseInt(value1) > parseInt(value2)){
 			value2 = value1;
-			jQuery("input.maxCost").val(value2);
+			jQuery("input.maxCost_"+num).val(value2);
 		}
-		jQuery("#slider").slider("values",1,value2);
+		jQuery("#slider_"+num).slider("values",1,value2);
 	});
 
 	// фильтрация ввода в поля

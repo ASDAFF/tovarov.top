@@ -44,9 +44,8 @@ $this->setFrameMode(true);
             </div>
         </div>
         <div class="root-carousel">
-            <div class="container">
-                <?
-                    $APPLICATION->IncludeComponent(
+                <div class="container">
+                <?$APPLICATION->IncludeComponent(
                         "bitrix:catalog.section",
                         "product-slider", 
                         array(
@@ -59,9 +58,9 @@ $this->setFrameMode(true);
                                 0 => "",
                                 1 => "",
                             ),
-                            "ELEMENT_SORT_FIELD" => $arParams['ELEMENT_SORT_FIELD'],
-                            "ELEMENT_SORT_ORDER" => $arParams['ELEMENT_SORT_ORDER'],
-                            "ELEMENT_SORT_FIELD2" => "RAND",
+                            "ELEMENT_SORT_FIELD" => "CATALOG_AVAILABLE",
+                            "ELEMENT_SORT_ORDER" => "DESC",
+                            "ELEMENT_SORT_FIELD2" => "CATALOG_PRICE_1",
                             "ELEMENT_SORT_ORDER2" => "asc",
                             "FILTER_NAME" => "arrFilter",
                             "INCLUDE_SUBSECTIONS" => "Y",
@@ -142,7 +141,7 @@ $this->setFrameMode(true);
                             'OFFER_TREE_PROPS' => $arParams['OFFER_TREE_PROPS'],
 
                         ),
-                        false
+                        $component
                     );?>
             </div>
         </div>

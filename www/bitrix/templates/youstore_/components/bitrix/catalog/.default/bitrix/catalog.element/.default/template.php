@@ -124,7 +124,7 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
                         ),
                         $component
                     );?>
-                <span class="id"><?=GetMessage("PRODUCT_ARTIKUL_TITLE")?> <?=$arResult["ID"]?></span>
+                <span class="id"><?=GetMessage("PRODUCT_ARTIKUL_TITLE")?> <?=$arResult["PROPERTIES"]["ARTICLE"]["VALUE"]?></span>
             </div>
         </div>
         <div class="info-box">
@@ -196,23 +196,36 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 	".default", 
 	array(
 		"ES_IBLOCK_TYPE_GROUP" => "catalog",
-		"ES_IBLOCK_GROUP" => "8",  //Макрос
+		"ES_IBLOCK_GROUP" => "8",
 		"ES_IBLOCK_GROUP_SORT_FIELD" => "sort",
 		"ES_IBLOCK_GROUP_SORT_ORDER" => "asc",
 		"ES_IBLOCK_TYPE_CATALOG" => "catalog",
-		"ES_IBLOCK_CATALOG" => "20",  //Макрос
+		"ES_IBLOCK_CATALOG" => "20",
 		"ES_ELEMENT" => $arResult["ID"],
 		"ES_SHOW_EMPTY" => "N",
 		"ES_SHOW_EMPTY_PROPERTY" => "N",
 		"ES_SHOW_GROUP_COUNT" => "0",
 		"ES_REMOVE_HREF" => "N",
-		"CACHE_TYPE" => "A",
+		"CACHE_TYPE" => "N",
 		"CACHE_TIME" => "3600",
 		"ES_GROUP_ALL" => array(
-			0 => "COLOR",
+			0 => "ARTICLE",
+			1 => "MANUFACTURER",
+			2 => "SIZE_FIREWORKS",
+			3 => "COUNTRY_PRODUCTION",
+			4 => "TYPE_POOL",
+			5 => "TIPE_SALUTE",
+			6 => "PACKING",
 		),
 		"ES_GROUP_PHYSICAL" => array(
-			0 => "WEIGHT",
+			0 => "TIME_WORK",
+			1 => "HEIGHT_GAP",
+			2 => "CALIBER",
+			3 => "VOLLEYS",
+			4 => "MATERIAL",
+			5 => "EXTENT",
+			6 => "SIZE",
+			7 => "COLOR",
 		),
 		"ES_GROUP_MANUFACTURER" => array(
 			0 => "MANUFACTURER",
@@ -227,15 +240,11 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 			4 => "CLOCKWORK",
 		),
 		"ES_GROUP_INTERFACE" => array(
-			0 => "THREEG",
-			1 => "BLUETOOTH",
-			2 => "WI_FI",
 		),
 		"ES_SHOW_MAX_GROUP_COUNT" => "1",
 		"ES_GROUP_FACE" => array(
 		),
 		"ES_GROUP_DISPLAY" => array(
-			0 => "DIAGONAL",
 		),
 		"COMPONENT_TEMPLATE" => ".default",
 		"ES_GROUP_" => "",
@@ -261,6 +270,9 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 			18 => "SHYM",
 			19 => "REFRIGERENT",
 			20 => "ENERG_",
+		),
+		"ES_GROUP_sertifikaty" => array(
+			0 => "CERTIFICATE",
 		)
 	),
 	false
@@ -429,19 +441,19 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 	"bitrix:catalog.bigdata.products", 
 	"product_detail", 
 	array(
-		"RCM_TYPE" => "bestsell",
-		"ID" => $_REQUEST["PRODUCT_ID"],
-		"IBLOCK_TYPE" => $arParams['IBLOCK_TYPE'],
-		"IBLOCK_ID" => $arParams['IBLOCK_ID'],
+		"RCM_TYPE" => "personal",
+		"ID" => $arResult["ID"],
+		"IBLOCK_TYPE" => "catalog",
+		"IBLOCK_ID" => "20",
 		"SHOW_FROM_SECTION" => "N",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "N",
 		"PRODUCT_SUBSCRIPTION" => "N",
 		"SHOW_NAME" => "Y",
 		"SHOW_IMAGE" => "Y",
-		"MESS_BTN_BUY" => GetMessage('BIGDATA_MESS_BTN_BUY'),//"Êóïèòü",
-		"MESS_BTN_DETAIL" => GetMessage('BIGDATA_MESS_BTN_DETAIL'),//"Ïîäðîáíåå",
-		"MESS_BTN_SUBSCRIBE" => GetMessage('BIGDATA_MESS_BTN_SUBSCRIBE'),//"Ïîäïèñàòüñÿ",
+		"MESS_BTN_BUY" => GetMessage("BIGDATA_MESS_BTN_BUY"),
+		"MESS_BTN_DETAIL" => GetMessage("BIGDATA_MESS_BTN_DETAIL"),
+		"MESS_BTN_SUBSCRIBE" => GetMessage("BIGDATA_MESS_BTN_SUBSCRIBE"),
 		"PAGE_ELEMENT_COUNT" => "6",
 		"LINE_ELEMENT_COUNT" => "3",
 		"TEMPLATE_THEME" => "blue",
@@ -495,7 +507,15 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		"SECTION_ELEMENT_ID" => "",
 		"SECTION_ELEMENT_CODE" => "",
 		"DEPTH" => "2",
-		"CURRENCY_ID" => "RUB"
+		"CURRENCY_ID" => "RUB",
+		"COMPONENT_TEMPLATE" => "product_detail",
+		"SHOW_PRODUCTS_20" => "N",
+		"PROPERTY_CODE_20" => array(
+		),
+		"CART_PROPERTIES_20" => array(
+		),
+		"ADDITIONAL_PICT_PROP_20" => "",
+		"LABEL_PROP_20" => ""
 	),
 	false
 );?>
@@ -550,10 +570,23 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
 		"ES_GROUP_ALL" => array(
-			0 => "WEIGHT",
-			1 => "DIAGONAL",
+			0 => "ARTICLE",
+			1 => "MANUFACTURER",
+			2 => "SIZE_FIREWORKS",
+			3 => "TYPE_POOL",
+			4 => "TIPE_SALUTE",
+			5 => "PACKING",
 		),
 		"ES_GROUP_PHYSICAL" => array(
+			0 => "TIME_WORK",
+			1 => "HEIGHT_GAP",
+			2 => "CALIBER",
+			3 => "VOLLEYS",
+			4 => "MATERIAL",
+			5 => "EXTENT",
+			6 => "SIZE",
+			7 => "PACKING",
+			8 => "COLOR",
 		),
 		"ES_GROUP_MANUFACTURER" => array(
 			0 => "MANUFACTURER",
@@ -562,17 +595,11 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		),
 		"ES_GROUP_MATERIAL" => "",
 		"ES_GROUP_INTERFACE" => array(
-			0 => "THREEG",
-			1 => "BLUETOOTH",
-			2 => "WI_FI",
-			3 => "WIRELESS_INTERFACES",
 		),
 		"ES_SHOW_MAX_GROUP_COUNT" => "1",
 		"ES_GROUP_FACE" => array(
-			0 => "MATERIAL",
 		),
 		"ES_GROUP_DISPLAY" => array(
-			0 => "DIAGONAL",
 		),
 		"COMPONENT_TEMPLATE" => "two-cols",
 		"ES_GROUP_" => array(
@@ -607,6 +634,9 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 			19 => "SHYM",
 			20 => "REFRIGERENT",
 			21 => "ENERG_",
+		),
+		"ES_GROUP_sertifikaty" => array(
+			0 => "CERTIFICATE",
 		)
 	),
 	false

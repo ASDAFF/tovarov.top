@@ -31,10 +31,10 @@ $APPLICATION->IncludeComponent(
 			0 => "",
 			1 => "",
 		),
-		"ELEMENT_SORT_FIELD" => "ID",
-		"ELEMENT_SORT_ORDER" => "asc",
-		"ELEMENT_SORT_FIELD2" => "name",
-		"ELEMENT_SORT_ORDER2" => "asc",
+		"ELEMENT_SORT_FIELD" => "CATALOG_AVAILABLE",
+		"ELEMENT_SORT_ORDER" => "desc",
+		"ELEMENT_SORT_FIELD2" => "shows",
+		"ELEMENT_SORT_ORDER2" => "desc",
 		"FILTER_NAME" => "forFilter",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"SHOW_ALL_WO_SECTION" => "Y",
@@ -42,7 +42,9 @@ $APPLICATION->IncludeComponent(
 		"PAGE_ELEMENT_COUNT" => "20",
 		"LINE_ELEMENT_COUNT" => "20",
 		"PROPERTY_CODE" => array(
-			0 => "MORE_PHOTO",
+			0 => "",
+			1 => "MORE_PHOTO",
+			2 => "",
 		),
 		"OFFERS_FIELD_CODE" => array(
 			0 => "ID",
@@ -70,7 +72,7 @@ $APPLICATION->IncludeComponent(
 		"OFFER_ADD_PICT_PROP" => "MORE_PHOTO",
 		"OFFER_TREE_PROPS" => array(
 			0 => "COLOR",
-            1 => "SIZE",
+			1 => "SIZE",
 		),
 		"PRODUCT_SUBSCRIPTION" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "N",
@@ -116,9 +118,6 @@ $APPLICATION->IncludeComponent(
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRODUCT_PROPERTIES" => array(
-			"MORE_PHOTO", 
-			"LABEL",
-			"PRODUCT_LABEL_TEXT"
 		),
 		"OFFERS_CART_PROPERTIES" => array(
 			0 => "COLOR",
@@ -132,7 +131,18 @@ $APPLICATION->IncludeComponent(
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
-		"PRODUCT_QUANTITY_VARIABLE" => "quantity"
+		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+		"COMPONENT_TEMPLATE" => "popular",
+		"BACKGROUND_IMAGE" => "-",
+		"SEF_MODE" => "N",
+		"SET_BROWSER_TITLE" => "Y",
+		"SET_LAST_MODIFIED" => "N",
+		"USE_MAIN_ELEMENT_SECTION" => "N",
+		"COMPARE_PATH" => "",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SHOW_404" => "N",
+		"MESSAGE_404" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N"
 	),
 	false
 );?> 
@@ -209,7 +219,7 @@ $arBrands = $APPLICATION->IncludeComponent(
 		),
 		"ELEMENT_SORT_FIELD" => "PROPERTY_TABS_MAIN_PAGE",
 		"ELEMENT_SORT_ORDER" => "asc",
-		"ELEMENT_SORT_FIELD2" => "CATALOG_QUANTITY",
+		"ELEMENT_SORT_FIELD2" => "CATALOG_AVAILABLE",
 		"ELEMENT_SORT_ORDER2" => "desc",
 		"FILTER_NAME" => "tabsFilter",
 		"INCLUDE_SUBSECTIONS" => "Y",

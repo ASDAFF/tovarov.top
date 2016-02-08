@@ -288,7 +288,9 @@ fieldset {
 #wrapper {
   width: 100%;
   overflow: hidden;
+  /*
   padding: 0 0 393px;
+  */
   /*min-height: 100%;*/
 }
 .top-box {

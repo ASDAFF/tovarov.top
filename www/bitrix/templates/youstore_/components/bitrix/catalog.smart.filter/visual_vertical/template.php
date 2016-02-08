@@ -18,22 +18,23 @@ $this->setFrameMode(true);?>
 				value="<?echo $arItem["HTML_VALUE"]?>"
 			/>
 		<?endforeach;?>
+		<?$counter=0?>
 		<?foreach($arResult["ITEMS"] as $key=>$arItem):
 			$key = md5($key);
 			?>
-			<?if(isset($arItem["PRICE"])):?>
+			<?if(isset($arItem["PRICE"]) or $arItem["PROPERTY_TYPE"] == "N"):?>
 				<?
 				if (!$arItem["VALUES"]["MIN"]["VALUE"] || !$arItem["VALUES"]["MAX"]["VALUE"] || $arItem["VALUES"]["MIN"]["VALUE"] == $arItem["VALUES"]["MAX"]["VALUE"])
 					continue;
-				?>
+				else $counter++?>
 				<div class="filter box">
-					<div class="title"><h3><?=GetMessage('CT_BCSF_FILTER_PRICE')?>:</h3></div>
+					<div class="title"><h3><?=$arItem['NAME']?>:</h3></div>
 					<div class="range-box">
-						<div id="slider"></div>
+						<div id="slider_<?=$counter?>"></div>
 						<div class="slider-row">
 							<div class="slider-cell">
 								<input
-									class="minCost text"
+									class="minCost_<?=$counter?> text"
 									type="text"
 									name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
 									id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
@@ -45,7 +46,7 @@ $this->setFrameMode(true);?>
 							<div class="slider-cell">
 								<label for="maxCost"><?=GetMessage('CT_BCSF_FILTER_TO')?></label>
 								<input
-									class="maxCost text"
+									class="maxCost_<?=$counter?> text"
 									type="text"
 									name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
 									id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
@@ -58,7 +59,7 @@ $this->setFrameMode(true);?>
 					</div>
 					<script>
 						$(function(){
-							priceSliderInit(<?=intval(ceil($arItem["VALUES"]["MIN"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MAX"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MIN"]["HTML_VALUE"] ?: $arItem["VALUES"]["MIN"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]))?>);
+							priceSliderInit(<?=$counter?>,<?=intval(ceil($arItem["VALUES"]["MIN"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MAX"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MIN"]["HTML_VALUE"] ?: $arItem["VALUES"]["MIN"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]))?>);
 						});
 					</script>
 				</div>
@@ -85,9 +86,9 @@ $this->setFrameMode(true);?>
 				<div class="<?=$boxClass?> box">
 					<div class="title">
 						<h3><?=$arItem["NAME"]?>: </h3>
-						<?/*<a href="#" class="link-all">Выбрать всех</a>*/?>
+						<?/*<a href="#" class="link-all">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ</a>*/?>
 					</div>
-					
+
 					<?
 						switch($boxClass){
 							case 'colors':
@@ -109,7 +110,7 @@ $this->setFrameMode(true);?>
 						<?
 						$valCnt = 0;
 						if($boxClass == "colors"){
-							// подключаем модули
+							// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 							/*if(	
 								CModule::IncludeModule('iblock') &&
 								CModule::IncludeModule('highloadblock')){*/
