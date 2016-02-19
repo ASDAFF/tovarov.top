@@ -45,7 +45,7 @@
 	$MESS["CURRENCY_USD_TITLE"] = "$";
 	**/
 	
-	$MESS["PRODUCT_ARTIKUL_TITLE"] = "ID:";
+	$MESS["PRODUCT_ARTIKUL_TITLE"] = "Артикул:";
 	
 	$MESS["PRODUCT_TAB_1"] = "Общие";
 	$MESS["PRODUCT_TAB_2"] = "Описание";

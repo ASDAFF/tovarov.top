@@ -213,12 +213,12 @@ $this->setFrameMode(true);?>
 							);
 							
 							$arSortesName = array(
-								"name" => GetMessage('SECTION_SORT_NAME'),
 								"price_asc" => GetMessage('SECTION_SORT_PRICE_ASC'),
-								"price_desc" => GetMessage('SECTION_SORT_PRICE_DESC')
+								"price_desc" => GetMessage('SECTION_SORT_PRICE_DESC'),
+								"name" => GetMessage('SECTION_SORT_NAME'),
 							);
 							
-							$sort = $arSortes[$_REQUEST["sort"]][0]?:"NAME";
+							$sort = $arSortes[$_REQUEST["sort"]][0]?:"CATALOG_PRICE_1";
 							$order = $arSortes[$_REQUEST["sort"]][1]?:"ASC";
 						?>
 						<select class="sort-type" name="sort" onchange="$('.view-form').submit()">

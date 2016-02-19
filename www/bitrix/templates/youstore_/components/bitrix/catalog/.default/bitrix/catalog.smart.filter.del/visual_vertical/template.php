@@ -84,7 +84,7 @@
 				<div class="<?=$boxClass?> box">
 					<div class="title">
 						<h3><?=$arItem["NAME"]?>: </h3>
-						<?/*<a href="#" class="link-all">Выбрать всех</a>*/?>
+						<?/*<a href="#" class="link-all">Р’С‹Р±СЂР°С‚СЊ РІСЃРµС…</a>*/?>
 					</div>
 					
 					<?
@@ -108,7 +108,7 @@
 						<?
 						$valCnt = 0;
 						if($boxClass == "colors"){
-							// подключаем модули
+							// РїРѕРґРєР»СЋС‡Р°РµРј РјРѕРґСѓР»Рё
 							/*if(	
 								CModule::IncludeModule('iblock') &&
 								CModule::IncludeModule('highloadblock')){*/

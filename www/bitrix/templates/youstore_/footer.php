@@ -178,13 +178,7 @@
     </div>
 </div>
 	</div><!--.wrapper-inner-->
-	<?
-	$APPLICATION->IncludeFile(SITE_DIR."include/samples-block.php", Array(), Array(
-		"MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
-		"NAME"      => "samples-block",      // òåêñò âñïëûâàþùåé ïîäñêàçêè íà èêîíêå
-		"TEMPLATE"  => "section_include_template.php"                    // èì¤ øàáëîíà äë¤ íîâîãî ôàéëà
-	));
-	?>
+
 </div><!--#wrapper-->
       </div>
     </div>

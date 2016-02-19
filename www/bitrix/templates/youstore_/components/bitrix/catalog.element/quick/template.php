@@ -122,7 +122,7 @@ else
                     ),
                     $component
                 );?>
-                <span class="id">ID: <?=$arResult["ID"]?></span>
+                <span class="id">Артикул: <?=$arResult["PROPERTIES"]["ARTICLE"]["VALUE"]?></span>
             </div>
         </div>
         <div class="info-box">
