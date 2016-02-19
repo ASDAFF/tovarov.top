@@ -288,7 +288,9 @@ fieldset {
 #wrapper {
   width: 100%;
   overflow: hidden;
+  /*
   padding: 0 0 393px;
+  */
   /*min-height: 100%;*/
 }
 .top-box {
@@ -503,7 +505,7 @@ fieldset {
   height: 43px;
   overflow: hidden;
   text-indent: -9999px;
-  background: url(../images/logo.png) no-repeat;
+  background: url(../images/loves.png) no-repeat;
   margin: 0 40px 0 0;
 }
 #logo a {
