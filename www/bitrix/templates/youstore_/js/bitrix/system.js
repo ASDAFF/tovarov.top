@@ -15,7 +15,8 @@
 		return false;
 	});
 	
-	$('body').on('click', '.btn-click.callback', function(e){
+	/*$('body').on('click', '.btn-click.callback', function(e){
+		debugger;
 		var url = $(this).attr('href');
 		var x = ($(window).width() - 935) / 2, y = 80;
 		e.preventDefault();
@@ -30,7 +31,7 @@
             loadUrl: url //Uses jQuery.load()
         });
 		return false;
-	});
+	});*/
 	
 	$('body').on('click', '.callback-popup-link', function(e){
 		var url = $(this).attr('href');

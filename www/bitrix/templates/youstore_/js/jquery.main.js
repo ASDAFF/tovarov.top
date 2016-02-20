@@ -902,14 +902,14 @@ function initInterface(){
 
 
     // callback popup
-   jQuery(document).on('click', '.top-info .callback, .contact-boxes .callback, .order.callback, .btn-click.callback', function(e) {
+  /* jQuery(document).on('click', '.top-info .callback, .contact-boxes .callback, .order.callback, .btn-click.callback-popup-link', function(e) {
              e.preventDefault();
             $('.callback-tovar').val($(this).attr('data-prod'));
             jQuery('.popup.call-popup').bPopup({
                     closeClass: 'btn-close',
                     modalColor: '#fff'
             });
-    });
+    });*/
 
 
     var videoSrc;
@@ -1025,6 +1025,7 @@ function initInterface(){
 
     // product popup
     jQuery('.add-popup .buttons .btn-cart').click(function(e) {
+        debugger;
             e.preventDefault();
             jQuery('.popup.add-popup').bPopup().close();
             jQuery('.fly-message.wishlist').fadeOut(700);
@@ -1118,7 +1119,7 @@ function initInterface(){
     jQuery('.fly-message.wishlist').fadeIn(700).delay(3000).fadeOut(700);
     });    */
 
-    // product popup adding
+    /*// product popup adding
     jQuery('.product-popup .btn-click').click(function(e) {
             e.preventDefault();
             jQuery('.popup.product-popup').bPopup().close();
@@ -1143,7 +1144,7 @@ function initInterface(){
                     closeClass: 'btn-close',
                     modalColor: '#fff'
             });
-    });
+    });*/
     // faq section
     jQuery('.faq-section .link-show').click(function(e) {
             e.preventDefault();
