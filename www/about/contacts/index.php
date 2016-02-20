@@ -29,7 +29,7 @@
         </div>
         <div class="col-info">
             <h2>КОНТАКТНАЯ ИНФОРМАЦИЯ</h2>
-            <div class="contact-boxes">
+            <div class="contact-boxes" itemscope itemtype="http://schema.org/Organization">
                 <div class="box">
                     <div class="holder">
                         <em>
@@ -66,7 +66,7 @@
                             <img alt="image" src="<?=SITE_TEMPLATE_PATH?>/images/ico-contact-skype.png">
                         </em>
                         <div class="text">
-                            <strong><?
+                            <strong itemprop="name"><?
                                     // включаема¤ область дл¤ раздела
                                     $APPLICATION->IncludeFile(SITE_DIR."include/skype.php", Array(), Array(
                                             "MODE"      => "html",                                           // будет редактировать в веб-редакторе

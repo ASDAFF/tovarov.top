@@ -2,8 +2,9 @@
 	$isAuth = $USER->IsAuthorized();
 	$lkUrl = ($isAuth?SITE_DIR."personal/":"javascript:void(0)");
 ?>
+<noindex>
 <div class="account-menu">
-	<a href="<?=$lkUrl?>" class="account-link">Личный кабинет</a>
+	<a href="<?=$lkUrl?>" class="account-link" rel="nofollow">Личный кабинет</a>
 	<?if(!$isAuth):?>
 		<ul class="account-drop">
 			<li><a href="#login" class="link-enter popup-open" rel="nofollow">Войти</a></li>
@@ -11,7 +12,8 @@
 		</ul>
 	<?else:?>
 		<ul class="account-drop">
-			<li><a href="?logout=yes" class="link-enter">Выйти</a></li>
+			<li><a href="?logout=yes" class="link-enter" rel="nofollow">Выйти</a></li>
 		</ul>
 	<?endif?>
 </div>
+</noindex>

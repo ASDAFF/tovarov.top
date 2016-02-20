@@ -1,7 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);?>
 <div class="page-main">
-<?
+<? //test_dump($arResult);
 	if (\Bitrix\Main\Loader::includeModule("iblock"))
 	{
 		$arFilter = array(

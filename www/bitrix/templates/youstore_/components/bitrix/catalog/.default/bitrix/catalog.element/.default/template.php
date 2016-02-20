@@ -209,13 +209,12 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		"CACHE_TYPE" => "N",
 		"CACHE_TIME" => "3600",
 		"ES_GROUP_ALL" => array(
-			0 => "ARTICLE",
-			1 => "MANUFACTURER",
+			0 => "MANUFACTURER",
+			1 => "TIPE_SALUTE",
 			2 => "SIZE_FIREWORKS",
 			3 => "COUNTRY_PRODUCTION",
 			4 => "TYPE_POOL",
-			5 => "TIPE_SALUTE",
-			6 => "PACKING",
+			5 => "PACKING",
 		),
 		"ES_GROUP_PHYSICAL" => array(
 			0 => "TIME_WORK",
@@ -272,10 +271,11 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 			20 => "ENERG_",
 		),
 		"ES_GROUP_sertifikaty" => array(
-			0 => "CERTIFICATE",
+			0 => "INSTRUCE",
+			1 => "CERTIFICATE",
 		)
 	),
-	false
+	$component
 );?>
                 </div>
                 <div class="right">
@@ -431,7 +431,7 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
                                         'OFFER_TREE_PROPS' => $arParams['OFFER_TREE_PROPS'],
 
                                     ),
-                                    false
+                                    $component
                                 );?>
                         </div>
                     </div>
@@ -517,7 +517,7 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		"ADDITIONAL_PICT_PROP_20" => "",
 		"LABEL_PROP_20" => ""
 	),
-	false
+	$component
 );?>
         </div>
         <div id="desc" class="tab" style="display:none">
@@ -570,23 +570,25 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
 		"ES_GROUP_ALL" => array(
-			0 => "ARTICLE",
-			1 => "MANUFACTURER",
+			0 => "MANUFACTURER",
+			1 => "TIPE_SALUTE",
 			2 => "SIZE_FIREWORKS",
 			3 => "TYPE_POOL",
-			4 => "TIPE_SALUTE",
-			5 => "PACKING",
+			4 => "PACKING",
 		),
 		"ES_GROUP_PHYSICAL" => array(
 			0 => "TIME_WORK",
-			1 => "HEIGHT_GAP",
-			2 => "CALIBER",
-			3 => "VOLLEYS",
-			4 => "MATERIAL",
-			5 => "EXTENT",
-			6 => "SIZE",
-			7 => "PACKING",
-			8 => "COLOR",
+			1 => "ASSEMBLY_TIME",
+			2 => "HEIGHT_GAP",
+			3 => "CALIBER",
+			4 => "VOLLEYS",
+			5 => "MATERIAL",
+			6 => "PRESENCE_PUMP_FILTER",
+			7 => "EXTENT",
+			8 => "SIZE",
+			9 => "TYPE_POOL",
+			10 => "PACKING",
+			11 => "COLOR",
 		),
 		"ES_GROUP_MANUFACTURER" => array(
 			0 => "MANUFACTURER",
@@ -639,7 +641,7 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 			0 => "CERTIFICATE",
 		)
 	),
-	false
+	$component
 );?>
 
         </div>

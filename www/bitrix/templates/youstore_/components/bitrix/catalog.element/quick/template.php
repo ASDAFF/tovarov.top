@@ -152,21 +152,24 @@ else
             
             <?/*Обработка SKU*/?>
             <?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/skuSelect.php");?>
+            <noindex>
             <?/*Кнопки (в корзину, вишлист, купить в 1 клик)*/?>
             <?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/cardActions.php");?>
-            
+            </noindex>
 			<div class="prod-link">
 				<a href="<?=$arResult['DETAIL_PAGE_URL']?>"><?=GetMessage('MORE_LINK')?></a>
 			</div>
             <div class="wish">
                 <p><?=GetMessage("CATALOG_LIKES_MESSAGE")?></p>
             </div>
+            <noindex>
             <ul class="likes">
-                <li><a class="vk" onclick="Share.vk('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">vk</a></li>
-                <li><a class="fb" onclick="Share.fb('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">facebook</a></li>
-                <li><a class="linkedin" onclick="Share.linkedin('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">linkedin</a></li>
-                <li><a class="google" onclick="Share.gplus('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">google</a></li>
-            </ul>           
+                <li><a rel="nofollow" class="vk" onclick="Share.vk('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">vk</a></li>
+                <li><a rel="nofollow" class="fb" onclick="Share.fb('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">facebook</a></li>
+                <li><a rel="nofollow" class="linkedin" onclick="Share.linkedin('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">linkedin</a></li>
+                <li><a rel="nofollow" class="google" onclick="Share.gplus('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">google</a></li>
+            </ul>
+            </noindex>
         </div>
     </div>
 </div>

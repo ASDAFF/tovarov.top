@@ -88,29 +88,29 @@ $this->setFrameMode(true);?>
 	</div>
 	<div class="aside">
         <?
-            // âêëþ÷àåìà¤ îáëàñòü äë¤ ðàçäåëà
+            // Ð²ÐºÐ»ÑŽÑ‡Ð°ÐµÐ¼Ð°Â¤ Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ Ð´Ð»Â¤ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°
             $APPLICATION->IncludeFile(SITE_DIR."include/parts/widget_contacts.php", Array(), Array(
-                "MODE"      => "php",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
-                "NAME"      => "Contact's widget",      // òåêñò âñïëûâàþùåé ïîäñêàçêè íà èêîíêå
-                "TEMPLATE"  => "section_include_template.php"                    // èì¤ øàáëîíà äë¤ íîâîãî ôàéëà
+                "MODE"      => "php",                                           // Ð±ÑƒÐ´ÐµÑ‚ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð² Ð²ÐµÐ±-Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¾Ñ€Ðµ
+                "NAME"      => "Contact's widget",      // Ñ‚ÐµÐºÑÑ‚ Ð²ÑÐ¿Ð»Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ Ð¿Ð¾Ð´ÑÐºÐ°Ð·ÐºÐ¸ Ð½Ð° Ð¸ÐºÐ¾Ð½ÐºÐµ
+                "TEMPLATE"  => "section_include_template.php"                    // Ð¸Ð¼Â¤ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð° Ð´Ð»Â¤ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ñ„Ð°Ð¹Ð»Ð°
             ));
         ?>
 
         <?
-            // âêëþ÷àåìà¤ îáëàñòü äë¤ ðàçäåëà
+            // Ð²ÐºÐ»ÑŽÑ‡Ð°ÐµÐ¼Ð°Â¤ Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ Ð´Ð»Â¤ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°
             $APPLICATION->IncludeFile(SITE_DIR."include/parts/widget_preferences.php", Array(), Array(
-                "MODE"      => "php",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
-                "NAME"      => "References's widget",      // òåêñò âñïëûâàþùåé ïîäñêàçêè íà èêîíêå
-                "TEMPLATE"  => "section_include_template.php"                    // èì¤ øàáëîíà äë¤ íîâîãî ôàéëà
+                "MODE"      => "php",                                           // Ð±ÑƒÐ´ÐµÑ‚ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð² Ð²ÐµÐ±-Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¾Ñ€Ðµ
+                "NAME"      => "References's widget",      // Ñ‚ÐµÐºÑÑ‚ Ð²ÑÐ¿Ð»Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ Ð¿Ð¾Ð´ÑÐºÐ°Ð·ÐºÐ¸ Ð½Ð° Ð¸ÐºÐ¾Ð½ÐºÐµ
+                "TEMPLATE"  => "section_include_template.php"                    // Ð¸Ð¼Â¤ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð° Ð´Ð»Â¤ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ñ„Ð°Ð¹Ð»Ð°
             ));
         ?>
 
         <?
-            // âêëþ÷àåìà¤ îáëàñòü äë¤ ðàçäåëà
+            // Ð²ÐºÐ»ÑŽÑ‡Ð°ÐµÐ¼Ð°Â¤ Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ Ð´Ð»Â¤ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°
             $APPLICATION->IncludeFile(SITE_DIR."include/parts/widget_reviews.php", Array(), Array(
-                "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
-                "NAME"      => "Contact's widget",      // òåêñò âñïëûâàþùåé ïîäñêàçêè íà èêîíêå
-                "TEMPLATE"  => "section_include_template.php"                    // èì¤ øàáëîíà äë¤ íîâîãî ôàéëà
+                "MODE"      => "html",                                           // Ð±ÑƒÐ´ÐµÑ‚ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð² Ð²ÐµÐ±-Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¾Ñ€Ðµ
+                "NAME"      => "Contact's widget",      // Ñ‚ÐµÐºÑÑ‚ Ð²ÑÐ¿Ð»Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ Ð¿Ð¾Ð´ÑÐºÐ°Ð·ÐºÐ¸ Ð½Ð° Ð¸ÐºÐ¾Ð½ÐºÐµ
+                "TEMPLATE"  => "section_include_template.php"                    // Ð¸Ð¼Â¤ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð° Ð´Ð»Â¤ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ñ„Ð°Ð¹Ð»Ð°
             ));
         ?>
 	</div>

@@ -182,10 +182,10 @@ if (!empty($arResult['ITEMS']))
 						<?if(!empty($arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT'])):?>
 							<?$link = $arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT']?>
 							<?if (strrpos($link, "iframe") !== false):?>
-								<a data-id="<?=$arItem['ID']?>" class="video-link"><?=GetMessage('PLAY')?></a>
+								<a rel="nofollow" data-id="<?=$arItem['ID']?>" class="video-link"><?=GetMessage('PLAY')?></a>
 								<div class="video-content video-cont<?=$arItem['ID']?>"><?=$arItem['PROPERTIES']['YOUTUBE_VIDEO']['~VALUE']['TEXT']?></div>
 							<?else:?>
-								<a class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
+								<a rel="nofollow" class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
 							<?endif?>
 						<?endif?>
 							<div class="image">
@@ -320,8 +320,8 @@ if (!empty($arResult['ITEMS']))
 										}
 									}?>
 									<ul class="tools">
-										<li class="like"><a class="link-wishlist" href="<?=SITE_DIR?>ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>"><?=GetMEssage('CATALOG_WISH')?></a></li>
-										<li class="compare"><a class="link-compare" href="<?=SITE_DIR?>ajax/compare.php?id=<?=$arItem["ID"]?>&action=ADD_TO_COMPARE_LIST"><?=GetMEssage('CATALOG_COMPARE')?></a></li>
+										<li class="like"><a rel="nofollow" class="link-wishlist" href="<?=SITE_DIR?>ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>"><?=GetMEssage('CATALOG_WISH')?></a></li>
+										<li class="compare"><a rel="nofollow" class="link-compare" href="<?=SITE_DIR?>ajax/compare.php?id=<?=$arItem["ID"]?>&action=ADD_TO_COMPARE_LIST"><?=GetMEssage('CATALOG_COMPARE')?></a></li>
 									</ul>
 									<?if (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']))
 									{

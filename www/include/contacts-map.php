@@ -1,1 +1,24 @@
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2243.962162403809!2d37.537009!3d55.776529000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b5499c900b006b%3A0xec022f1778824265!2z0KXQvtGA0L7RiNC10LLRgdC60L7QtSDRiC4sIDM4LCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjywgMTIzMDA3!5e0!3m2!1sru!2sua!4v1408449407462" width="100%" height="373" frameborder="0" style="border:0"></iframe>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:map.google.view",
+    ".default",
+    array(
+        "COMPONENT_TEMPLATE" => ".default",
+        "INIT_MAP_TYPE" => "ROADMAP",
+        "MAP_DATA" => "a:4:{s:10:\"google_lat\";d:55.819707342668885;s:10:\"google_lon\";d:37.742743768310554;s:12:\"google_scale\";i:14;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:37:\"Магазин пиротехники\";s:3:\"LON\";d:37.751179933548;s:3:\"LAT\";d:55.819201918207;}}}",
+        "MAP_WIDTH" => "100%",
+        "MAP_HEIGHT" => "500",
+        "CONTROLS" => array(
+            0 => "SMALL_ZOOM_CONTROL",
+            1 => "TYPECONTROL",
+            2 => "SCALELINE",
+        ),
+        "OPTIONS" => array(
+            0 => "ENABLE_SCROLL_ZOOM",
+            1 => "ENABLE_DBLCLICK_ZOOM",
+            2 => "ENABLE_DRAGGING",
+            3 => "ENABLE_KEYBOARD",
+        ),
+        "MAP_ID" => ""
+    ),
+    false
+);?>

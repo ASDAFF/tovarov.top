@@ -33,7 +33,8 @@ $arBasketJSParams = array(
 	$naHidden = ($naCount == 0) ? "style=\"display:none\"" : "";
 
 	?>
-	<a class="mini-cart" href="<?=$arParams["PATH_TO_BASKET"]?>"><span class="number"><?=$normalCount?></span></a>
+
+	<a rel="nofollow" class="mini-cart" href="<?=$arParams["PATH_TO_BASKET"]?>"><span class="number"><?=$normalCount?></span></a>
 	<?if($normalCount > 0):?>
 		<div class="cart-popup">
 			<?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/basket_items.php");?>

@@ -1,5 +1,6 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
+$APPLICATION->SetTitle("Tovarov.TOP - интернет-магазин нужных товаров");
 $APPLICATION->SetPageProperty("keywords", "Tovarov.TOP");
 $APPLICATION->SetPageProperty("title", "Tovarov.TOP - интернет-магазин нужных товаров");
 $APPLICATION->SetPageProperty("description", "Tovarov.TOP");

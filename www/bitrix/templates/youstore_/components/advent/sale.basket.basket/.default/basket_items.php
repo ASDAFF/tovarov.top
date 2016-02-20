@@ -144,7 +144,7 @@ if ($normalCount > 0):
                                                                 endforeach;
                                                                 ?>
                                                             </ul>
-                                                            <?/*<input type="text" readonly placeholder="(не выбрано)" value="<?=$input_val?>" />*/?>
+                                                            <?/*<input type="text" readonly placeholder="(пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)" value="<?=$input_val?>" />*/?>
                                                         </span>
                                                     </div>
                                                 <?endif;?>
@@ -252,7 +252,7 @@ if ($normalCount > 0):
         <a class="button btn-cart" onclick="checkOut();return false;" href="#">
             <span><?=GetMessage('SALE_ORDER')?></span>
         </a>
-        <a class="order button btn-click callback" href="javascript:void(0)">
+        <a class="order button btn-click callback" href="/ajax/callback.php">
             <span><?=GetMessage('SALE_ORDERPHONE')?></span>
         </a>
     </div>

@@ -60,10 +60,11 @@ $APPLICATION->IncludeComponent(
         "AJAX_OPTION_ADDITIONAL" => ""
     ),
     false
-);?>
+);?><noindex>
 	<div class="box widget">
-		<a href="//market.yandex.ru/" target="_blank">
+		<a rel="nofollow" href="//market.yandex.ru/" target="_blank">
 			<img alt="image" src="<?=SITE_TEMPLATE_PATH?>/images/img-banner01.jpg">
 		</a>
 	</div>
+	</noindex>
 </div>

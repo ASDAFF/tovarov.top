@@ -57,7 +57,7 @@
                         "EDIT_TEMPLATE" => "standard.php"
                     )
                 );?>
-                <div class="address-box">
+                <div class="address-box"  itemscope itemtype="http://schema.org/Organization">
                   <div class="row address">
                     <p><?// âêëþ÷àåìà¤ îáëàñòü äë¤ ðàçäåëà
                         $APPLICATION->IncludeFile(SITE_DIR."include/address_footer.php", Array(), Array(
@@ -68,7 +68,7 @@
                         );
                     ?></p>
                   </div>
-                  <div class="row tel">
+                  <div class="row tel" itemprop="telephone">
                     <p><?// âêëþ÷àåìà¤ îáëàñòü äë¤ ðàçäåëà
                         $APPLICATION->IncludeFile(SITE_DIR."include/telephone.php", Array(), Array(
                                 "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
@@ -79,7 +79,7 @@
                     ?></p>
                   </div>
                   <div class="row mail">
-                    <p><a href="mailto:<?require_once($_SERVER['DOCUMENT_ROOT'].SITE_DIR."include/email.php")?>"><?
+                    <p><?
                         $APPLICATION->IncludeFile(SITE_DIR."include/email.php", Array(), Array(
                                 "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
                                 "NAME"      => "Email",      // òåêñò âñïëûâàþùåé ïîäñêàçêè íà èêîíêå
@@ -88,7 +88,7 @@
                         );
                     ?></a></p>
                   </div>
-                  <div class="row skype">
+                  <div class="row skype"  itemprop="name">
                     <p><?// âêëþ÷àåìà¤ îáëàñòü äë¤ ðàçäåëà
                         $APPLICATION->IncludeFile(SITE_DIR."include/skype.php", Array(), Array(
                                 "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå

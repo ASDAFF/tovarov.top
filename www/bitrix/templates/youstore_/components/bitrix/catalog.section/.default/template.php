@@ -5,7 +5,7 @@
     /** @global CDatabase $DB */
 $this->setFrameMode(true);?>
 
-<?
+<?// test_dump($arResult);
     if (!empty($arResult['ITEMS']))
     {
         $templateData = array(
@@ -184,10 +184,10 @@ $this->setFrameMode(true);?>
                 <?if(!empty($arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT'])):?>
                     <?$link = $arItem["PROPERTIES"]["YOUTUBE_VIDEO"]["VALUE"]['TEXT']?>
                     <?if (strrpos($link, "iframe") !== false):?>
-                        <a data-id="<?=$arItem['ID']?>" class="video-link"><?=GetMessage('PLAY')?></a>
+                        <a data-id="<?=$arItem['ID']?>" class="video-link" rel="nofollow"><?=GetMessage('PLAY')?></a>
                         <div class="video-content video-cont<?=$arItem['ID']?>"><?=$arItem['PROPERTIES']['YOUTUBE_VIDEO']['~VALUE']['TEXT']?></div>
                     <?else:?>
-                        <a class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
+                        <a rel="nofollow" class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
                     <?endif?>
                 <?endif?>
                 <div class="image">
@@ -327,8 +327,8 @@ $this->setFrameMode(true);?>
                         }?>
                         <ul class="tools">
                             <li>
-                                <a class="link-wishlist item<?=$arItem['ID']?>" data-id="<?=$arItem['ID']?>" data-action="ADD2DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php"><?=GetMessage('WISHLIST')?></a>
-                                <a data-id="<?=$arItem['ID']?>" data-action="DELETE_FROM_DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php" class="link-wishlist-delete item<?=$arItem['ID']?>" style="display: none;"><?=GetMessage('WISHLIST_DEL')?></a>
+                                <a rel="nofollow" class="link-wishlist item<?=$arItem['ID']?>" data-id="<?=$arItem['ID']?>" data-action="ADD2DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php"><?=GetMessage('WISHLIST')?></a>
+                                <a rel="nofollow" data-id="<?=$arItem['ID']?>" data-action="DELETE_FROM_DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php" class="link-wishlist-delete item<?=$arItem['ID']?>" style="display: none;"><?=GetMessage('WISHLIST_DEL')?></a>
                             </li> 
                         </ul>
                         <?if (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']))

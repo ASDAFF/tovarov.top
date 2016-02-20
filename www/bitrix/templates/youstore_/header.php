@@ -14,11 +14,37 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=<?=LANG_CHARSET?>" />
     <?$APPLICATION->ShowHead()?>
-	<meta name="viewport" content="initial-scale=1">
-    <title><?=$APPLICATION->ShowTitle()?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?=$APPLICATION->ShowTitle()?> » Tovarov.TOP</title>
+
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?=SITE_TEMPLATE_PATH?>/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?=SITE_TEMPLATE_PATH?>/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="<?=SITE_TEMPLATE_PATH?>/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-1.9.1.min.js"></script>
+
+    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/jquery-1.9.1.min.js')?>
+    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/bitrix/system.js')?>
+    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/bitrix/section.js')?>
+    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/bitrix/compare.js')?>
+    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/bitrix/iblockvote.js')?>
+
 
 
     <link media="all" rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/css/jquery.ui.slider.css" />
@@ -60,10 +86,10 @@
   <div class="w1">
 	<div class="w2">
 	<div class="outer-wrapper">
-
+<noindex>
 <div class="toolbox">
 	<div class="holder">
-		<a href="#" class="link-up" style="display: none;"><span><?=GetMessage('UP')?></span></a>
+		<a rel="nofollow" href="#" class="link-up" style="display: none;"><span><?=GetMessage('UP')?></span></a>
 		<div class="links" style="display: block;">
 			<script type="text/javascript">
 				var wished = [];
@@ -80,9 +106,10 @@
 			Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("wishlist", "...");
 			?>
 		</div>
-		<a href="#" class="btn-plus" style="display: none;"><span><?=GetMessage('PLUS')?></span></a>
+		<a rel="nofollow" href="#" class="btn-plus" style="display: none;"><span><?=GetMessage('PLUS')?></span></a>
 	</div>
 </div>
+</noindex>
 <?//google.analytics (now .default)
 $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Array(), Array(
 	"MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
@@ -150,8 +177,9 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
     </div>
 </div>
 <div id="header">
-    <div class="container header-container">
-        <strong id="logo"><a href="<?=SITE_DIR?>"><?$APPLICATION->ShowTitle()?></a></strong>
+    <div class="container header-container"  itemscope itemtype="http://schema.org/Organization">
+        <strong id="logo"  itemprop="name"><a href="<?=SITE_DIR?>"><img src="/bitrix/templates/youstore_/images/logo_new.png" alt=""></a></strong>
+
         <?$APPLICATION->IncludeComponent(
                 "bitrix:search.title", 
                 "catalog", 
@@ -187,7 +215,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
             );?>
         <div class="top-info">
             <div class="box call">
-                <strong class="phone"> <?
+                <strong class="phone"  itemprop="telephone"> <?
                         // âêëþ÷àåìàÿ îáëàñòü äëÿ ðàçäåëà
                         $APPLICATION->IncludeFile(SITE_DIR."include/telephone.php", Array(), Array(
                                 "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
@@ -195,7 +223,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
                                 "TEMPLATE"  => "section_include_template.php"                    // èìÿ øàáëîíà äëÿ íîâîãî ôàéëà
                             ));
                 ?>  </strong>
-                <a href="/ajax/callback.php" class="callback callback-popup-link"><?=GetMessage('HEADER_CALLBACK')?></a>
+                <a rel="nofollow" href="/ajax/callback.php" class="callback callback-popup-link"><?=GetMessage('HEADER_CALLBACK')?></a>
             </div>
             <div class="box clock">
                     <?
@@ -243,6 +271,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
 			false
 		);?>
         <a href="<?=SITE_DIR?>about/actions/" class="discount-link"><?=GetMessage('HEADER_ACTIONS')?></a>
+        <noindex>
         <div class="mini-cart-holder">
 			<?
 			Bitrix\Main\Page\Frame::getInstance()->startDynamicWithID("basket");
@@ -250,6 +279,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
 			Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("basket", "...");
 			?>
         </div>
+        </noindex>
     </div>
 </div>
 <?if($APPLICATION->GetCurPage(false) == SITE_DIR):?>

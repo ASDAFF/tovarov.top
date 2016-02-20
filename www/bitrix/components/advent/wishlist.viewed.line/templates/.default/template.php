@@ -19,7 +19,7 @@ if($arResult["BASKET_ITEMS"]){
 }
 ?>
 <div class="links" style="display: block;">
-    <a href="<?=$arParams['PATH_TO_VISITED']?>" class="link-visit link"><span><?=GetMessage('CART_VISITED')?> <em>(<?=count($arResult['VIEWED']);?>)</em></span></a>
-    <a href="<?=$arParams['PATH_TO_WISHLIST']?>" class="link-wish link"><span><?=GetMessage('CART_WISHLIST')?> <em>(<?=$wish?>)</em></span></a>
-    <a href="#" class="btn-close">close</a>
+    <a rel="nofollow" href="<?=$arParams['PATH_TO_VISITED']?>" class="link-visit link"><span><?=GetMessage('CART_VISITED')?> <em>(<?=count($arResult['VIEWED']);?>)</em></span></a>
+    <a rel="nofollow" href="<?=$arParams['PATH_TO_WISHLIST']?>" class="link-wish link"><span><?=GetMessage('CART_WISHLIST')?> <em>(<?=$wish?>)</em></span></a>
+    <a rel="nofollow" href="#" class="btn-close">close</a>
 </div>

@@ -50,6 +50,8 @@ foreach($arResult as $arElement):
                                 </span>
                             </p>
                             <p class="value">
+                                <?$disp= $arProp['DISPLAY_VALUE'];
+                                if($arProp['PROPERTY_TYPE']=='F') $arProp['DISPLAY_VALUE']=substr($disp,0,2).' target="_blank" '.substr($disp,2);?>
                                 <?if(count($arResult["VALUES"][$arProp["CODE"]]) > 1):
                                     $valStr = "";
                                     ?>
