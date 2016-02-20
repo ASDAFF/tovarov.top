@@ -501,17 +501,28 @@ fieldset {
 }
 #logo {
   float: left;
-  width: 152px;
-  height: 43px;
+  width: 220px;
+  height: 58px;
   overflow: hidden;
-  text-indent: -9999px;
-  background: url(../images/logo.png) no-repeat;
+  /*text-indent: -9999px;
+  background: url(../images/loves.png) no-repeat;
+  background-size: cover;*/
   margin: 0 40px 0 0;
+  position: relative;
+  top: -18px;
 }
+
 #logo a {
   height: 100%;
   display: block;
 }
+
+      #logo a img{
+        height: 100%;
+        width: 100%;
+        display: block;
+      }
+
 .top-search {
   float: left;
   border: 1px solid #d1d1d1;
@@ -590,7 +601,7 @@ fieldset {
   padding: 2px;
   color: #929293;
   font-size: 13px;
-  width: 294px;
+  width: 250px;
 }
 .top-search .submit {
   float: right;

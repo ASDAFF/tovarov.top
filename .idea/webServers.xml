@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6fec49a7-96e8-4fe8-a5f6-a8631436a15b" name="Tovarov.TOP" url="http://bitrix3.dobrohost.ru">
+        <fileTransfer host="bitrix3.dobrohost.ru" port="22" rootFolder="/home/b2120/domains/tovarov.top/www/" accessType="SFTP" password="dfdbdffddfcfdfeedfc9dff2dfd0dfebdfd9" username="b2120">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="8660233e-d402-4bd7-84c6-2941e8160e84" name="LoveStore.Top" url="http://bitrix3.dobrohost.ru">
+        <fileTransfer host="bitrix3.dobrohost.ru" port="22" rootFolder="/home/b2120/domains/lovestore.top/www/" accessType="SFTP" password="dfdbdffddfcfdfeedfc9dff2dfd0dfebdfd9" username="b2120">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
