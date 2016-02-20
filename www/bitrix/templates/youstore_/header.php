@@ -15,7 +15,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=<?=LANG_CHARSET?>" />
     <?$APPLICATION->ShowHead()?>
 	<meta name="viewport" content="initial-scale=1">
-    <title><?=$APPLICATION->ShowTitle()?></title>
+    <title><?=$APPLICATION->ShowTitle()?> » Tovarov.TOP</title>
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-1.9.1.min.js"></script>
@@ -60,10 +60,10 @@
   <div class="w1">
 	<div class="w2">
 	<div class="outer-wrapper">
-
+<noindex>
 <div class="toolbox">
 	<div class="holder">
-		<a href="#" class="link-up" style="display: none;"><span><?=GetMessage('UP')?></span></a>
+		<a rel="nofollow" href="#" class="link-up" style="display: none;"><span><?=GetMessage('UP')?></span></a>
 		<div class="links" style="display: block;">
 			<script type="text/javascript">
 				var wished = [];
@@ -80,9 +80,10 @@
 			Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("wishlist", "...");
 			?>
 		</div>
-		<a href="#" class="btn-plus" style="display: none;"><span><?=GetMessage('PLUS')?></span></a>
+		<a rel="nofollow" href="#" class="btn-plus" style="display: none;"><span><?=GetMessage('PLUS')?></span></a>
 	</div>
 </div>
+</noindex>
 <?//google.analytics (now .default)
 $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Array(), Array(
 	"MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
@@ -150,8 +151,9 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
     </div>
 </div>
 <div id="header">
-    <div class="container header-container">
-        <strong id="logo"><a href="<?=SITE_DIR?>"><?$APPLICATION->ShowTitle()?></a></strong>
+    <div class="container header-container"  itemscope itemtype="http://schema.org/Organization">
+        <strong id="logo"  itemprop="name"><a href="<?=SITE_DIR?>"><img src="/bitrix/templates/youstore_/images/logo_new.png" alt=""></a></strong>
+
         <?$APPLICATION->IncludeComponent(
                 "bitrix:search.title", 
                 "catalog", 
@@ -187,7 +189,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
             );?>
         <div class="top-info">
             <div class="box call">
-                <strong class="phone"> <?
+                <strong class="phone"  itemprop="telephone"> <?
                         // âêëþ÷àåìàÿ îáëàñòü äëÿ ðàçäåëà
                         $APPLICATION->IncludeFile(SITE_DIR."include/telephone.php", Array(), Array(
                                 "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå
@@ -195,7 +197,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
                                 "TEMPLATE"  => "section_include_template.php"                    // èìÿ øàáëîíà äëÿ íîâîãî ôàéëà
                             ));
                 ?>  </strong>
-                <a href="/ajax/callback.php" class="callback callback-popup-link"><?=GetMessage('HEADER_CALLBACK')?></a>
+                <a rel="nofollow" href="/ajax/callback.php" class="callback callback-popup-link"><?=GetMessage('HEADER_CALLBACK')?></a>
             </div>
             <div class="box clock">
                     <?
@@ -243,6 +245,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
 			false
 		);?>
         <a href="<?=SITE_DIR?>about/actions/" class="discount-link"><?=GetMessage('HEADER_ACTIONS')?></a>
+        <noindex>
         <div class="mini-cart-holder">
 			<?
 			Bitrix\Main\Page\Frame::getInstance()->startDynamicWithID("basket");
@@ -250,6 +253,7 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
 			Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("basket", "...");
 			?>
         </div>
+        </noindex>
     </div>
 </div>
 <?if($APPLICATION->GetCurPage(false) == SITE_DIR):?>
