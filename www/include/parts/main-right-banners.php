@@ -61,10 +61,13 @@
         ),
         false
     ); ?>
-    <div class="box widget">
-        <a href="http://clck.yandex.ru/redir/dtype=stred/pid=47/cid=2508/*https://market.yandex.ru/shop/324760/reviews"><img
-                src="http://clck.yandex.ru/redir/dtype=stred/pid=47/cid=2507/*http://grade.market.yandex.ru/?id=324760&action=image&size=3"
-                border="0" width="225" height="125"
-                alt="Читайте отзывы покупателей и оценивайте качество магазина на Яндекс.Маркете"/></a>
-    </div>
+    <noindex>
+        <div class="box widget">
+            <a rel="nofollow"
+               href="http://clck.yandex.ru/redir/dtype=stred/pid=47/cid=2508/*https://market.yandex.ru/shop/324760/reviews"><img
+                    src="http://clck.yandex.ru/redir/dtype=stred/pid=47/cid=2507/*http://grade.market.yandex.ru/?id=324760&action=image&size=3"
+                    border="0" width="225" height="125"
+                    alt="Читайте отзывы покупателей и оценивайте качество магазина на Яндекс.Маркете"/></a>
+        </div>
+    </noindex>
 </div>

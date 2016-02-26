@@ -11,8 +11,9 @@
     *
     * $f["HINT"] - it's @placeholder or @tooltip property of each field, if you're @need to @change it: @make it's in @result_modifier.php of your @template
     */          
-?>    
-  
+?>
+<?$this->setFrameMode(true);?>
+
 <div class="add-review">
     <h2><?=GetMessage('ADD_REVIEW')?></h2>
 

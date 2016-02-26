@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-$this->setFrameMode(true);?>
+$this->setFrameMode(true);
+test_dump($arResult)?>
 <?CJSCore::Init(array("fx"));?>
 <?require_once($_SERVER["DOCUMENT_ROOT"] . $templateFolder. "/functions.php"); ?>
 <h2 class="side-title"><?=GetMessage('CT_BCSF_FILTER_TITLE')?></h2>

@@ -252,7 +252,7 @@ if ($normalCount > 0):
         <a class="button btn-cart" onclick="checkOut();return false;" href="#">
             <span><?=GetMessage('SALE_ORDER')?></span>
         </a>
-        <a class="order button btn-click callback" href="/ajax/callback.php">
+        <a class="order button btn-click callback-popup-link" href="/ajax/callback.php">
             <span><?=GetMessage('SALE_ORDERPHONE')?></span>
         </a>
     </div>

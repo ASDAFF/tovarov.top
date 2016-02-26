@@ -1,9 +1,9 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetTitle("Tovarov.TOP - интернет-магазин нужных товаров");
-$APPLICATION->SetPageProperty("keywords", "Tovarov.TOP");
-$APPLICATION->SetPageProperty("title", "Tovarov.TOP - интернет-магазин нужных товаров");
-$APPLICATION->SetPageProperty("description", "Tovarov.TOP");
+$APPLICATION->SetPageProperty("keywords", "интернет магазин, онлайн магазин, товаров топ, tovarov top, магазин  интересных товаров");
+$APPLICATION->SetTitle("Tovarov.TOP - интернет-магазин популярных товаров");
+$APPLICATION->SetPageProperty("title", "Tovarov.TOP - интернет-магазин популярных товаров");
+$APPLICATION->SetPageProperty("description", "Интернет-магазин Товаров.ТОП (Tovarov.TOP) предлагает огромный ассортимент товаров по низким ценам с доставкой по всей России.");
 $APPLICATION->SetTitle("Tovarov.TOP");
 $APPLICATION->SetPageProperty("body-class", "home");
 ?>

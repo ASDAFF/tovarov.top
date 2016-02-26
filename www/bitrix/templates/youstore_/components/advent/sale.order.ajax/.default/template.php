@@ -1,4 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+//test_dump($arResult );
     if($USER->IsAuthorized() || $arParams["ALLOW_AUTO_REGISTER"] == "Y")
     {
         if($arResult["USER_VALS"]["CONFIRM_ORDER"] == "Y" || $arResult["NEED_REDIRECT"] == "Y")

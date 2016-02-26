@@ -1025,7 +1025,6 @@ function initInterface(){
 
     // product popup
     jQuery('.add-popup .buttons .btn-cart').click(function(e) {
-        debugger;
             e.preventDefault();
             jQuery('.popup.add-popup').bPopup().close();
             jQuery('.fly-message.wishlist').fadeOut(700);

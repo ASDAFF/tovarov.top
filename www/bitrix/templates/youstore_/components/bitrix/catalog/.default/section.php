@@ -159,7 +159,10 @@ $this->setFrameMode(true);?>
                                         "SECTION_TITLE" => "NAME",
                                         "SECTION_DESCRIPTION" => "DESCRIPTION",
                                         'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-                                        "TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"]
+                                        "TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
+										"SEF_MODE" => $arParams["SEF_MODE"],
+										"SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
+										"SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
                                     ),
                                     $component,
                                     array('HIDE_ICONS' => 'Y')

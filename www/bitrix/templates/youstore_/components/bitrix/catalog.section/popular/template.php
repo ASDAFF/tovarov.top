@@ -173,7 +173,7 @@
 
                         $productLabel = $arItem["PROPERTIES"]["LABEL"]["VALUE_XML_ID"];
                     ?>
-                    <div id="<? echo $strMainID; ?>" class="product-item mix <?if(!empty($arItem["PROPERTIES"]["DAY_ITEM"]["VALUE"])):?>day-item<?endif?> category-<?=$arItem["PROPERTIES"]["SEX"]["VALUE_ENUM_ID"]?> <?if(!$arItem["CAN_BUY"] || empty($arItem['MIN_PRICE']) || $arItem['CATALOG_QUANTITY']<=0):?>disable unavailable<?endif?>">
+                    <div id="<? echo $strMainID; ?>" class="product-item mix <?if(!empty($arItem["PROPERTIES"]["DAY_ITEM"]["VALUE"])):?>day-item<?endif?> category-<?=$arItem["PROPERTIES"]["SEX"]["VALUE_ENUM_ID"]?> <?if(!$arItem["CAN_BUY"] || empty($arItem['MIN_PRICE'])/* || $arItem['CATALOG_QUANTITY']<=0*/):?>disable unavailable<?endif?>">
                         <div class="holder">
                             <?if(!empty($arItem["PROPERTIES"]["DAY_ITEM"]["VALUE"])):?>
                                 <div class="strong-box">
@@ -285,7 +285,7 @@
                             <div class="expand">
                                 <div class="expand-holder">
                                     <?
-                                        if ($arItem['CAN_BUY'] && $arItem['CATALOG_QUANTITY']>0)
+                                        if ($arItem['CAN_BUY']/* && $arItem['CATALOG_QUANTITY']>0*/)
                                         {
                                             switch($arItem["CATALOG_TYPE"]){
                                                 case 3: 

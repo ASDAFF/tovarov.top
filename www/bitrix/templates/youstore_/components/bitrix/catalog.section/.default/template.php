@@ -159,7 +159,7 @@ $this->setFrameMode(true);?>
             $productLabel = $arItem["PROPERTIES"]["LABEL"]["VALUE_XML_ID"];
         ?>
         
-        <div id="<? echo $strMainID; ?>" class="product-item mix <?if(!empty($arItem["PROPERTIES"]["DAY_ITEM"]["VALUE"])):?>day-item<?endif?> category-<?=$arItem["PROPERTIES"]["SEX"]["VALUE_ENUM_ID"]?> <?if(!$arItem["CAN_BUY"] || empty($arItem['MIN_PRICE']) || $arItem['CATALOG_QUANTITY']<=0):?>unavailable<?endif?>">
+        <div id="<? echo $strMainID; ?>" class="product-item mix <?if(!empty($arItem["PROPERTIES"]["DAY_ITEM"]["VALUE"])):?>day-item<?endif?> category-<?=$arItem["PROPERTIES"]["SEX"]["VALUE_ENUM_ID"]?> <?if(!$arItem["CAN_BUY"] || empty($arItem['MIN_PRICE']) /*|| $arItem['CATALOG_QUANTITY']<=0*/):?>unavailable<?endif?>">
             <div class="holder">
                 <?if(!empty($arItem["PROPERTIES"]["DAY_ITEM"]["VALUE"])):?>
                     <div class="strong-box">
@@ -275,13 +275,13 @@ $this->setFrameMode(true);?>
                     <input type="hidden" value="1" id="<?=$arItemIDs['QUANTITY']?>">
                     <?endif;?>
                         <?
-                            if ($arItem['CAN_BUY'] && $arItem['CATALOG_QUANTITY']>0)
+                            if ($arItem['CAN_BUY'] /*&& $arItem['CATALOG_QUANTITY']>0*/)
                             {
                                 switch($arItem["CATALOG_TYPE"]){
                                     case 3: 
                                     ?>
                                     <?if(count($arItem["OFFERS"]) > 1):?>
-                                        <a class="bx_bt_button bx_medium buy-quick button btn-cart" href="<?=SITE_DIR?>ajax/buy.php?ID=<?=$arItem["ID"]?>" rel="nofollow">
+                                        <a  class="bx_bt_button bx_medium buy-quick button btn-cart" href="<?=SITE_DIR?>ajax/buy.php?ID=<?=$arItem["ID"]?>" rel="nofollow">
                                             <span><?echo ('' != $arParams['MESS_BTN_BUY'] ? $arParams['MESS_BTN_BUY'] : GetMessage('CT_BCS_TPL_MESS_BTN_BUY'));?></span>
                                         </a>
                                         <?else:?>

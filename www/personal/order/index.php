@@ -12,7 +12,7 @@
 ?>
 <div class="contents">
    <?if(!array_key_exists('ORDER_ID',$_REQUEST)):?> <div class="order-container"> <?endif;?>  
-        <?$APPLICATION->IncludeComponent("advent:sale.order.ajax", ".default", array(
+        <?$APPLICATION->IncludeComponent("bitrix:sale.order.ajax", ".default", array(
             "PAY_FROM_ACCOUNT" => "Y",
             "ONLY_FULL_PAY_FROM_ACCOUNT" => "N",
             "COUNT_DELIVERY_TAX" => "N",

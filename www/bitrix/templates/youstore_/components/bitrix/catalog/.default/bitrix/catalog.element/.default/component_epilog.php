@@ -1,8 +1,8 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $templateData */
 /** @var @global CMain $APPLICATION */
+$APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
 ?>
-
 <div id="reviews" class="tab" style="display:none">
             <div class="comments-board">
                 <?global $commentsFilter;
@@ -48,7 +48,8 @@
                         "AJAX_OPTION_STYLE" => "Y",
                         "AJAX_OPTION_HISTORY" => "N",
                         "AJAX_OPTION_ADDITIONAL" => ""
-                        )
+                        ),
+                        $component
                     );?>
                 <?$APPLICATION->IncludeComponent(
                         "advent:iblock.comments",
@@ -82,7 +83,7 @@
                                 0 => "13",
                             ),
                         ),
-                        false
+                        $component
                     );?>
 
 

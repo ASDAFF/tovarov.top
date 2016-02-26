@@ -813,7 +813,6 @@ function showBasketItemsList(val)
 }
 
 $(function(){
-	debugger;
 	$('.basket-box').on('click', '.full-basket-reload', function(){
 		setTimeout(fullBasketReload, 500);
 	});

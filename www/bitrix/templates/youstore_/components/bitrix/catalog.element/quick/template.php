@@ -2,8 +2,6 @@
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
-
-$strMainID = $this->GetEditAreaId($arResult['ID']);
 $arItemIDs = array(
     'ID' => $strMainID,
     'PICT' => $strMainID.'_pict',
@@ -59,8 +57,8 @@ if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])){
             $offer["CAN_BUY"] = false;
     }
 }else{
-    if($arResult["CATALOG_QUANTITY"] <= 0)
-        $arResult["CAN_BUY"] = false;
+    /*if($arResult["CATALOG_QUANTITY"] <= 0)
+        $arResult["CAN_BUY"] = false;*/
 }
 
 if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))
@@ -71,7 +69,6 @@ else
 {
     $canBuy = $arResult['CAN_BUY'] && !empty($arResult["MIN_PRICE"]);
 }
-
 if ($canBuy)
 {
     $buyBtnMessage = ('' != $arParams['MESS_BTN_BUY'] ? $arParams['MESS_BTN_BUY'] : GetMessage('CT_BCE_CATALOG_BUY'));

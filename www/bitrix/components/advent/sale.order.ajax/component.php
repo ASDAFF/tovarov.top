@@ -1146,6 +1146,7 @@ if ($USER->IsAuthorized() || $arParams["ALLOW_AUTO_REGISTER"] == "Y" )
 			$_SESSION["SALE_DELIVERY_EXTRA_PARAMS"] = array(); // here we will store params for params dialog
 
 			//select calc delivery
+			AddMessage2Log($arDeliveryServiceAll);
 			foreach($arDeliveryServiceAll as $arDeliveryService)
 			{
 				foreach ($arDeliveryService["PROFILES"] as $profile_id => $arDeliveryProfile)

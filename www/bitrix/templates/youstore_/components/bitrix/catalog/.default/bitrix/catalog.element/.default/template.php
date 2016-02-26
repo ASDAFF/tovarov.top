@@ -3,7 +3,7 @@
 /** @var @global CMain $APPLICATION */
 $this->setFrameMode(true);
 global $APPLICATION;
-$APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
+//test_dump($arResult["NAME"]);
 ?>
 <?
     $strMainID = $this->GetEditAreaId($arResult['ID']);
@@ -61,8 +61,8 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
                 $offer["CAN_BUY"] = false;
         }
     }else{
-        if($arResult["CATALOG_QUANTITY"] <= 0)
-            $arResult["CAN_BUY"] = false;
+       /* if($arResult["CATALOG_QUANTITY"] <= 0)
+            $arResult["CAN_BUY"] = false;*/
     }
 
     if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))

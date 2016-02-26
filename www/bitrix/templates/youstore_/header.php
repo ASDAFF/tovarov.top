@@ -181,38 +181,40 @@ $APPLICATION->IncludeFile(SITE_DIR."include/analytics/google_analytics.php", Arr
         <strong id="logo"  itemprop="name"><a href="<?=SITE_DIR?>"><img src="/bitrix/templates/youstore_/images/logo_new.png" alt=""></a></strong>
 
         <?$APPLICATION->IncludeComponent(
-                "bitrix:search.title", 
-                "catalog", 
-                array(
-                    "NUM_CATEGORIES" => "1",
-                    "TOP_COUNT" => "5",
-                    "ORDER" => "date",
-                    "USE_LANGUAGE_GUESS" => "N",
-                    "CHECK_DATES" => "N",
-                    "SHOW_OTHERS" => "N",
-                    "SHOW_PREVIEW" => "Y",
-                    "PREVIEW_WIDTH" => "45",
-                    "PREVIEW_HEIGHT" => "45",
-                    "PRICE_CODE" => array(
-                        0 => "BASE",
-                    ),
-                    "PAGE" => SITE_DIR."search/",
-                    "CATEGORY_0_TITLE" => GetMessage('HEADER_ALLSEARCH'),
-                    "CATEGORY_0" => array(
-                        0 => "iblock_catalog",
-                    ),
-                    "CATEGORY_0_iblock_catalog" => array(
-                        0 => "all",
-                    ),
-                    "SHOW_INPUT" => "Y",
-                    "INPUT_ID" => "title-search-input",
-                    "CONTAINER_ID" => "search",
-                    "PRICE_VAT_INCLUDE" => "Y",
-                    "PREVIEW_TRUNCATE_LEN" => "",
-                    "CONVERT_CURRENCY" => "N"
-                ),
-                false
-            );?>
+	"bitrix:search.title", 
+	"catalog", 
+	array(
+		"NUM_CATEGORIES" => "1",
+		"TOP_COUNT" => "5",
+		"ORDER" => "date",
+		"USE_LANGUAGE_GUESS" => "Y",
+		"CHECK_DATES" => "N",
+		"SHOW_OTHERS" => "N",
+		"SHOW_PREVIEW" => "Y",
+		"PREVIEW_WIDTH" => "45",
+		"PREVIEW_HEIGHT" => "45",
+		"PRICE_CODE" => array(
+			0 => "BASE",
+		),
+		"PAGE" => "/search/",
+		"CATEGORY_0_TITLE" => GetMessage("HEADER_ALLSEARCH"),
+		"CATEGORY_0" => array(
+			0 => "iblock_catalog",
+		),
+		"CATEGORY_0_iblock_catalog" => array(
+			0 => "20",
+		),
+		"SHOW_INPUT" => "Y",
+		"INPUT_ID" => "title-search-input",
+		"CONTAINER_ID" => "search",
+		"PRICE_VAT_INCLUDE" => "Y",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"CONVERT_CURRENCY" => "N",
+		"COMPONENT_TEMPLATE" => "catalog",
+		"CATEGORY_OTHERS_TITLE" => ""
+	),
+	false
+);?>
         <div class="top-info">
             <div class="box call">
                 <strong class="phone"  itemprop="telephone"> <?

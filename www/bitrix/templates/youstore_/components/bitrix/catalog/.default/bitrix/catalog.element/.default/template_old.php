@@ -57,8 +57,8 @@ $this->setFrameMode(true);?>
                 $offer["CAN_BUY"] = false;
         }
     }else{
-        if($arResult["CATALOG_QUANTITY"] <= 0)
-            $arResult["CAN_BUY"] = false;
+        /*if($arResult["CATALOG_QUANTITY"] <= 0)
+            $arResult["CAN_BUY"] = false;*/
     }
 
     if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))
@@ -148,9 +148,9 @@ $this->setFrameMode(true);?>
                 </div>
                 <?endif?>
 
-            <?/*выбор SKU*/?>
+            <?/*пїЅпїЅпїЅпїЅпїЅ SKU*/?>
             <?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/skuSelect.php");?>
-            <?/*действия с товаров ( купить, купить в 1 клик и т.д.*/?>
+            <?/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ( пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 1 пїЅпїЅпїЅпїЅ пїЅ пїЅ.пїЅ.*/?>
             <?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/cardActions.php");?>
 
 			
@@ -391,9 +391,9 @@ if (!w.__utlWdgt ) {
 		"PRODUCT_SUBSCRIPTION" => "N",
 		"SHOW_NAME" => "Y",
 		"SHOW_IMAGE" => "Y",
-		"MESS_BTN_BUY" => GetMessage('BIGDATA_MESS_BTN_BUY'),//"Купить",
-		"MESS_BTN_DETAIL" => GetMessage('BIGDATA_MESS_BTN_DETAIL'),//"Подробнее",
-		"MESS_BTN_SUBSCRIBE" => GetMessage('BIGDATA_MESS_BTN_SUBSCRIBE'),//"Подписаться",
+		"MESS_BTN_BUY" => GetMessage('BIGDATA_MESS_BTN_BUY'),//"пїЅпїЅпїЅпїЅпїЅпїЅ",
+		"MESS_BTN_DETAIL" => GetMessage('BIGDATA_MESS_BTN_DETAIL'),//"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+		"MESS_BTN_SUBSCRIBE" => GetMessage('BIGDATA_MESS_BTN_SUBSCRIBE'),//"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 		"PAGE_ELEMENT_COUNT" => "6",
 		"LINE_ELEMENT_COUNT" => "3",
 		"TEMPLATE_THEME" => "blue",
