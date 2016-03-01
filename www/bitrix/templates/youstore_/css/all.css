@@ -444,7 +444,7 @@ li > .hasDrop{background: url(../images/bg-drop-arrow.png) 100% 6px no-repeat;}
     left: -40px;
     top: 44px;
     width: 930px;
-    padding: 40px;
+    padding: 20px 40px 20px 40px;
     background: #fff;
 }
 #nav > li:last-child .drop,
