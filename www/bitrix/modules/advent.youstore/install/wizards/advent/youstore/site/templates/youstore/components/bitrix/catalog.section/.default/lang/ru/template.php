@@ -18,7 +18,7 @@ $MESS["CT_BCS_CATALOG_TITLE_BASKET_PROPS"] = "Свойства товара, д�
 $MESS["CT_BCS_CATALOG_BASKET_UNKNOWN_ERROR"] = "Неизвестная ошибка при добавлении товара в корзину";
 $MESS["CT_BCS_CATALOG_BTN_MESSAGE_SEND_PROPS"] = "Выбрать";
 $MESS["CT_BCS_CATALOG_BTN_MESSAGE_CLOSE"] = "Закрыть";
-$MESS['WISHLIST'] = 'Добавить в вишлист';
-$MESS['WISHLIST_DEL'] = 'Удалить из вишлиста';
+$MESS['WISHLIST'] = 'Добавить в избранное';
+$MESS['WISHLIST_DEL'] = 'Удалить из избранного';
 $MESS['PLAY'] = 'play';
 ?>

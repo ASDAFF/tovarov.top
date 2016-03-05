@@ -304,7 +304,7 @@ if (!empty($arResult['ITEMS']))
                                     ?>
                                 </div>
                                 <?/*<ul class="tools">
-                                    <li class="like"><a class="link-wishlist" href="/ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>">Вишлист</a></li>
+                                    <li class="like"><a class="link-wishlist" href="/ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>">Избранное</a></li>
                                     <li class="compare"><a class="link-compare" href="/ajax/compare.php?id=<?=$arItem["ID"]?>&action=ADD_TO_COMPARE_LIST">Сравнить</a></li>
                                 </ul>*/
                                 ?>

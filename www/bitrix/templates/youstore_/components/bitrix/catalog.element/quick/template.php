@@ -150,7 +150,7 @@ else
             <?/*Обработка SKU*/?>
             <?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/skuSelect.php");?>
             <noindex>
-            <?/*Кнопки (в корзину, вишлист, купить в 1 клик)*/?>
+            <?/*Кнопки (в корзину, Избранное, купить в 1 клик)*/?>
             <?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/cardActions.php");?>
             </noindex>
 			<div class="prod-link">

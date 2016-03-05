@@ -1,7 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Купить хлопушки оптом и в розницу. Быстрая доставка по всей России. Низкие цены и большой ассортимент выбора хлопушек. Высокое качество.");
+$APPLICATION->SetPageProperty("keywords", "хлопушка, купить хлопушки, хлопушки на свадьбу купить в москве, хлопушки оптом, хлопушки для свадьбы купить, хлопушки на день рождения купить, купить хлопушки в интернет магазине");
+$APPLICATION->SetPageProperty("title", "Хлопушки");
 $APPLICATION->SetPageProperty("prop-show-bottom", "Y");
-$APPLICATION->SetTitle("");
+$APPLICATION->SetTitle("Хлопушки");
 ?>
 
 <? $APPLICATION->IncludeComponent(
@@ -21,7 +24,7 @@ $APPLICATION->SetTitle("");
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "36000000",
 		"CACHE_FILTER" => "Y",
-		"CACHE_GROUPS" => "N",
+		"CACHE_GROUPS" => "Y",
 		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -111,7 +114,7 @@ $APPLICATION->SetTitle("");
 		"LINE_ELEMENT_COUNT" => "4",
 		"ELEMENT_SORT_FIELD" => "CATALOG_AVAILABLE",
 		"ELEMENT_SORT_ORDER" => "desc",
-		"ELEMENT_SORT_FIELD2" => "sort",
+		"ELEMENT_SORT_FIELD2" => "CATALOG_AVAILABLE",
 		"ELEMENT_SORT_ORDER2" => "asc",
 		"LIST_PROPERTY_CODE" => array(
 			0 => "ARTICLE",
@@ -139,28 +142,28 @@ $APPLICATION->SetTitle("");
 			3 => "SPECIALOFFER",
 			4 => "TIPE_SALUTE",
 			5 => "ARTICLE",
-			6 => "YOUTUBE_VIDEO",
-			7 => "TIME_WORK",
-			8 => "HEIGHT_GAP",
-			9 => "CALIBER",
-			10 => "VOLLEYS",
-			11 => "vote_count",
-			12 => "MATERIAL",
-			13 => "PRODUCT_LABEL_TEXT",
-			14 => "LABEL",
-			15 => "SIZE",
-			16 => "rating",
-			17 => "vote_sum",
-			18 => "TABS_MAIN_PAGE",
-			19 => "SHOW_ON_MANUFACTURER_TAB",
-			20 => "PACKING",
-			21 => "COLOR",
-			22 => "THREEG",
-			23 => "BLUETOOTH",
-			24 => "WI_FI",
-			25 => "ACCESSORIES",
-			26 => "WIRELESS_INTERFACES",
-			27 => "WEIGHT",
+			6 => "WEIGHT",
+			7 => "YOUTUBE_VIDEO",
+			8 => "TIME_WORK",
+			9 => "HEIGHT_GAP",
+			10 => "CALIBER",
+			11 => "VOLLEYS",
+			12 => "vote_count",
+			13 => "MATERIAL",
+			14 => "PRODUCT_LABEL_TEXT",
+			15 => "LABEL",
+			16 => "SIZE",
+			17 => "rating",
+			18 => "vote_sum",
+			19 => "TABS_MAIN_PAGE",
+			20 => "SHOW_ON_MANUFACTURER_TAB",
+			21 => "PACKING",
+			22 => "COLOR",
+			23 => "THREEG",
+			24 => "BLUETOOTH",
+			25 => "WI_FI",
+			26 => "ACCESSORIES",
+			27 => "WIRELESS_INTERFACES",
 			28 => "DIAGONAL",
 			29 => "MEMORY_CAPACITY",
 			30 => "OS",

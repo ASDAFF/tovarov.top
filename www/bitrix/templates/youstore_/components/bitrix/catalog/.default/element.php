@@ -1,7 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);?>
 <div class="contents">
-	<div class="article-container">
+	<div class="article-container" itemscope itemtype="http://schema.org/Product">
 		<?$ElementID = $APPLICATION->IncludeComponent(
 			"bitrix:catalog.element",
 			"",

@@ -2,7 +2,7 @@
 $MESS["CT_BCS_TPL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
 $MESS["CT_BCS_TPL_MESS_QUICK"] = "Быстрый просмотр";
 $MESS["CT_BCS_TPL_MESS_ADDWISH"] = "Добавить в лист желаний";
-$MESS["CT_BCS_TPL_MESS_WISH"] = "Вишлист";
+$MESS["CT_BCS_TPL_MESS_WISH"] = "Избранное";
 $MESS["CT_BCS_TPL_MESS_COMPARE"] = "Сравнить";
 $MESS["CT_BCS_TPL_MESS_BTN_BUY"] = "Купить";
 $MESS["CT_BCS_TPL_MESS_BTN_ADD_TO_BASKET"] = "В корзину";

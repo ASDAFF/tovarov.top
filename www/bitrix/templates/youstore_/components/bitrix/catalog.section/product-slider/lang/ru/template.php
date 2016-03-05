@@ -4,7 +4,7 @@ $MESS["CATALOG_QUICK"] = "Быстрый просмотр";
 $MESS["CATALOG_POPULAR"] = "Популярные товары:";
 $MESS["CATALOG_ALL"] = "Все";
 $MESS["CATALOG_ECONOMI"] = "Вы сэкономите";
-$MESS["CATALOG_WISH"] = "Вишлист";
+$MESS["CATALOG_WISH"] = "Избранное";
 $MESS["CATALOG_ADDWISH"] = "Добавить в лист желаний";
 $MESS["CATALOG_COMPARE"] = "Сравнить";
 $MESS["CT_BCS_TPL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
@@ -23,6 +23,6 @@ $MESS["CT_BCS_CATALOG_TITLE_BASKET_PROPS"] = "Свойства товара, д�
 $MESS["CT_BCS_CATALOG_BASKET_UNKNOWN_ERROR"] = "Неизвестная ошибка при добавлении товара в корзину";
 $MESS["CT_BCS_CATALOG_BTN_MESSAGE_SEND_PROPS"] = "Выбрать";
 $MESS["CT_BCS_CATALOG_BTN_MESSAGE_CLOSE"] = "Закрыть";
-$MESS['WISHLIST'] = 'Добавить в вишлист';
-$MESS['WISHLIST_DEL'] = 'Удалить из вишлиста';
+$MESS['WISHLIST'] = 'Добавить в избранное';
+$MESS['WISHLIST_DEL'] = 'Удалить из избранного';
 ?>

@@ -186,7 +186,7 @@ if (!empty($arResult['ITEMS']))
 								<a data-id="<?=$arItem['ID']?>" class="video-link"><?=GetMessage('PLAY')?></a>
 								<div class="video-content video-cont<?=$arItem['ID']?>"><?=$arItem['PROPERTIES']['YOUTUBE_VIDEO']['~VALUE']['TEXT']?></div>
 							<?else:?>
-								<a class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
+								<a rel="nofollow" class="video-link-fancybox fancybox.iframe" href="<?='https://youtube.com/embed/'.$link?>"><?=GetMessage('PLAY')?></a>
 							<?endif?>
 						<?endif?>
 							<div class="image">
@@ -321,7 +321,7 @@ if (!empty($arResult['ITEMS']))
 										}
 									}?>
 									<ul class="tools">
-										<li class="like"><a class="link-wishlist" href="<?=SITE_DIR?>ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>"><?=GetMessage('CATALOG_WISH')?></a></li>
+										<li class="like"><a rel="nofollow" class="link-wishlist" href="<?=SITE_DIR?>ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>"><?=GetMessage('CATALOG_WISH')?></a></li>
 									</ul>
 									<?if (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']))
 									{

@@ -187,8 +187,8 @@ if (!empty($arResult['ITEMS']))
                         </div>
                         <div class="cell btn">
                             <div class="align">
-                                <a data-id="<?=$arItem['ID']?>" data-action="ADD2DELAY" href="<?=SITE_DIR?>ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>" class="link-like link-wishlist item<?=$arItem['ID']?>"><span class="tooltip"><?=GetMEssage('CATALOG_WISH')?></span></a>
-                                <a data-id="<?=$arItem['ID']?>" data-action="DELETE_FROM_DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php" class="link-like link-wishlist-delete item<?=$arItem['ID']?>" style="display: none;"><span class="tooltip"><?=GetMessage('WISHLIST_DEL')?></span></a>
+                                <a rel="nofollow" data-id="<?=$arItem['ID']?>" data-action="ADD2DELAY" href="<?=SITE_DIR?>ajax/wishlist.php?action=LIKE&ID=<?=$arItem["ID"]?>" class="link-like link-wishlist item<?=$arItem['ID']?>"><span class="tooltip"><?=GetMEssage('CATALOG_WISH')?></span></a>
+                                <a rel="nofollow" data-id="<?=$arItem['ID']?>" data-action="DELETE_FROM_DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php" class="link-like link-wishlist-delete item<?=$arItem['ID']?>" style="display: none;"><span class="tooltip"><?=GetMessage('WISHLIST_DEL')?></span></a>
                             </div>
                         </div>
                         <div class="cell btn">

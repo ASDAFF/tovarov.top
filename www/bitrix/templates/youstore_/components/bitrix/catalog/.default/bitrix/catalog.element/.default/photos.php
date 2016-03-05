@@ -7,7 +7,7 @@
 		<div class="bx_bigimages">
 			<div class="bx_bigimages_imgcontainer">
 				<?/*<span class="bx_bigimages_aligner"></span>*/?>
-				<img 
+				<img tab-content  itemprop="image"
 					id="<? echo $arItemIDs['PICT']; ?>"
 					src="<? echo $arFirstPhoto['SRC']; ?>"
 					alt="<? echo $strAlt; ?>"
@@ -88,7 +88,7 @@
 				foreach ($arOneOffer['MORE_PHOTO'] as &$arOnePhoto)
 				{
 	?>
-						<li data-value="<? echo $arOneOffer['ID'].'_'.$arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>"><span class="cnt"><img width="100%" class="fancybox-mini" rel="item-images" src="<? echo $arOnePhoto['SRC']; ?>" /></span></li>
+						<li data-value="<? echo $arOneOffer['ID'].'_'.$arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>"><span class="cnt"><img  itemprop="image" width="100%" class="fancybox-mini" rel="item-images" src="<? echo $arOnePhoto['SRC']; ?>" /></span></li>
 	<?
 				}
 				unset($arOnePhoto);

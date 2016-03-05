@@ -1,7 +1,10 @@
 <?
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("keywords", "Вопросы и ответы, faq, помощь");
+$APPLICATION->SetPageProperty("description", "Часто задаваемые вопросы и ответы касающие нашего интернет-магазина Tovarov.TOP.");
+$APPLICATION->SetPageProperty("title", "Вопросы и ответы");
 	$APPLICATION->SetPageProperty("prop-h1", "Часто задаваемые вопросы");
-	$APPLICATION->SetTitle("Часто задаваемые вопросы");
+	$APPLICATION->SetTitle("Вопросы и ответы");
 ?>
 	<div class="contents">
 		<div class="article-container">

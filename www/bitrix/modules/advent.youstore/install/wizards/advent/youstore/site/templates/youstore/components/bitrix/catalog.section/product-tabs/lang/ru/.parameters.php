@@ -44,6 +44,6 @@ $MESS["MESS_NOT_AVAILABLE_TIP"] = "Сообщение об отсутствии 
 
 $MESS["CP_BCS_TPL_TABS_PROPERTY"] = "По какому свойству делить табы (симв. код)";
 $MESS["CP_BCS_TPL_SHOW_TAB_CONTROLS"] = "Показывать табы?";
-$MESS["CP_BCS_TPL_SHOW_EXPAND_OPTIONS"] = "Показывать упралвение товаром? (купить, вишлист, сравнение)";
+$MESS["CP_BCS_TPL_SHOW_EXPAND_OPTIONS"] = "Показывать упралвение товаром? (купить, Избранное, сравнение)";
 
 ?>

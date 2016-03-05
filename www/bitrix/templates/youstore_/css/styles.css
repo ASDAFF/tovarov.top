@@ -510,6 +510,7 @@ fieldset {
   margin: 0 40px 0 0;
   position: relative;
   top: -18px;
+  height: initial;
 }
 
 #logo a {
@@ -522,6 +523,11 @@ fieldset {
         width: 100%;
         display: block;
       }
+#logo img{
+  height: 100%;
+  width: 100%;
+  display: block;
+}
 
 .top-search {
   float: left;
@@ -8975,6 +8981,15 @@ input.file {
 .nav-mobile {
   display: none;
 }
+@media only screen and (max-width: 980px) {
+  #logo {
+    margin: 0 12px 0 4px;
+    width: 30%;
+    height: initial;
+  }
+
+}
+
 /* 1024px resolution */
 @media only screen and (max-width: 1024px) {
   html,
@@ -9000,15 +9015,12 @@ input.file {
   .nav .drop {
     left: -30px;
   }
-  #logo {
-    margin: 0 12px 0 4px;
-    width: 70%;
-  }
+
   .account-menu .account-link {
     font-size: 0;
   }
   .top-search .text {
-    width: 205px;
+    width: 20%;
   }
   .top-info {
     font-size: 12px;
@@ -9932,6 +9944,11 @@ input.file {
   .top-box .socials {
     display: none;
   }
+  #logo {
+    margin: 0 12px 0 4px;
+    width: 100%;
+    height: initial;
+  }
   /* top-nav new styles */
   .top-nav {
     display: block;
@@ -9991,6 +10008,7 @@ input.file {
     float: none;
     margin: 0 auto;
     display: block;
+    height: initial;
   }
   .nav-frame {
     width: 310px;

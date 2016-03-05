@@ -2,7 +2,7 @@
 $MESS["CATALOG_OFFERDAY"] = "Товар дня";
 $MESS["CATALOG_QUICK"] = "Быстрый просмотр";
 $MESS["CATALOG_ECONOM"] = "Вы сэкономите";
-$MESS["CATALOG_WISH"] = "Вишлист";
+$MESS["CATALOG_WISH"] = "Избранное";
 $MESS["CT_BCS_TPL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
 $MESS["CT_BCS_TPL_MESS_BTN_BUY"] = "Купить";
 $MESS["CT_BCS_TPL_MESS_BTN_ADD_TO_BASKET"] = "В корзину";
