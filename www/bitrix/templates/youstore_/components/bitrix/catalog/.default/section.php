@@ -99,7 +99,8 @@ $this->setFrameMode(true);?>
 				"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
 				"VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
 				"SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
-				"HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N")
+				"HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
+				"ADD_SECTIONS_CHAIN"=>"Y"
 			),
 			$component
 		);		
@@ -130,7 +131,9 @@ $this->setFrameMode(true);?>
 							"VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
 							"SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
 							"HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
-							"ACTIVE_SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"]
+							"ACTIVE_SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+							"ADD_SECTIONS_CHAIN"=>"N"
+
 						),
 						$component
 					);
@@ -253,7 +256,7 @@ $this->setFrameMode(true);?>
 					<?
 						$intSectionID = 0;
 						$intSectionID = $APPLICATION->IncludeComponent(
-							"bitrix:catalog.section",
+								"bitrix:catalog.section",
 							$show,
 							array(
 								"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
@@ -335,6 +338,7 @@ $this->setFrameMode(true);?>
 								'MESS_NOT_AVAILABLE' => $arParams['MESS_NOT_AVAILABLE'],
 
 								'TEMPLATE_THEME' => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
+								"ADD_SECTIONS_CHAIN"=>$arParams['ADD_SECTIONS_CHAIN']
 							)/*,
 							$component*/
 						);

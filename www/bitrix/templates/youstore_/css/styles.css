@@ -8987,7 +8987,8 @@ input.file {
     width: 30%;
     height: initial;
   }
-
+  .top-search .text {
+    width: 33%;
 }
 
 /* 1024px resolution */
@@ -9020,7 +9021,7 @@ input.file {
     font-size: 0;
   }
   .top-search .text {
-    width: 20%;
+    width: 85%;
   }
   .top-info {
     font-size: 12px;
@@ -9101,7 +9102,7 @@ input.file {
     width: 100px;
   }
   .footer-search .text {
-    width: 148px;
+    width: 50%;
   }
   .footer-right .tags-list {
     width: 290px;
@@ -9510,7 +9511,7 @@ input.file {
     width: 257px;
   }
   .footer-search .text {
-    width: 140px;
+    width: 50%;
   }
   .tablet-hide {
     display: none;

@@ -28,7 +28,7 @@ $APPLICATION->SetTitle("Хлопушки");
 		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
-		"ADD_ELEMENT_CHAIN" => "N",
+		"ADD_ELEMENT_CHAIN" => "Y",
 		"USE_ELEMENT_COUNTER" => "N",
 		"USE_FILTER" => "Y",
 		"FILTER_NAME" => "",

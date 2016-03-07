@@ -559,6 +559,8 @@ function initInterface(){
 	            slides: '>li',
 	            step:6
 	    });
+        var brand_items = jQuery('.brands-carousel .items > li').length;
+        if ( brand_items < 7) {jQuery('.brands-carousel').addClass('arrows-disabled');}
     } else {
     	jQuery('.brands-carousel').scrollGallery({
 	            btnPrev:'a.btn-prev',
@@ -566,12 +568,12 @@ function initInterface(){
 	            sliderHolder: '.mask',
 	            slider:'>ul',
 	            slides: '>li',
-	            step:1
+	            step:2
 	    });
+
     }
 
-    var brand_items = jQuery('.brands-carousel .items > li').length;
-    if ( brand_items < 7) {jQuery('.brands-carousel').addClass('arrows-disabled');}
+
 
     // brands products carousel
     if ( !$('body').hasClass('screen-mobile') ) {

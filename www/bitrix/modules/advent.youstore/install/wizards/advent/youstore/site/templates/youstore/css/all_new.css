@@ -9344,7 +9344,7 @@ input.file {
     width: 257px;
   }
   .footer-search .text {
-    width: 140px;
+    width: 50%;
   }
   .tablet-hide {
     display: none;

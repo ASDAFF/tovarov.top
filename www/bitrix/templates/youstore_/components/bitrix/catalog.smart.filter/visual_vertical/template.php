@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
+$arResult['FORM_ACTION']=str_replace('index.php','',$arResult['FORM_ACTION']);
 //test_dump($arResult)?>
 <?CJSCore::Init(array("fx"));?>
 <?require_once($_SERVER["DOCUMENT_ROOT"] . $templateFolder. "/functions.php"); ?>
@@ -7,7 +8,7 @@ $this->setFrameMode(true);
 <?
     $arResult["FORM_ACTION"] = rtrim(str_replace("ajax_filter=y", "", $arResult["FORM_ACTION"]), "?& ");
 ?>
-<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get">
+<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" method="get" id="filter_form">
 	<fieldset>
 		<?foreach($arResult["HIDDEN"] as $arItem):
             if($arItem["CONTROL_NAME"] == "ajax_filter") continue;
@@ -19,27 +20,32 @@ $this->setFrameMode(true);
 				value="<?echo $arItem["HTML_VALUE"]?>"
 			/>
 		<?endforeach;?>
-		<?$counter=0?>
 		<?foreach($arResult["ITEMS"] as $key=>$arItem):
+			if ($arItem['CODE']=="CALIBER") $step=0.1; else $step=null;
+			$num=$key;
 			$key = md5($key);
 			?>
 			<?if(isset($arItem["PRICE"]) or $arItem["PROPERTY_TYPE"] == "N"):?>
 				<?
-				if (!$arItem["VALUES"]["MIN"]["VALUE"] || !$arItem["VALUES"]["MAX"]["VALUE"] || $arItem["VALUES"]["MIN"]["VALUE"] == $arItem["VALUES"]["MAX"]["VALUE"])
+				if (!is_set($arItem["VALUES"]["MIN"]["VALUE"]) || !is_set($arItem["VALUES"]["MAX"]["VALUE"]) || $arItem["VALUES"]["MIN"]["VALUE"] == $arItem["VALUES"]["MAX"]["VALUE"])
 					continue;
-				else $counter++?>
+
+
+				$min= is_set($arItem["VALUES"]["MIN"]["FILTERED_VALUE"])?$arItem["VALUES"]["MIN"]["FILTERED_VALUE"]:$arItem["VALUES"]["MIN"]["VALUE"];
+				$max= is_set($arItem["VALUES"]["MAX"]["FILTERED_VALUE"])?$arItem["VALUES"]["MAX"]["FILTERED_VALUE"]:$arItem["VALUES"]["MAX"]["VALUE"];
+				?>
 				<div class="filter box">
 					<div class="title"><h3><?=$arItem['NAME']?>:</h3></div>
 					<div class="range-box">
-						<div id="slider_<?=$counter?>"></div>
+						<div id="slider_<?=$num?>"></div>
 						<div class="slider-row">
 							<div class="slider-cell">
 								<input
-									class="minCost_<?=$counter?> text"
+									class="minCost_<?=$num?> text"
 									type="text"
 									name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
 									id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
-									value="<?echo intval(ceil($arItem["VALUES"]["MIN"]["HTML_VALUE"] ?: $arItem["VALUES"]["MIN"]["VALUE"]))?>"
+									value="<?echo $min?>"
 									size="5"
 									onkeyup="smartFilter.keyup(this)"
 								/>
@@ -47,11 +53,11 @@ $this->setFrameMode(true);
 							<div class="slider-cell">
 								<label for="maxCost"><?=GetMessage('CT_BCSF_FILTER_TO')?></label>
 								<input
-									class="maxCost_<?=$counter?> text"
+									class="maxCost_<?=$num?> text"
 									type="text"
 									name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
 									id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
-									value="<?echo intval(ceil($arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]))?>"
+									value="<?echo $max?>"
 									size="5"
 									onkeyup="smartFilter.keyup(this)"
 								/>
@@ -60,7 +66,14 @@ $this->setFrameMode(true);
 					</div>
 					<script>
 						$(function(){
-							priceSliderInit(<?=$counter?>,<?=intval(ceil($arItem["VALUES"]["MIN"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MAX"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MIN"]["HTML_VALUE"] ?: $arItem["VALUES"]["MIN"]["VALUE"]))?>, <?=intval(ceil($arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]))?>);
+							priceSliderInit(
+								'<?=$num?>',
+								<?=$arItem["VALUES"]["MIN"]["VALUE"]?>,
+								<?=$arItem["VALUES"]["MAX"]["VALUE"]?>,
+								<?=$arItem["VALUES"]["MIN"]["HTML_VALUE"] ?: $arItem["VALUES"]["MIN"]["VALUE"]?>,
+								<?=$arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]?>
+								<?=is_set($step)?','.$step:''?>
+							);
 						});
 					</script>
 				</div>
@@ -156,9 +169,10 @@ $this->setFrameMode(true);
 					<?endif?>
 				</div>
 			<?endif;?>
+
 		<?endforeach;?>
-		<input type="submit" id="set_filter" class="button filter-apply" name="set_filter" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>" />
-		<input type="submit" id="del_filter" class="button filter-apply" name="del_filter" value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>" />
+		<input type="submit" id="set_filter" class="button filter-apply" name="set_filter" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>" action="<?=$arResult['SEF_SET_FILTER_URL']?>"/>
+		<input type="submit" id="del_filter" class="button filter-apply" name="del_filter" value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>" action="<?=$arResult['SEF_DEL_FILTER_URL']?>"/>
 	</fieldset>
 </form>
 <script>
