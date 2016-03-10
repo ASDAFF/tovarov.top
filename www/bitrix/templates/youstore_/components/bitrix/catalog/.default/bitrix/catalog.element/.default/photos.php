@@ -10,7 +10,7 @@
 				<img tab-content  itemprop="image"
 					id="<? echo $arItemIDs['PICT']; ?>"
 					src="<? echo $arFirstPhoto['SRC']; ?>"
-					alt="<? echo $strAlt; ?>"
+					alt='<?echo str_replace('"',"'", $strAlt) ?>'
 					title="<? echo $strTitle; ?>"
 					style="max-width: 370px"
 				/>

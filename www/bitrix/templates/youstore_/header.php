@@ -47,6 +47,7 @@ IncludeTemplateLangFile(__FILE__);
     <? $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/bitrix/section.js') ?>
     <? $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/bitrix/compare.js') ?>
     <? $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/bitrix/iblockvote.js') ?>
+    <? $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/bitrix/element.js') ?>
 
 
     <link media="all" rel="stylesheet" type="text/css" href="<?= SITE_TEMPLATE_PATH ?>/css/jquery.ui.slider.css"/>
@@ -59,13 +60,6 @@ IncludeTemplateLangFile(__FILE__);
     <link media="all" rel="stylesheet" type="text/css" href="<?= SITE_TEMPLATE_PATH ?>/css/stars.css"/>
     <link media="all" rel="stylesheet" type="text/css"
           href="<?= SITE_TEMPLATE_PATH ?>/js/fancybox/source/jquery.fancybox.css"/>
-
-
-    <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/bitrix/system.js"></script>
-    <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/bitrix/section.js"></script>
-    <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/bitrix/element.js"></script>
-    <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/bitrix/compare.js"></script>
-    <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/bitrix/iblockvote.js"></script>
 
     <script>
         var sd = '<?=SITE_DIR?>';
