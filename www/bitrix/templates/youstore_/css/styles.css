@@ -2961,28 +2961,52 @@ input.file {
   text-indent: -9999px;
 }
 #footer .socials .vk {
-  background: url(../images/bg-socials.png) no-repeat 0 0;
+  background: url(../images/bg-socials-two.png) no-repeat 0 0;
+  border-radius: 50%;
+  background-color: #545454;
 }
 #footer .socials .vk:hover {
-  background: url(../images/bg-socials.png) no-repeat 0 -60px;
+  background-color: #5c82a6;
 }
 #footer .socials .fb {
-  background: url(../images/bg-socials.png) no-repeat -50px 0;
+  background: url(../images/bg-socials-two.png) no-repeat -50px 0;
+  border-radius: 50%;
+  background-color: #545454;
 }
 #footer .socials .fb:hover {
-  background: url(../images/bg-socials.png) no-repeat -50px -60px;
+  background-color: #3b60a0;
 }
 #footer .socials .twitter {
-  background: url(../images/bg-socials.png) no-repeat -100px 0;
+  background: url(../images/bg-socials-two.png) no-repeat -100px 0;
+  border-radius: 50%;
+  background-color: #545454;
 }
 #footer .socials .twitter:hover {
-  background: url(../images/bg-socials.png) no-repeat -100px -60px;
+  background-color: #1ea9e1;
+}
+#footer .socials .odnoklas {
+  background: url(../images/bg-socials-two.png) no-repeat -150px 0;
+  border-radius: 50%;
+  background-color: #545454;
+}
+#footer .socials .odnoklas:hover {
+  background-color: #d77217;
+}
+#footer .socials .mail-ru {
+  background: url(../images/bg-socials-two.png) no-repeat -199px 0;
+  border-radius: 50%;
+  background-color: #545454;
+}
+#footer .socials .mail-ru:hover {
+  background-color: #4677c8;
 }
 #footer .socials .google {
-  background: url(../images/bg-socials.png) no-repeat -150px 0;
+  background: url(../images/bg-socials-two.png) no-repeat -250px 0;
+  border-radius: 50%;
+  background-color: #545454;
 }
 #footer .socials .google:hover {
-  background: url(../images/bg-socials.png) no-repeat -150px -60px;
+  background-color: #e7383c;
 }
 #footer .copy {
   position: absolute;
