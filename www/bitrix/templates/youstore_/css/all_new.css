@@ -3372,7 +3372,9 @@ input.file {
   font-size: 13px;
   line-height: 14px;
   font-weight: 300;
+  /*
   background: url(../images/bg-input-text.png) repeat-x;
+  */
 }
 .ui-slider-horizontal {
   width: 216px !important;

@@ -150,7 +150,6 @@ JCSmartFilter.prototype.reload = function (input) {
 JCSmartFilter.prototype.updateItem = function (PID, arItem) {
     if (arItem.PROPERTY_TYPE === 'N' || arItem.PRICE) {
         var step = parseFloat(jQuery("#slider_" + PID).attr('step'));
-        debugger;
         max=arItem['VALUES']['MAX']['FILTERED_VALUE']?arItem['VALUES']['MAX']['FILTERED_VALUE']:arItem['VALUES']['MAX']['VALUE'];
         min=arItem['VALUES']['MIN']['FILTERED_VALUE']?arItem['VALUES']['MIN']['FILTERED_VALUE']:arItem['VALUES']['MIN']['VALUE'];
         value_max=Math.min(
@@ -210,7 +209,6 @@ JCSmartFilter.prototype.postHandler = function (result, fromCache) {
     $("#set_filter").attr('action',result.SEF_SET_FILTER_URL);
     $("#del_filter").attr('action',result.SEF_DEL_FILTER_URL);
     this.ajaxURL = result.FORM_ACTION;
-debugger;
     if (!!result && !!result.ITEMS) {
         for (var PID in result.ITEMS) {
             if (result.ITEMS.hasOwnProperty(PID)) {
