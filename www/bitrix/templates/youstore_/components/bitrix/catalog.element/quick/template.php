@@ -160,12 +160,17 @@ else
                 <p><?=GetMessage("CATALOG_LIKES_MESSAGE")?></p>
             </div>
             <noindex>
-            <ul class="likes">
-                <li><a rel="nofollow" class="vk" onclick="Share.vk('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">vk</a></li>
-                <li><a rel="nofollow" class="fb" onclick="Share.fb('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">facebook</a></li>
-                <li><a rel="nofollow" class="linkedin" onclick="Share.linkedin('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">linkedin</a></li>
-                <li><a rel="nofollow" class="google" onclick="Share.gplus('<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PAGE_URL']?>', '<?=$arResult['NAME']?>', '<?='http://'.SITE_SERVER_NAME.$arResult['DETAIL_PICTURE']['SRC']?>', '')">google</a></li>
-            </ul>
+                <script type="text/javascript">(function() {
+                        if (window.pluso)if (typeof window.pluso.start == "function") return;
+                        if (window.ifpluso==undefined) { window.ifpluso = 1;
+                            var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                            s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                            s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                            var h=d[g]('body')[0];
+                            h.appendChild(s);
+                        }})();
+                </script>
+                <div class="pluso" data-background="transparent" data-options="medium,round,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,facebook,twitter,google,livejournal,pinterest,moimir"></div>
             </noindex>
         </div>
     </div>

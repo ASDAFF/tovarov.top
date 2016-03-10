@@ -4783,9 +4783,8 @@ input.file {
 }
 
 .success-popup a{
-    display: block;
-    font-size: 20px;
     clear: both;
+    margin-left: 22px;
 }
 
 .btn-continue{

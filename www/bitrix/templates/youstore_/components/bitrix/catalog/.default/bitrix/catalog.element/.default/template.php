@@ -177,7 +177,8 @@ if ($canBuy) {
                                 s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
                                 var h=d[g]('body')[0];
                                 h.appendChild(s);
-                            }})();</script>
+                            }})();
+                    </script>
                     <div class="pluso" data-background="transparent" data-options="medium,round,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,facebook,twitter,google,livejournal,pinterest,moimir"></div>
                     <!--
                     <ul class="likes">
