@@ -1159,6 +1159,19 @@ function initInterface(){
             }
     });
 
+    // contact section
+    jQuery('.contact-info .link-show').click(function(e) {
+        e.preventDefault();
+        if( jQuery(this).parent().hasClass('opened') ){
+            jQuery(this).parent().removeClass('opened');
+            jQuery(this).next().slideUp(250);
+        }
+        else{
+            jQuery(this).parent().addClass('opened');
+            jQuery(this).next().slideDown(350);
+        }
+    });
+
     // orders history section
     jQuery('.history-table .btn-expand').click(function(e) {
             e.preventDefault();

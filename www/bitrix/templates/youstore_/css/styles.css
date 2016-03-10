@@ -2951,8 +2951,9 @@ input.file {
 }
 #footer .socials li {
   float: left;
-  margin: 0 10px 0 0;
+  margin: 0 10px 5px 0;
 }
+
 #footer .socials li a {
   float: left;
   width: 40px;
@@ -4757,7 +4758,7 @@ input.file {
 .product-popup .wish {
   width: 100%;
   overflow: hidden;
-  margin: 0 0 25px;
+  margin: 20px 0 10px 0;
 }
 .product-popup .link-wish {
   background: url(../images/ico-wish3.png) no-repeat;
@@ -4780,6 +4781,18 @@ input.file {
   text-decoration: none;
   border: 0;
 }
+
+.success-popup a{
+    display: block;
+    font-size: 20px;
+    clear: both;
+}
+
+.btn-continue{
+  overflow: hidden;
+  clear: both;
+}
+
 .success-popup {
   display: none;
   position: absolute;
@@ -4789,7 +4802,9 @@ input.file {
   margin: 20px 0 0;
   text-align: center;
   width: 430px;
+  border: 1px solid #f5f5f5;
 }
+
 .success-popup img {
   display: inline-block;
   margin: 0 0 40px;
@@ -4800,17 +4815,17 @@ input.file {
 }
 .success-popup h2 {
   display: inline-block;
-  font-size: 30px;
+  font-size: 26px;
   line-height: 36px;
   color: #575656;
   margin: 0 0 20px;
 }
 .success-popup h3 {
   display: inline-block;
-  font-size: 18px;
+  font-size: 26px;
   line-height: 22px;
   font-weight: 300;
-  color: #7f7f7f;
+  color: #575656;
   margin: 0 0 20px;
 }
 .success-popup p {
@@ -6187,6 +6202,44 @@ input.file {
   color: #fff;
   cursor: pointer;
 }
+
+.contact-info {
+  width: 100%;
+  overflow: hidden;
+}
+
+.contact-info .row {
+  width: 100%;
+  overflow: hidden;
+  margin: 20px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px dotted #dfdedf;
+}
+
+.contact-info .expander {
+  display: none;
+  padding: 20px 0 0 55px;
+  color: #5a5a5a;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+.contact-info .link-show {
+  display: block;
+  padding: 0 0 0 55px;
+  line-height: 36px;
+  font-size: 18px;
+  color: #575656;
+  outline: none;
+}
+.contact-info .link-show {
+  background: url(../images/ico-plus.png) no-repeat 2px 0;
+}
+.contact-info .opened .link-show {
+  background: url(../images/ico-minus.png) no-repeat 2px 0;
+}
+
 .faq-section {
   width: 100%;
   overflow: hidden;
@@ -9017,6 +9070,14 @@ input.file {
     width: 33%;
 }
 
+.footer-blocks strong{
+    font-size: 26px;
+}
+
+#footer .socials li:nth-child(4n+4){
+    clear: both;
+}
+
 /* 1024px resolution */
 @media only screen and (max-width: 1024px) {
   html,
@@ -9741,7 +9802,7 @@ input.file {
     width: 120px;
   }
   .brands-carousel .items img {
-    width: 100%;
+    width: 70%;
     height: auto;
   }
   .services-boxes.new {
@@ -10305,6 +10366,12 @@ input.file {
   .month .jq-selectbox__select {
     width: 70px !important;
   }
+
+  .footer-blocks strong{
+    font-size: 16px;
+    line-height: 36px;
+  }
+
   /* catalog sidebar */
   #sidebar .cats-filter,
   #sidebar .brands.box,

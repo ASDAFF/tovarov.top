@@ -57,12 +57,14 @@ if (!$USER->IsAuthorized()){
     <p>Если у вас есть вопросы закажите <a href="/ajax/callback.php" class='callback-popup-link' rel="nofollow">обратный звонок</a></p>
     <a href="#" class="btn-close">close</a>
 </div>
+
 <div class="popup success-popup" id="basket-success">
     <h2>Товар успешно добавлен в корзину.</h2>
     <a href="/personal/basket/" rel="nofollow">Перейти в корзину</a>
     <a href="#" class='btn-continue' rel="nofollow">Продолжить покупки</a>
     <a href="#" class="btn-close">close</a>
 </div>
+
 <div class="popup success-popup" id="basket-fail">
     <img alt="image" src="<?=SITE_TEMPLATE_PATH?>/images/img-face.png" />
     <h2>Произошла ошибка</h2>
