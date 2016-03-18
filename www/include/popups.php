@@ -60,8 +60,8 @@ if (!$USER->IsAuthorized()){
 
 <div class="popup success-popup" id="basket-success">
     <h2>Товар успешно добавлен в корзину.</h2>
-    <a class="button filter-apply" href="/personal/basket/" rel="nofollow">В корзину</a>
-    <a class="button filter-apply" href="#" rel="nofollow">Продолжить</a>
+    <a class="button filter-apply" href="/personal/basket/" rel="nofollow">Корзина</a>
+    <a class="button filter-apply btn-continue" href="#" rel="nofollow">Продолжить</a>
     <a href="#" class="btn-close">close</a>
 </div>
 

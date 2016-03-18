@@ -1,3 +1,3 @@
 <?
-	$sSectionName = "РђРєС†РёРё";
+	$sSectionName = "Акции";
 ?>

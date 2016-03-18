@@ -1,1 +1,1 @@
-<strong id="footer-logo">YOUSTORE - online РїРѕРєСѓРїРєРё</strong>
+<strong id="footer-logo">LoveStore.TOP - Гипермаркет популярных товаров.  </strong>

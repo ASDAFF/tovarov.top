@@ -71,7 +71,7 @@ $arUrlRewrite = array(
 		"RULE" => "",
 		"ID" => "bitrix:catalog",
 		"PATH" => "/catalog/index.php",
-	),
+	)
 );
 
 ?>
