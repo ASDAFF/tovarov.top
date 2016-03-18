@@ -2556,17 +2556,19 @@ input.file {
   border: 0;
   margin-bottom: 50px;
 }
+
 .news-container .box.details .text {
   margin-left: 0;
   margin-right: 0;
   line-height: 23px;
 }
+
 .news-container .box.details .image {
   float: none;
 }
 .news-container .box {
   border: 1px solid #f5f5f5;
-  width: 475px;
+  width: 100%;
 }
 .news-container .box:after {
   content: "";
@@ -2600,8 +2602,20 @@ input.file {
   margin: 0 0 20px;
 }
 .news-container .box.details > .text p {
-  margin: 0;
+  margin-bottom: 15px;
 }
+
+.news-container .box.details > .text ul{
+  margin-bottom: 5px;
+}
+
+        .news-container .box.details > .text ul li {
+          font-weight: 300;
+          list-style-type:disc;
+          margin-bottom: 5px;
+          margin-left: 5%;
+        }
+
 .news-container .box > .text h2 {
   font-size: 18px;
   line-height: 22px;
@@ -2931,7 +2945,16 @@ input.file {
   margin: 0 0 30px;
   overflow: hidden;
   text-indent: -9999px;
-  background: url(/bitrix/templates/youstore_/images/logo-footer.png) no-repeat;
+  background: url(/bitrix/templates/youstore_/images/s1/logo-footer.png) no-repeat;
+}
+#lovestore-footer-logo {
+  float: left;
+  width: 350px;
+  height: 62px;
+  margin: 0 0 30px;
+  overflow: hidden;
+  text-indent: -9999px;
+  background: url(/bitrix/templates/youstore_/images/s2/logo-footer.png) no-repeat;
 }
 .footer-left .text {
   clear: both;
@@ -3324,7 +3347,7 @@ input.file {
   position: absolute;
   left: 0;
   top: 0;
-  background: url(../images/bg-tile.png);
+  /*background: url(../images/bg-tile.png);*/
 }
 .page-image .text,
 .page-map .text {
