@@ -11,7 +11,7 @@
 							<div class="left-col">
 								<div class="cell">
 									<div class="title">
-										<h2><?=$arItem["~NAME"]?></h2>
+										<?=$arItem["~NAME"]?>
 									</div>
 									<?if(!empty($arItem["PREVIEW_TEXT"])):?>
 										<div class="text">

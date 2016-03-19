@@ -144,7 +144,7 @@
                 );?>
               </div>
               <div class="box">
-                <h3>Мы в соцсетях</h3>
+                <p class="head-text">Мы в соцсетях</p>
                 <?// âêëþ÷àåìàÿ îáëàñòü äëÿ ðàçäåëà
                 $APPLICATION->IncludeFile(SITE_DIR."include/bottom-social.php", Array(), Array(
                         "MODE"      => "html",                                           // áóäåò ðåäàêòèðîâàòü â âåá-ðåäàêòîðå

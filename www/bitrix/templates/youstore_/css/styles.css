@@ -1042,6 +1042,9 @@ li > .hasDrop {
 }
 #visual .slides .title {
   margin: 0 0 15px;
+  font-size: 34px;
+  line-height: 45px;
+  font-weight: 500;
 }
 #visual .slides .title h2 {
   font-size: 34px;
@@ -3083,6 +3086,14 @@ input.file {
   overflow: hidden;
   margin: 40px 0 0 40px;
 }
+
+.footer-right .box .head-text{
+  color: #cecece;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0 0 12px;
+}
+
 .footer-right .box h3 {
   color: #cecece;
   font-size: 18px;
