@@ -1042,6 +1042,9 @@ li > .hasDrop {
 }
 #visual .slides .title {
   margin: 0 0 15px;
+  font-size: 34px;
+  line-height: 45px;
+  font-weight: 500;
 }
 #visual .slides .title h2 {
   font-size: 34px;
@@ -2556,17 +2559,19 @@ input.file {
   border: 0;
   margin-bottom: 50px;
 }
+
 .news-container .box.details .text {
   margin-left: 0;
   margin-right: 0;
   line-height: 23px;
 }
+
 .news-container .box.details .image {
   float: none;
 }
 .news-container .box {
   border: 1px solid #f5f5f5;
-  width: 475px;
+  width: 100%;
 }
 .news-container .box:after {
   content: "";
@@ -2600,8 +2605,20 @@ input.file {
   margin: 0 0 20px;
 }
 .news-container .box.details > .text p {
-  margin: 0;
+  margin-bottom: 15px;
 }
+
+.news-container .box.details > .text ul{
+  margin-bottom: 5px;
+}
+
+        .news-container .box.details > .text ul li {
+          font-weight: 300;
+          list-style-type:disc;
+          margin-bottom: 5px;
+          margin-left: 5%;
+        }
+
 .news-container .box > .text h2 {
   font-size: 18px;
   line-height: 22px;
@@ -3069,6 +3086,14 @@ input.file {
   overflow: hidden;
   margin: 40px 0 0 40px;
 }
+
+.footer-right .box .head-text{
+  color: #cecece;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0 0 12px;
+}
+
 .footer-right .box h3 {
   color: #cecece;
   font-size: 18px;
@@ -3333,7 +3358,7 @@ input.file {
   position: absolute;
   left: 0;
   top: 0;
-  background: url(../images/bg-tile.png);
+  /*background: url(../images/bg-tile.png);*/
 }
 .page-image .text,
 .page-map .text {
