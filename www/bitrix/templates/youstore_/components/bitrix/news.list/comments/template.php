@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);?>
+<?//test_dump($arResult);?>
 <?foreach($arResult["ITEMS"] as $arItem):
 
     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -53,7 +54,7 @@ $this->setFrameMode(true);?>
             <div class="stars">
                 <span class="rating" style="width: <?=intval($arItem["PROPERTIES"]["RATING"]["VALUE"] / 5 * 100)?>%"><?=$arItem["PROPERTIES"]["RATING"]["VALUE"]?> from 5 stars</span>
             </div>
-            <?/*<a href="#" id="<?=$arItemIDs["REPLY"]?>" class="link-comment">Комментировать</a>*/?>
+            <?/*<a href="#" id="<?=$arItemIDs["REPLY"]?>" class="link-comment">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>*/?>
         </div>
     </div>
     <script type="text/javascript">

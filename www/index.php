@@ -1,8 +1,8 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetPageProperty("keywords", "интернет магазин, онлайн магазин, товаров топ, tovarov top, магазин  интересных товаров");
-$APPLICATION->SetTitle("Tovarov.TOP - интернет-магазин популярных товаров");
-$APPLICATION->SetPageProperty("title", "Tovarov.TOP - интернет-магазин популярных товаров");
+$APPLICATION->SetPageProperty("keywords", "интернет магазин, пиротехника, товары для туризма, товары для спорта, спортивные товары");
+$APPLICATION->SetTitle("Интернет-магазин популярных товаров");
+$APPLICATION->SetPageProperty("title", "Интернет-магазин популярных товаров");
 $APPLICATION->SetPageProperty("description", "Интернет-магазин Товаров.ТОП (Tovarov.TOP) предлагает огромный ассортимент товаров по низким ценам с доставкой по всей России.");
 $APPLICATION->SetTitle("Tovarov.TOP");
 $APPLICATION->SetPageProperty("body-class", "home");
@@ -92,7 +92,7 @@ $APPLICATION->IncludeComponent(
 		"AJAX_OPTION_HISTORY" => "N",
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
-		"CACHE_GROUPS" => "N",
+		"CACHE_GROUPS" => "Y",
 		"SET_META_KEYWORDS" => "Y",
 		"META_KEYWORDS" => "-",
 		"SET_META_DESCRIPTION" => "Y",
@@ -161,7 +161,7 @@ $arBrands = $APPLICATION->IncludeComponent(
 		"IBLOCK_CATALOG"=>'20',
 		"AJAX_MODE" => "N",
 		"IBLOCK_TYPE" => "content",
-		"IBLOCK_ID" => "3",
+		"IBLOCK_ID" => "24",
 		"NEWS_COUNT" => "50",
 		"SORT_BY1" => "SORT",
 		"SORT_ORDER1" => "ASC",

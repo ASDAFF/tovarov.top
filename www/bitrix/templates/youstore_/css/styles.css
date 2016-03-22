@@ -2931,7 +2931,16 @@ input.file {
   margin: 0 0 30px;
   overflow: hidden;
   text-indent: -9999px;
-  background: url(/bitrix/templates/youstore_/images/logo-footer.png) no-repeat;
+  background: url(/bitrix/templates/youstore_/images/s1/logo-footer.png) no-repeat;
+}
+#lovestore-footer-logo {
+  float: left;
+  width: 350px;
+  height: 62px;
+  margin: 0 0 30px;
+  overflow: hidden;
+  text-indent: -9999px;
+  background: url(/bitrix/templates/youstore_/images/s2/logo-footer.png) no-repeat;
 }
 .footer-left .text {
   clear: both;

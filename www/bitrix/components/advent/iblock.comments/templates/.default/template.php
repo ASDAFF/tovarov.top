@@ -11,6 +11,7 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
  *
  * $f["HINT"] - it's @placeholder or @tooltip property of each field, if you're @need to @change it: @make it's in @result_modifier.php of your @template
  */
+//test_dump($arResult["FIELDS"]);
 ?>
 <?$this->setFrameMode(true);?>
 
@@ -48,7 +49,7 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
                             <?break;
 							case 'AUTHOR_EMAIL':
                             ?>
-                                 <input type="email" required name="<?=$f["CODE"]?>" class="text" placeholder="<?=$f["HINT"]?>" value="<?=$_REQUEST[$f["CODE"]]?>">
+                                 <input  type="email" required name="<?=$f["CODE"]?>" class="text" placeholder="<?=$f["HINT"]?>" value="<?=$_REQUEST[$f["CODE"]]?>">
                             <?break;
                             case 'RATING':?>
                                 <?if($arParams["USE_CAPTCHA"] == "Y"):?>

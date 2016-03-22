@@ -7,8 +7,11 @@
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog/.default/element.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog/.default/sections.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/news.list/brands-slider/template.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/news.list/comments/template.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/footer.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/header.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/search/.section.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/sect_footer_text.php" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

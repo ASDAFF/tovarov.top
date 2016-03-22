@@ -40,7 +40,9 @@ if($allGroupCount > 0){
                         <div class="right">
                     <?endif?>
                     <div class="tab-box">
-						<?/*
+                        <img class="tab-img" src="<?=$arElement["PREVIEW_PICTURE"]["SRC"]?>" alt="#" width="33" height="31">
+
+                        <?/*
                         <img class="tab-img" src="<?=$arElement["PREVIEW_PICTURE"]["SRC"]?>" alt="#" width="33" height="31">
 						*/?>
                         <h3 class="box-title"><?=$arElement["NAME"]?></h3>

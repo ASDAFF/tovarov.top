@@ -5,7 +5,14 @@ $isMainPage = $APPLICATION->GetCurDir() != SITE_DIR;
  * @email
  * @version 0.00, 06/06/14
  **/
-
+switch (SITE_ID) {
+    case 's1':
+        $CATEGORY_0_iblock_catalog = 20;
+        break;
+    case 's2':
+        $CATEGORY_0_iblock_catalog = 22;
+        break;
+}
 IncludeTemplateLangFile(__FILE__);
 ?>
 <? CAjax::Init(); ?>
@@ -176,12 +183,13 @@ IncludeTemplateLangFile(__FILE__);
                         <div id="header">
                             <div class="container header-container" itemscope itemtype="http://schema.org/Organization">
                                 <strong id="logo" itemprop="name">
-                                    <span style="display: none"> Tovarov.TOP</span>
+                                    <span
+                                        style="display: none"> <?= SITE_ID == "s1" ? "Tovarov.TOP" : "Lovestore" ?></span>
                                     <? if ($isMainPage): ?>
                                     <a href="<?= SITE_DIR ?>">
                                         <? endif ?>
                                         <img
-                                            src="/bitrix/templates/youstore_/images/logo.png" alt="">
+                                            src="<?="/bitrix/templates/youstore_/images/" .SITE_ID."/logo.png"?>" alt="">
                                         <? if ($isMainPage): ?></a><? endif ?>
                                 </strong>
 
@@ -208,7 +216,8 @@ IncludeTemplateLangFile(__FILE__);
                                                 0 => "iblock_catalog",
                                             ),
                                             "CATEGORY_0_iblock_catalog" => array(
-                                                0 => "20",
+                                                0 => $CATEGORY_0_iblock_catalog,
+
                                             ),
                                             "SHOW_INPUT" => "Y",
                                             "INPUT_ID" => "title-search-input",
@@ -337,7 +346,7 @@ IncludeTemplateLangFile(__FILE__);
                                     <div class="holder">
                                         <div class="holder-frame">
                                             <div class="text">
-                                                <h1 ><?= $APPLICATION->ShowProperty("prop-h1", GetMessage('HEADER_NOINSTALL')) ?></h1>
+                                                <h1><?= $APPLICATION->ShowProperty("prop-h1", GetMessage('HEADER_NOINSTALL')) ?></h1>
                                                 <? $APPLICATION->IncludeComponent(
                                                     "bitrix:breadcrumb",
                                                     ".default",

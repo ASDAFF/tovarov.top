@@ -1,1 +1,1 @@
-<strong id="footer-logo">LoveStore.TOP - Гипермаркет популярных товаров.  </strong>
+<strong id="footer-logo">Tovarov.TOP - Гипермаркет популярных товаров.  </strong>

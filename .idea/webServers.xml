@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="bba7b60f-41e3-4ff4-9819-6a34cc0fc912" name="tovarov.top" url="http://tovarov.top">
-        <fileTransfer host="tovarov.top" port="22" rootFolder="/home/b2120/domains/tovarov.top/" accessType="SFTP" password="dfdbdffddfcfdfeedfc9dff2dfd0dfebdfd9" username="b2120">
+        <fileTransfer host="tovarov.top" port="22" rootFolder="/home/b2120/domains/tovarov.top" accessType="SFTP" password="dfdbdffddfcfdfeedfc9dff2dfd0dfebdfd9" username="b2120">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
