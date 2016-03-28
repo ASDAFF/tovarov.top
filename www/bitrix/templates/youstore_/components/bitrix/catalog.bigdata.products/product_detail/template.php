@@ -3,6 +3,7 @@
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CDatabase $DB */
+//test_dump($arResult);
 
 $frame = $this->createFrame()->begin("");
 
@@ -401,7 +402,7 @@ if (!empty($arResult['ITEMS']))
 											<span><?echo ('' != $arParams['MESS_BTN_BUY'] ? $arParams['MESS_BTN_BUY'] : GetMessage('CT_BCS_TPL_MESS_BTN_BUY'));?></span>
 										</a>
 										<?endif?>
-									<?    
+									<?
 										break;
 									default:?>
 									<a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium button btn-cart" href="javascript:void(0)" rel="nofollow">
@@ -431,7 +432,7 @@ if (!empty($arResult['ITEMS']))
 								<li>
 									<a class="link-wishlist item<?=$arItem['ID']?>" data-id="<?=$arItem['ID']?>" data-action="ADD2DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php"><?=GetMessage('WISHLIST')?></a>
 									<a data-id="<?=$arItem['ID']?>" data-action="ADD2DELAY"  href="<?=SITE_DIR?>ajax/wishlist.php" class="link-wishlist-delete item<?=$arItem['ID']?>" style="display: none;"><?=GetMessage('WISHLIST_DEL')?></a>
-								</li> 
+								</li>
 							</ul>
 							<?if (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']))
 							{
@@ -443,7 +444,7 @@ if (!empty($arResult['ITEMS']))
 										<?
 										$string = preg_replace('~(.*)\[(.*)\]~', "\$1", $arOneProp["NAME"]);
 										echo $string;
-										?>: 
+										?>:
 										<b>
 											<?echo (
 												is_array($arOneProp['DISPLAY_VALUE'])
@@ -649,8 +650,8 @@ if (!empty($arResult['ITEMS']))
 						<?
 					}
 				?>
-					
-				<?/*	
+
+				<?/*
 				<a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" data-product-id="<?=$arItem['ID']?>" class="bx_catalog_item_images bx_rcm_view_link"<? if ($arParams['SHOW_IMAGE'] == "Y")
 					{
 						?> style="background-image: url(<? echo($arParams['SHOW_IMAGE'] == "Y" ? $arItem['PREVIEW_PICTURE']['SRC'] : ""); ?>)"<?

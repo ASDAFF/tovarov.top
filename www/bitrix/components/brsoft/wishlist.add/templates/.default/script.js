@@ -17,7 +17,7 @@
 	}
 	
 	brWishlist.prototype.onClick = function(){
-		//console.log('wl click, element exist: ', this.EXISTS);
+		//
 		if(this.EXISTS) this.removeElement();
 		else this.addElement();
 	}
@@ -39,7 +39,7 @@
 		//console.log("add Handler");
 		
 		if(result.result){
-			//console.log("Успешно добавлено");
+			//
 			this.WISHLIST_ELEMENT_ID = result.WID;
 			this.EXISTS = true;
 			
@@ -68,7 +68,7 @@
 		//console.log("remove Handler");
 		
 		if(result.result){
-			//console.log("Успешно удалено");
+			//
 			
 			this.WISHLIST_ELEMENT_ID = 0;
 			this.EXISTS = false;
@@ -113,7 +113,7 @@
 		if(!result["result"]){
 			console.log(result["err_code"]);
 		}else{
-			console.log("Успех");
+
 		}
 	}
 	

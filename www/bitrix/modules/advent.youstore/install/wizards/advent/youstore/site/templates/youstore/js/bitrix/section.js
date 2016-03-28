@@ -1389,6 +1389,6 @@ window.JCCatalogSection.prototype.InitPopupWindow = function()
 		titleBar: true,
 		closeIcon: {top: '10px', right: '10px'}
 	});
-      console.log('InitPopupWindow');
+
 };
 })(window);

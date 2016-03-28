@@ -445,6 +445,4 @@ $arResult["ELEMENT_COUNT"] = $arResult["NAV_RESULT"]->nSelectedCount;
 $cp = $this->__component;
 if (is_object($cp))
    $cp->SetResultCacheKeys(array('ELEMENT_COUNT'));
-   
-   
 ?>

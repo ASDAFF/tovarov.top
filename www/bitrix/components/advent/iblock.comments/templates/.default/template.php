@@ -35,7 +35,7 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
         
     <?}?>
     
-    <form action="<?=$APPLICATION->GetCurPage(false)?>" method="POST" class="review-form" enctype="multipart/form-data">
+    <form action="<?=$APPLICATION->GetCurPage(false)?>/#reviews" method="POST" class="review-form" enctype="multipart/form-data">
         <fieldset>
            
             <?=bitrix_sessid_post();?>
@@ -184,7 +184,7 @@ $templateData = array(
 <script type="text/javascript">
     BX.ready(
         BX.defer(function(){
-            console.log(<? echo $templateData['JS_OBJ']; ?>, window.<? echo $templateData['JS_OBJ']; ?>);
+
             if (!!window.<? echo $templateData['JS_OBJ']; ?>)
             {
                 window.<? echo $templateData['JS_OBJ']; ?>.bindEvents();

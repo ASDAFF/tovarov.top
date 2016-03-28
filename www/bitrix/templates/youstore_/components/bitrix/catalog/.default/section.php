@@ -93,12 +93,19 @@ $this->setFrameMode(true); ?>
             ),
             $component
         );
+        ?>
+        <div class="container">
+            <div class="description item-include">
+                <?= $arCurSection['DESCRIPTION'] ?>
+            </div>
+        </div>
+        <?
     else:
         $APPLICATION->SetPageProperty("prop-h1", $arCurSection["NAME"]);
         ?>
-        <? if (strtoupper($_REQUEST["ajax"]) != 'Y'):?>
+        <? if (strtoupper($_REQUEST["ajax"]) != 'Y'): ?>
         <? $this->SetViewTarget('filter'); ?>
-    <?endif ?>
+    <? endif ?>
 
         <div id="sidebar">
             <?
@@ -168,16 +175,16 @@ $this->setFrameMode(true); ?>
             } ?>
         </div>
 
-        <? if (strtoupper($_REQUEST["ajax"]) != 'Y'):?>
+        <? if (strtoupper($_REQUEST["ajax"]) != 'Y'): ?>
         <? $this->EndViewTarget(); ?>
-    <?endif ?>
+    <? endif ?>
 
         <div id="content">
             <div class="top-panel">
-                <? foreach ($_GET as $key => $val):?>
+                <? foreach ($_GET as $key => $val): ?>
                     <? if ($key == "sort" || $key == "size") continue; ?>
                     <input type="hidden" name="<?= $key ?>" value="<?= $val ?>"/>
-                <?endforeach; ?>
+                <? endforeach; ?>
                 <div class="names">
                     <h2><?= $arCurSection["NAME"] ?></h2>
                     <p><?= GetMessage('SECTION_ALL') ?><? $APPLICATION->ShowProperty("products-count", 0) ?> <?= GetMessage('SECTION_PRODUCTS') ?></p>
@@ -192,10 +199,10 @@ $this->setFrameMode(true); ?>
                         $pageSize = min(max(reset($arSizes), intval($_REQUEST["size"])), end($arSizes));
                         ?>
                         <select class="sort-number" name="size" onchange="$('.view-form').submit()">
-                            <? foreach ($arSizes as $size):?>
-                                <option <? if ($pageSize == $size): ?>selected="selected"<?endif ?>
+                            <? foreach ($arSizes as $size): ?>
+                                <option <? if ($pageSize == $size): ?>selected="selected"<? endif ?>
                                         value="<?= $size ?>"><?= $size ?></option>
-                            <?endforeach; ?>
+                            <? endforeach; ?>
                         </select>
                     </div>
                     <div class="cell">
@@ -217,10 +224,10 @@ $this->setFrameMode(true); ?>
                         $order = $arSortes[$_REQUEST["sort"]][1] ?: "ASC";
                         ?>
                         <select class="sort-type" name="sort" onchange="$('.view-form').submit()">
-                            <? foreach ($arSortesName as $key => $arSort):?>
-                                <option <? if ($_REQUEST["sort"] == $key): ?>selected="selected"<?endif ?>
+                            <? foreach ($arSortesName as $key => $arSort): ?>
+                                <option <? if ($_REQUEST["sort"] == $key): ?>selected="selected"<? endif ?>
                                         value="<?= $key ?>"><?= $arSort ?></option>
-                            <?endforeach; ?>
+                            <? endforeach; ?>
                         </select>
                     </div>
                     <?
@@ -234,12 +241,12 @@ $this->setFrameMode(true); ?>
                         });</script>
                     <ul class="views">
                         <li><a href="javascript:void(0)" data-value=""
-                               class="icons <? if (empty($show)):?>active<?endif ?>">icons</a></li>
+                               class="icons <? if (empty($show)): ?>active<? endif ?>">icons</a></li>
                         <li><a href="javascript:void(0)" data-value="list"
-                               class="icons-pic-list <? if (!empty($show) && $show == "list"):?>active<?endif ?>">icons-pic-list</a>
+                               class="icons-pic-list <? if (!empty($show) && $show == "list"): ?>active<? endif ?>">icons-pic-list</a>
                         </li>
                         <li><a href="javascript:void(0)" data-value="table"
-                               class="icons-list <? if (!empty($show) && $show == "table"):?>active<?endif ?>">table-list</a>
+                               class="icons-list <? if (!empty($show) && $show == "table"): ?>active<? endif ?>">table-list</a>
                         </li>
                     </ul>
 
@@ -342,12 +349,32 @@ $this->setFrameMode(true); ?>
                 </div>
             </div>
         </div>
+        <div class="content">
+            <div class="description item-include">
+                <?= $arCurSection['DESCRIPTION'] ?>
+            </div>
+        </div>
         <?
     endif;
     ?>
-    <div class="container">
-        <div class="description item-include">
-            <?= $arCurSection['DESCRIPTION'] ?>
-        </div>
-    </div>
+
 </div>
+<style>
+    .hide {
+        display: none;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $(".description p,.description h2,.description h3").not(':first-child').toggleClass("hide");
+        var a=document.createElement('a');
+        a.innerHTML='Подробнее';
+        $(a).css('float', 'right')
+        $(".description").append(a)
+        $(".description").on('click',function(e){
+            e.preventDefault();
+            $(".description p,.description h2,.description h3").not(':first-child').toggleClass("hide");
+            a.innerHTML=a.innerHTML=='Подробнее'?"Скрыть":"Подробнее";
+        })
+    })
+</script>

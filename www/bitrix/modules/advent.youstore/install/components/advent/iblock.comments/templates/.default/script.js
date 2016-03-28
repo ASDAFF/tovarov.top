@@ -13,7 +13,6 @@
         this.preVotedValue = null;
         this.inputId = params.inputId;
 
-        console.log('review vote init');
     };
 
     JCReviewVoteStars.prototype.setValue = function(value)
@@ -54,7 +53,7 @@
     //todo: IE 8 has no pageX, pageY.
     JCReviewVoteStars.prototype.onMouseMove = function(event)
     {
-        console.log('review vote mouse move');
+
 
         var starsPos = BX.pos(this.getStarsObj());
 
@@ -74,14 +73,14 @@
 
     JCReviewVoteStars.prototype.onMouseOver = function(event)
     {
-        console.log('review vote mouse over');
+
         BX.bind(this.getStarsObj(), 'click', BX.proxy(this.onVote, this));
         //this.preVotedValue = this.votedValue;
     };
 
     JCReviewVoteStars.prototype.onMouseOut = function(event)
     {
-        console.log('review vote mouse out');
+
         BX.unbind(this.getStarsObj(), 'click', BX.proxy(this.onVote, this));
         //this.votedValue = this.preVotedValue;
         //this.setValue(this.votedValue);
@@ -89,7 +88,7 @@
 
     JCReviewVoteStars.prototype.onVote = function(event)
     {
-        console.log('review vote voting');
+
         //this.unBindEvents();
 
         /*this.ajaxParams.rating = parseInt(this.votedValue/20)-1;
@@ -118,7 +117,7 @@
 
     JCReviewVoteStars.prototype.bindEvents = function()
     {
-        console.log('review vote bind events');
+
         var starsObj = this.getStarsObj();
         BX.bind(starsObj.parentNode, 'mousemove', BX.proxy(this.onMouseMove, this));
         BX.bind(starsObj.parentNode, 'mouseover', BX.proxy(this.onMouseOver, this));

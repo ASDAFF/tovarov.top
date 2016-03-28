@@ -88,13 +88,13 @@
                 var date =  new Date().toLocaleString();
                 $('#vac_name').val($('.text-block h2').text()+' '+date);
                /* $('form.vacancy-form').on('submit',function(){
-                    //console.log(encodeURI($(this).serialize()));
+                    //
                     $.ajax({
                         type: 'POST',
                         url: $(this).attr('action'),
                         data : encodeURI($(this).serialize()),
                         success:function(html){
-                            console.log(html);
+
                         },
                         
                     });

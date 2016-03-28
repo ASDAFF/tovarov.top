@@ -3,7 +3,7 @@
         return;
     JCReviewUserVote = function (params)
     {
-        console.log('review user vote init');
+
 
         this.ID = params.ID;
         this.VOTE_PLUS_ID = params.VOTE_PLUS;

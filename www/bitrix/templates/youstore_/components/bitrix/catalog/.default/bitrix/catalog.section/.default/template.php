@@ -3,6 +3,7 @@
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CDatabase $DB */
+//test_dump($arResult);
 ?>
 <?$this->setFrameMode(true);?>
 <?

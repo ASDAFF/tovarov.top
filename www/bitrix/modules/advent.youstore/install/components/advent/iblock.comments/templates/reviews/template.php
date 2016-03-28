@@ -197,7 +197,7 @@
 <script type="text/javascript">
     BX.ready(
         BX.defer(function(){
-                console.log(<? echo $templateData['JS_OBJ']; ?>, window.<? echo $templateData['JS_OBJ']; ?>);
+
                 if (!!window.<? echo $templateData['JS_OBJ']; ?>)
                 {
                     window.<? echo $templateData['JS_OBJ']; ?>.bindEvents();

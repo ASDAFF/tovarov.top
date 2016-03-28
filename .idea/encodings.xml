@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog.smart.filter/visual_vertical/template.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog/.default/bitrix/catalog.element/.default/template.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog/.default/bitrix/catalog.section/.default/lang/de/template.php" charset="ISO-8859-15" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog/.default/bitrix/catalog.smart.filter.del/visual_vertical/template.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog/.default/element.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/bitrix/templates/youstore_/components/bitrix/catalog/.default/sections.php" charset="UTF-8" />

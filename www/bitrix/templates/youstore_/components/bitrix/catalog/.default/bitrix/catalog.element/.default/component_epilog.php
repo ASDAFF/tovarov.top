@@ -90,4 +90,62 @@ $APPLICATION->SetPageProperty("prop-h1", $arResult["NAME"]);
             </div>
         </div>
     </div>
-</div>    
+</div>
+<? $APPLICATION->IncludeComponent(
+    "bitrix:catalog.bigdata.products",
+    "product_detail",
+    array(
+        "RCM_TYPE" => "any_personal",
+        "ID" => $arResult["ID"],
+        "IBLOCK_TYPE" => "catalog",
+        "IBLOCK_ID" => $iblock_id,
+        "SHOW_FROM_SECTION" => "N",
+        "HIDE_NOT_AVAILABLE" => "N",
+        "SHOW_DISCOUNT_PERCENT" => "N",
+        "PRODUCT_SUBSCRIPTION" => "N",
+        "SHOW_NAME" => "Y",
+        "SHOW_IMAGE" => "Y",
+        "MESS_BTN_BUY" => GetMessage("BIGDATA_MESS_BTN_BUY"),
+        "MESS_BTN_DETAIL" => GetMessage("BIGDATA_MESS_BTN_DETAIL"),
+        "MESS_BTN_SUBSCRIBE" => GetMessage("BIGDATA_MESS_BTN_SUBSCRIBE"),
+        "PAGE_ELEMENT_COUNT" => "6",
+        "LINE_ELEMENT_COUNT" => "3",
+        "TEMPLATE_THEME" => "blue",
+        "DETAIL_URL" => "",
+        "CACHE_TYPE" => "A",
+        "CACHE_TIME" => "3600",
+        "CACHE_GROUPS" => "N",
+        "SHOW_OLD_PRICE" => "Y",
+        "PRICE_CODE" => array(
+            0 => "BASE",
+        ),
+        "SHOW_PRICE_COUNT" => "1",
+        "PRICE_VAT_INCLUDE" => "Y",
+        "CONVERT_CURRENCY" => "Y",
+        "BASKET_URL" => SITE_DIR . "personal/basket.php",
+        "ACTION_VARIABLE" => "action",
+        "PRODUCT_ID_VARIABLE" => "id",
+        "PRODUCT_QUANTITY_VARIABLE" => "quantity",
+        "ADD_PROPERTIES_TO_BASKET" => "Y",
+        "PRODUCT_PROPS_VARIABLE" => "prop",
+        "PARTIAL_PRODUCT_PROPERTIES" => "Y",
+        "USE_PRODUCT_QUANTITY" => "N",
+        "SECTION_ID" => "",
+        "SECTION_CODE" => "",
+        "SECTION_ELEMENT_ID" => "",
+        "SECTION_ELEMENT_CODE" => "",
+        "DEPTH" => "2",
+        "CURRENCY_ID" => "RUB",
+        "COMPONENT_TEMPLATE" => "product_detail",
+        "SHOW_PRODUCTS_20" => "Y",
+        "PROPERTY_CODE_20" => array(
+
+        ),
+        "CART_PROPERTIES_20" => array(
+
+        ),
+        "ADDITIONAL_PICT_PrightROP_20" => "MORE_PHOTO",
+        "LABEL_PROP_20" => ""
+    ),
+    $component
+); ?>

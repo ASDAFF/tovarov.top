@@ -424,3 +424,8 @@
 }
 #bx-composite-banner{margin-top:10px;}
 #bxdynamic_wishlist{float:left;}
+.description {
+    float: left;
+    word-break: break-word;
+    width: 100%;
+}

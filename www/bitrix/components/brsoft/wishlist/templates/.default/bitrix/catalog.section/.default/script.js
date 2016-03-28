@@ -39,7 +39,7 @@
 		if(result.result){
 			console.log(this.obj.parentNode, this);
 			BX.remove(this.obj.parentNode);
-			console.log("Успешно удалено");
+
 		}else{
 			this.handleError(result);
 		}
@@ -53,7 +53,7 @@
 		if(!result["result"]){
 			console.log(result["err_code"]);
 		}else{
-			console.log("Успех");
+
 		}
 	}
 })(window);

@@ -63,7 +63,9 @@
         $('.ajax-tmp').bPopup({
             closeClass: 'btn-close',
             modalColor: '#FFFFFF',
-            loadUrl: url //Uses jQuery.load()
+            loadUrl: url,
+            loadCallback: function(){}
+
         });
         return false;
     });

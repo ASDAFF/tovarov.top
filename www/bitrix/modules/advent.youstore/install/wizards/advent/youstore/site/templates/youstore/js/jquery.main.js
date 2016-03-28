@@ -1044,7 +1044,7 @@ function initInterface(){
                         $.post(sd+'ajax/wishlist.php', "", function(html){
                                 $('div.links').replaceWith(html);
                         });
-                        console.log('clear');
+
                     }  
             })
 

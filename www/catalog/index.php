@@ -1,10 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetPageProperty("description", "Купить хлопушки оптом и в розницу. Быстрая доставка по всей России. Низкие цены и большой ассортимент выбора хлопушек. Высокое качество.");
-$APPLICATION->SetPageProperty("keywords", "хлопушка, купить хлопушки, хлопушки на свадьбу купить в москве, хлопушки оптом, хлопушки для свадьбы купить, хлопушки на день рождения купить, купить хлопушки в интернет магазине");
-$APPLICATION->SetPageProperty("title", "Хлопушки");
+$APPLICATION->SetPageProperty("description", "Приобрести качественные феерверки по самым выгодным ценам в интернет-магазине с доставкой по России");
+$APPLICATION->SetPageProperty("keywords", "пиротехника на корпоратив, новогодние фейерверки купить русская пиротехника, купить пиротехнику в интернет магазине недорого, заказ пиротехники по россии");
+$APPLICATION->SetPageProperty("title", "Фейерверки и пиротехника по выгодным ценам");
 $APPLICATION->SetPageProperty("prop-show-bottom", "Y");
-$APPLICATION->SetTitle("Хлопушки");
+$APPLICATION->SetTitle("Фейерверки и пиротехника по выгодным ценам");
 ?>
 
 <? $APPLICATION->IncludeComponent(

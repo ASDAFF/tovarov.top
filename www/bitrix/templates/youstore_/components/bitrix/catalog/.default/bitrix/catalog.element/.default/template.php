@@ -4,6 +4,7 @@
 $this->setFrameMode(true);
 global $APPLICATION;
 //test_dump($arResult["NAME"]);
+$iblock_id=SITE_ID=='s1'?20:22;
 ?>
 <?
 $strMainID = $this->GetEditAreaId($arResult['ID']);
@@ -227,7 +228,7 @@ if ($canBuy) {
                                 "ES_IBLOCK_GROUP_SORT_FIELD" => "sort",
                                 "ES_IBLOCK_GROUP_SORT_ORDER" => "asc",
                                 "ES_IBLOCK_TYPE_CATALOG" => "catalog",
-                                "ES_IBLOCK_CATALOG" => "20",
+                                "ES_IBLOCK_CATALOG" => $iblock_id,
                                 "ES_ELEMENT" => $arResult["ID"],
                                 "ES_SHOW_EMPTY" => "N",
                                 "ES_SHOW_EMPTY_PROPERTY" => "N",
@@ -466,86 +467,7 @@ if ($canBuy) {
                         </div>
                     </div>
                 <? endif ?>
-                <? $APPLICATION->IncludeComponent(
-                    "bitrix:catalog.bigdata.products",
-                    "product_detail",
-                    array(
-                        "RCM_TYPE" => "personal",
-                        "ID" => $arResult["ID"],
-                        "IBLOCK_TYPE" => "catalog",
-                        "IBLOCK_ID" => "20",
-                        "SHOW_FROM_SECTION" => "N",
-                        "HIDE_NOT_AVAILABLE" => "N",
-                        "SHOW_DISCOUNT_PERCENT" => "N",
-                        "PRODUCT_SUBSCRIPTION" => "N",
-                        "SHOW_NAME" => "Y",
-                        "SHOW_IMAGE" => "Y",
-                        "MESS_BTN_BUY" => GetMessage("BIGDATA_MESS_BTN_BUY"),
-                        "MESS_BTN_DETAIL" => GetMessage("BIGDATA_MESS_BTN_DETAIL"),
-                        "MESS_BTN_SUBSCRIBE" => GetMessage("BIGDATA_MESS_BTN_SUBSCRIBE"),
-                        "PAGE_ELEMENT_COUNT" => "6",
-                        "LINE_ELEMENT_COUNT" => "3",
-                        "TEMPLATE_THEME" => "blue",
-                        "DETAIL_URL" => "",
-                        "CACHE_TYPE" => "A",
-                        "CACHE_TIME" => "3600",
-                        "CACHE_GROUPS" => "N",
-                        "SHOW_OLD_PRICE" => "N",
-                        "PRICE_CODE" => array(
-                            0 => "BASE",
-                        ),
-                        "SHOW_PRICE_COUNT" => "1",
-                        "PRICE_VAT_INCLUDE" => "Y",
-                        "CONVERT_CURRENCY" => "Y",
-                        "BASKET_URL" => SITE_DIR . "personal/basket.php",
-                        "ACTION_VARIABLE" => "action",
-                        "PRODUCT_ID_VARIABLE" => "id",
-                        "PRODUCT_QUANTITY_VARIABLE" => "quantity",
-                        "ADD_PROPERTIES_TO_BASKET" => "Y",
-                        "PRODUCT_PROPS_VARIABLE" => "prop",
-                        "PARTIAL_PRODUCT_PROPERTIES" => "Y",
-                        "USE_PRODUCT_QUANTITY" => "N",
-                        "SHOW_PRODUCTS_16" => "Y",
-                        "PROPERTY_CODE_16" => array(
-                            0 => "",
-                            1 => "",
-                        ),
-                        "CART_PROPERTIES_16" => array(
-                            0 => "",
-                            1 => "",
-                        ),
-                        "ADDITIONAL_PICT_PROP_16" => "MORE_PHOTO",
-                        "LABEL_PROP_16" => "LABEL",
-                        "PROPERTY_CODE_17" => array(
-                            0 => "SIZE",
-                            1 => "COLOR",
-                            2 => "",
-                        ),
-                        "CART_PROPERTIES_17" => array(
-                            0 => "SIZE",
-                            1 => "COLOR",
-                            2 => "",
-                        ),
-                        "ADDITIONAL_PICT_PROP_17" => "MORE_PHOTO",
-                        "OFFER_TREE_PROPS_17" => array(
-                            0 => "SIZE",
-                            1 => "COLOR",
-                        ),
-                        "SECTION_ID" => "",
-                        "SECTION_CODE" => "",
-                        "SECTION_ELEMENT_ID" => "",
-                        "SECTION_ELEMENT_CODE" => "",
-                        "DEPTH" => "2",
-                        "CURRENCY_ID" => "RUB",
-                        "COMPONENT_TEMPLATE" => "product_detail",
-                        "SHOW_PRODUCTS_20" => "N",
-                        "PROPERTY_CODE_20" => array(),
-                        "CART_PROPERTIES_20" => array(),
-                        "ADDITIONAL_PICT_PrightROP_20" => "",
-                        "LABEL_PROP_20" => ""
-                    ),
-                    $component
-                ); ?>
+
             </div>
             <div id="desc" class="tab" style="display:none">
                 <div class="desc-article" itemprop="description">
@@ -589,7 +511,7 @@ if ($canBuy) {
                         "ES_IBLOCK_GROUP_SORT_FIELD" => "sort",
                         "ES_IBLOCK_GROUP_SORT_ORDER" => "asc",
                         "ES_IBLOCK_TYPE_CATALOG" => "catalog",
-                        "ES_IBLOCK_CATALOG" => "20",
+                        "ES_IBLOCK_CATALOG" => $iblock_id,
                         "ES_ELEMENT" => $arResult["ID"],
                         "ES_SHOW_EMPTY" => "N",
                         "ES_SHOW_EMPTY_PROPERTY" => "N",

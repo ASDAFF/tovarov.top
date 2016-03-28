@@ -748,14 +748,20 @@ function initInterface(){
 
     // product details tabs
     var tabContainers4 = jQuery('.list-holder > div');
-    tabContainers4.hide().filter(':first').show();
+    if (window.location.hash=='#reviews'){
+        jQuery('.product-tabs-list li a').removeClass('active');
+        jQuery('.product-tabs-list li a#reviews_label').addClass('active');
+        tabContainers4.hide().filter(window.location.hash).show();
+    } else {
+        tabContainers4.hide().filter(':first').show();
+    }
     jQuery('.product-tabs-list li a').click(function () {
             tabContainers4.hide();
             tabContainers4.filter(this.hash).show(); // РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
             jQuery('.product-tabs-list li a').removeClass('active'); // РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… 'selected'
             jQuery(this).addClass('active');
             return false;
-    }).filter(':first').click();
+    });
     // index product filtering
     $('.products-block').mixItUp();
 	$('.products-block').on('mixEnd', function(e, state){
@@ -1047,7 +1053,7 @@ function initInterface(){
                         $.post(sd+'ajax/wishlist.php', "", function(html){
                                 $('div.links').replaceWith(html);
                         });
-                        console.log('clear');
+
                     }
             })
 
