@@ -1462,7 +1462,7 @@ input.file {
   font-size: 22px;
 }
 .product-item .image {
-  display: table;
+  display: flex;
   width: 100%;
   text-align: center;
   margin: 0 0 20px;
@@ -1542,14 +1542,14 @@ input.file {
   margin: 0 0 15px;
   overflow: hidden;
 }
-.product-item .title h3 {
+.product-item .title a {
   margin: 0 0 10px;
   font-size: 17px;
   line-height: 22px;
   height: 66px;
   overflow: hidden;
 }
-.product-item .title h3 a {
+.product-item .title   a {
   color: #2d2d2d;
 }
 .stars {
@@ -3100,6 +3100,14 @@ input.file {
   line-height: 22px;
   margin: 0 0 12px;
 }
+
+.footer-right .box p .head-text{
+  color: #cecece;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0 0 12px;
+}
+
 .address-box {
   width: 100%;
   overflow: hidden;
@@ -5397,7 +5405,7 @@ input.file {
 .menu-tabs-section .tab-items .product-item .image {
   height: 120px;
 }
-.tab-items .product-item .title h3 {
+.tab-items .product-item .title a {
   height: 48px;
   overflow: hidden;
 }
